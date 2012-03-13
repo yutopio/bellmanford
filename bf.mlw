@@ -1,0 +1,192 @@
+
+(* Proof of Bellman-Ford algorithm *)
+
+theory Graph
+
+  use export int.Int
+
+  type vertex
+  constant vertices : set vertex
+  constant s : vertex
+  function succ vertex : set vertex
+  function weight vertex vertex : int
+
+  axiom s_in_graph: mem s vertices
+
+  axiom succ1:
+    forall x: vertex. mem x vertices ->
+    forall y: vertex. mem y (succ x) -> mem y vertices
+
+  axiom nonneg:
+    forall x y: vertex. weight x y >= 0
+
+
+  inductive path (v1 v2: vertex) (n: int) =
+    | path_empty:
+	forall v: vertex. path v v 0
+    | path_succ:
+        forall v1 v2 v3: vertex, n: int.
+        path v1 v2 n -> mem v3 (succ v2) -> path v1 v3 (n + weight v2 v3)
+
+  predicate shortest_path (v1 v2: vertex) (n: int) =
+    (path v1 v2 n) /\
+    (forall m: int. m < n -> not (path v1 v2 m))
+
+  predicate no_path (v1 v2: vertex) =
+    forall n: int. not (path v1 v2 n)
+
+  inductive reachable (v: vertex) (d: int) =
+    | reach_empty:
+	reachable s 0
+    | reach_succ:
+        forall v1 v2: vertex, n: int.
+	reachable v1 n -> mem v2 (succ v1) -> reachable v2 (n + 1)
+
+end 
+
+theory Distance
+
+  use import int.Int
+
+  type dist = Finite int | Infinite
+
+  function (++) (x: dist) (y: dist) : dist =
+    match x with
+      | Infinite -> Infinite
+      | Finite x ->
+	match y with
+	  | Infinite -> Infinite
+	  | Finite y -> Finite (x + y)
+	end
+    end
+
+  predicate (<<) (x y: dist) =
+    match x with
+      | Infinite -> false
+      | Finite x ->
+	match y with
+	  | Infinite -> true
+          | Finite y -> x < y
+	end
+    end
+
+  predicate ge (x y: dist) =
+    match x with
+      | Infinite -> true
+      | Finite x ->
+	match y with
+	  | Infinite -> false
+	  | Finite y -> x >= y
+        end
+    end
+
+  clone export comparison.MinMax with type t = dist, predicate ge = ge
+
+end
+
+theory FSetTake
+
+  use export set.Fset
+
+  function take (s:set 'a) : 'a
+
+  axiom take_def:
+    forall x : set 'a. not (is_empty x) ->
+    mem (take x) x
+
+end
+
+(* a bag is simply a reference containing a finite set *)
+module Bag
+
+  use export FSetTake
+  use export module ref.Ref
+
+  type bag 'a = ref (set 'a)
+
+  let is_empty (b: bag 'a) =
+    {} is_empty !b { result=True <-> is_empty !b }
+
+  (*
+  val push (x: 'a) (b: bag 'a) :
+    {} unit writes b { !b = add x (old !b) }
+  *)
+
+  let pop (b: bag 'a) =
+    { not (is_empty !b) }
+    let x = take !b in
+    b := remove x !b;
+    x
+    { mem result (old !b) /\ !b = remove result (old !b) }
+
+end
+
+module BellmanFord
+
+  use import int.MinMax
+  use import map.Map
+  use import module ref.Ref
+  use import Graph
+  use import Distance
+  use module Bag
+
+  type distmap = map vertex dist
+
+  function initialize_single_source (s: vertex) : distmap =
+    (const Infinite)[s <- Finite 0]
+
+  let relax (m: ref distmap) (u: vertex) (v: vertex) =
+    { }
+    let d = !m[u] ++ Finite (weight u v) in
+    if d << !m[v] then m := !m[u <- d]
+    { }
+
+  exception NegativeCycle (* list vertex *)
+
+  let bellman_ford () =
+    { }
+    let m = ref (initialize_single_source s) in
+
+    (let i = ref vertices in
+     while not (Bag.is_empty i) do
+      variant { cardinal !i }
+      let x = Bag.pop i in
+      let us = ref vertices in
+      while not (Bag.is_empty us) do
+	variant { cardinal !us }
+        let u = Bag.pop us in
+
+	let vs = ref (succ u) in
+	while not (Bag.is_empty vs) do
+	  variant { cardinal !vs }
+	  let v = Bag.pop vs in
+	  relax m u v
+	done
+      done
+    done);
+
+    (let us = ref vertices in
+    while not (Bag.is_empty us) do
+      variant { cardinal !us }
+      let u = Bag.pop us in
+    
+      let vs = ref (succ u) in
+      while not (Bag.is_empty vs) do
+	variant { cardinal !vs }
+        let v = Bag.pop vs in
+
+	if (get !m v) <<
+	  ((get !m u) ++ (Finite (weight u v))) then
+	  raise NegativeCycle
+      done
+    done);
+    !m
+    { } | NegativeCycle -> { }
+
+end
+
+(*
+Local Variables:
+compile-command: "why3ide bf.mlw"
+End:
+*)
