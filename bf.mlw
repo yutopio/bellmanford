@@ -138,7 +138,7 @@ module BellmanFord
   let relax (m: ref distmap) (u: vertex) (v: vertex) =
     { }
     let d = !m[u] ++ Finite (weight u v) in
-    if d << !m[v] then m := !m[u <- d]
+    if d << !m[v] then m := !m[v <- d]
     { }
 
   exception NegativeCycle (* list vertex *)
