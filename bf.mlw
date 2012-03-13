@@ -17,33 +17,46 @@ theory Graph
   axiom succ1:
     forall x: vertex. mem x vertices -> subset (succ x) vertices
 
-  axiom nonneg:
-    forall x y: vertex. weight x y >= 0
-
-  inductive path (v1 v2: vertex) (n: int) =
+  inductive path (v1 v2: vertex) (n: int) (d: int) =
     | path_empty:
-        forall v: vertex. path v v 0
+        forall v: vertex. path v v 0 0
     | path_succ:
-        forall v1 v2 v3: vertex, n: int.
-        path v1 v2 n -> mem v3 (succ v2) -> path v1 v3 (n + weight v2 v3)
+        forall v1 v2 v3: vertex, n d: int.
+        path v1 v2 n d -> mem v3 (succ v2) ->
+        path v1 v3 (n + weight v2 v3) (d + 1)
 
-  predicate shortest_path (v1 v2: vertex) (n: int) =
-    (path v1 v2 n) /\
-    (forall m: int. m < n -> not (path v1 v2 m))
+  predicate shortest_path (v1 v2: vertex) (n: int) (d: int) =
+    (path v1 v2 n d) /\
+    (forall m d: int. m < n -> not (path v1 v2 m d))
+
+  inductive reachable (v1 v2: vertex) (d: int) =
+    | reach_empty:
+        forall v: vertex. reachable v v 0
+    | reach_succ:
+        forall v1 v2 v3: vertex, d: int.
+        reachable v1 v2 d -> mem v3 (succ v2) ->
+        reachable v1 v3 (d + 1)
 
   predicate no_path (v1 v2: vertex) =
-    forall n: int. not (path v1 v2 n)
+    forall d: int. not (reachable d)
 
-  inductive reachable (v: vertex) (d: int) =
-    | reach_empty:
-        reachable s 0
-    | reach_succ:
-        forall v1 v2: vertex, n: int.
-        reachable v1 n -> mem v2 (succ v1) -> reachable v2 (n + 1)
+  (* Negative cycle existence *)
+  predicate negcycle () =
+    exists v: vertex. (mem v vertices /\
+    (exists n: int. n < 0 /\ path v v n))
 
-  predicate negcycle =
-    exists v: vertex. mem v vertices /\
-    exists n: int. n < 0 /\ path v v n
+  (* The negation of [negcycle].
+     BTW, is it truely negative? maybe not... *)
+  predicate non_negcycle () =
+    forall v: vertex. mem v vertices ->
+    not (exists n: int. n < 0 /\ path v v n)
+
+  (* Firstly, we don't provide non-negative edge *)
+  axiom nonneg1:
+    forall x y: vertex. weight x y >= 0
+
+  (* Late we will relax the condition *)
+  (*** axiom nonneg2: non_negcycle () ***)
 
 end 
 
@@ -134,43 +147,60 @@ module BellmanFord
   use module Bag
 
   type distmap = map vertex dist
+  type option 'a = Nil | Vertex 'a
+  type parentmap = map vertex (option vertex)
+  type info = (distmap, parentmap)
 
-  function initialize_single_source (s: vertex) : distmap =
-    (const Infinite)[s <- Finite 0]
+  function initialize_single_source (s: vertex) : info =
+    ((const Infinite)[s <- Finite 0], (const Nil))
 
-  predicate paths (m: distmap) =
+  predicate exact (i: info) =
+    forall v: vertex. shortest_path
+      true
+
+  predicate paths (m: info) =
+    true (*
     forall v: vertex. mem v vertices ->
     match m[v] with
       | Finite n -> path s v n (* path, not shortest_path *)
       | Infinite -> true
-    end
+    end *)
 
-  let relax (m: ref distmap) (u: vertex) (v: vertex) =
-    { mem u vertices /\ mem v (succ u) /\ paths !m }
-    let d = !m[u] ++ Finite (weight u v) in
-    if d << !m[v] then m := !m[v <- d]
+  let relax (info: ref info) (u: vertex) (v: vertex) =
+    { mem u vertices /\ mem v (succ u) /\ paths !info }
+    let (dist, parent) = !info in
+    let new_d = dist[u] ++ Finite (weight u v) in
+    if new_d << dist[v] then begin
+      info := (dist[v <- new_d], parent[v <- Vertex u])
+    end
     { paths !m /\
-      forall x: vertex. (x <> v -> get !m x = get (old !m) x) }
+      forall x: vertex. (x <> v ->
+	get !m x = get (old !m) x) }
 
   exception NegativeCycle (* list vertex *)
 
   let bellman_ford () =
     { }
+
     let m = ref (initialize_single_source s) in
     assert { paths !m };
+
     for i = 1 to cardinal vertices - 1 do
-      invariant { paths !m }
+      invariant { paths !m
+	(* Less than i-depth shortest tree nodes have exact distance.
+           Infinity distance > no reachable in i-depth	*) }
 
       let us = ref vertices in
       while not (Bag.is_empty us) do
         invariant { subset !us vertices /\ paths !m }
         variant { cardinal !us }
-        let u = Bag.pop us in
 
+        let u = Bag.pop us in
         let vs = ref (succ u) in
         while not (Bag.is_empty vs) do
           invariant { subset !vs (succ u) /\ paths !m }
           variant { cardinal !vs }
+
           let v = Bag.pop vs in
           relax m u v
         done
