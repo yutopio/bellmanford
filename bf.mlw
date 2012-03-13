@@ -15,16 +15,14 @@ theory Graph
   axiom s_in_graph: mem s vertices
 
   axiom succ1:
-    forall x: vertex. mem x vertices ->
-    forall y: vertex. mem y (succ x) -> mem y vertices
+    forall x: vertex. mem x vertices -> subset (succ x) vertices
 
   axiom nonneg:
     forall x y: vertex. weight x y >= 0
 
-
   inductive path (v1 v2: vertex) (n: int) =
     | path_empty:
-	forall v: vertex. path v v 0
+        forall v: vertex. path v v 0
     | path_succ:
         forall v1 v2 v3: vertex, n: int.
         path v1 v2 n -> mem v3 (succ v2) -> path v1 v3 (n + weight v2 v3)
@@ -38,10 +36,14 @@ theory Graph
 
   inductive reachable (v: vertex) (d: int) =
     | reach_empty:
-	reachable s 0
+        reachable s 0
     | reach_succ:
         forall v1 v2: vertex, n: int.
-	reachable v1 n -> mem v2 (succ v1) -> reachable v2 (n + 1)
+        reachable v1 n -> mem v2 (succ v1) -> reachable v2 (n + 1)
+
+  predicate negcycle =
+    exists v: vertex. mem v vertices /\
+    exists n: int. n < 0 /\ path v v n
 
 end 
 
@@ -55,29 +57,29 @@ theory Distance
     match x with
       | Infinite -> Infinite
       | Finite x ->
-	match y with
-	  | Infinite -> Infinite
-	  | Finite y -> Finite (x + y)
-	end
+        match y with
+          | Infinite -> Infinite
+          | Finite y -> Finite (x + y)
+        end
     end
 
   predicate (<<) (x y: dist) =
     match x with
       | Infinite -> false
       | Finite x ->
-	match y with
-	  | Infinite -> true
+        match y with
+          | Infinite -> true
           | Finite y -> x < y
-	end
+        end
     end
 
   predicate ge (x y: dist) =
     match x with
       | Infinite -> true
       | Finite x ->
-	match y with
-	  | Infinite -> false
-	  | Finite y -> x >= y
+        match y with
+          | Infinite -> false
+          | Finite y -> x >= y
         end
     end
 
@@ -144,10 +146,11 @@ module BellmanFord
     end
 
   let relax (m: ref distmap) (u: vertex) (v: vertex) =
-    { mem u vertices /\ mem v vertices /\ mem v (succ u) /\ paths !m }
+    { mem u vertices /\ mem v (succ u) /\ paths !m }
     let d = !m[u] ++ Finite (weight u v) in
     if d << !m[v] then m := !m[v <- d]
-    { paths !m }
+    { paths !m /\
+      forall x: vertex. (x <> v -> get !m x = get (old !m) x) }
 
   exception NegativeCycle (* list vertex *)
 
@@ -155,41 +158,43 @@ module BellmanFord
     { }
     let m = ref (initialize_single_source s) in
     assert { paths !m };
-    (for i = 1 to cardinal vertices - 1 do
+    for i = 1 to cardinal vertices - 1 do
       invariant { paths !m }
 
       let us = ref vertices in
       while not (Bag.is_empty us) do
-	invariant { subset !us vertices /\ paths !m }
-	variant { cardinal !us }
+        invariant { subset !us vertices /\ paths !m }
+        variant { cardinal !us }
         let u = Bag.pop us in
 
-	let vs = ref (succ u) in
-	while not (Bag.is_empty vs) do
-	  invariant { subset !vs (succ u) /\ paths !m }
-	  variant { cardinal !vs }
-	  let v = Bag.pop vs in
-	  relax m u v
-	done
+        let vs = ref (succ u) in
+        while not (Bag.is_empty vs) do
+          invariant { subset !vs (succ u) /\ paths !m }
+          variant { cardinal !vs }
+          let v = Bag.pop vs in
+          relax m u v
+        done
       done
-    done);
+    done;
 
-    (let us = ref vertices in
+    let us = ref vertices in
     while not (Bag.is_empty us) do
       variant { cardinal !us }
       let u = Bag.pop us in
     
       let vs = ref (succ u) in
       while not (Bag.is_empty vs) do
-	variant { cardinal !vs }
+        variant { cardinal !vs }
         let v = Bag.pop vs in
 
-	if (get !m v) <<
-	  ((get !m u) ++ (Finite (weight u v))) then
-	  raise NegativeCycle
+        if (get !m v) <<
+          ((get !m u) ++ (Finite (weight u v))) then
+          raise NegativeCycle
       done
-    done);
+    done;
+
     !m
+
     { paths result }
     | NegativeCycle -> { }
 
