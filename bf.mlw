@@ -4,6 +4,7 @@
 theory Graph
 
   use export int.Int
+  use export set.Fset
 
   type vertex
   constant vertices : set vertex
