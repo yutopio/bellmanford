@@ -140,8 +140,8 @@ module BellmanFord
     { mem u vertices /\ mem v (succ u) }
     let new_dv = (get m u) ++ (Finite (weight u v)) in
     if new_dv << (get m v) then (set m v new_dv) else m
-    { forall x: vertex. (x <> v -> get m x = get result x) }*
-)
+    { forall x: vertex. (x <> v -> get m x = get result x) }
+*)
 
   function relax (m: distmap) (u: vertex) (v: vertex) : distmap
 
