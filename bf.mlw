@@ -8,42 +8,33 @@ theory Graph
 
   type vertex
   constant vertices : set vertex
+  constant edges: set (vertex, vertex)
   constant s : vertex
-  function succ vertex : set vertex
   function weight vertex vertex : int
 
   axiom s_in_graph: mem s vertices
 
-  axiom succ1:
-    forall x: vertex. mem x vertices -> subset (succ x) vertices
+  axiom edges_def:
+    forall x y: vertex, w: int. mem (x, y) edges ->
+    (mem x vertices /\ mem y vertices)
 
-  axiom nonneg:
-    forall x y: vertex. weight x y >= 0
-
-  inductive path (v1 v2: vertex) (n: int) =
+  inductive path (v1 v2: vertex) (n: int) (d: int) =
     | path_empty:
-        forall v: vertex. path v v 0
+        forall v: vertex. path v v 0 0
     | path_succ:
-        forall v1 v2 v3: vertex, n: int.
-        path v1 v2 n -> mem v3 (succ v2) -> path v1 v3 (n + weight v2 v3)
+        forall v1 v2 v3: vertex, n d: int. path v1 v2 n d ->
+        mem (v2, v3) edges -> path v1 v3 (n + (weight v2 v3)) (d + 1)
 
   predicate shortest_path (v1 v2: vertex) (n: int) =
-    (path v1 v2 n) /\
-    (forall m: int. m < n -> not (path v1 v2 m))
+    (exists d: int. path v1 v2 n d) /\
+    (forall m d: int. m < n -> not (path v1 v2 m d))
 
   predicate no_path (v1 v2: vertex) =
-    forall n: int. not (path v1 v2 n)
-
-  inductive reachable (v: vertex) (d: int) =
-    | reach_empty:
-        reachable s 0
-    | reach_succ:
-        forall v1 v2: vertex, n: int.
-        reachable v1 n -> mem v2 (succ v1) -> reachable v2 (n + 1)
+    forall n d: int. not (path v1 v2 n d)
 
   predicate negcycle =
     exists v: vertex. mem v vertices /\
-    exists n: int. n < 0 /\ path v v n
+    exists n d: int. n < 0 /\ 0 < d <= cardinal vertices /\ path v v n d
 
 end 
 
@@ -141,12 +132,12 @@ module BellmanFord
   predicate paths (m: distmap) (pass: int) =
     forall v: vertex. mem v vertices ->
     match m[v] with
-      | Finite n -> path s v n (* path, not shortest_path *)
-      | Infinite -> forall d: int. 0 <= d < pass -> not (reachable v d)
+      | Finite n -> exists d: int. 0 <= d < pass -> path s v n d
+      | Infinite -> forall n d: int. 0 <= d < pass -> not (path s v n d)
     end
 
   let relax (m: ref distmap) (u: vertex) (v: vertex) (pass: int) =
-    { mem u vertices /\ mem v (succ u) /\ paths !m pass }
+    { exists w: int. mem (u, v) edges /\ paths !m pass }
     let d = !m[u] ++ Finite (weight u v) in
     if d << !m[v] then m := !m[v <- d]
     { paths !m pass /\
@@ -162,36 +153,25 @@ module BellmanFord
     for i = 1 to cardinal vertices - 1 do
       invariant { paths !m i }
 
-      let us = ref vertices in
-      while not (Bag.is_empty us) do
-        invariant { subset !us vertices /\ paths !m i }
-        variant { cardinal !us }
-        let u = Bag.pop us in
+      let e = ref edges in
+      while not (Bag.is_empty e) do
+        invariant { subset !e edges /\ paths !m i }
+        variant { cardinal !e }
 
-        let vs = ref (succ u) in
-        while not (Bag.is_empty vs) do
-          invariant { subset !vs (succ u) /\ paths !m i }
-          variant { cardinal !vs }
-          let v = Bag.pop vs in
-          relax m u v i
-        done
+        let (u, v) = Bag.pop e in
+        relax m u v i
       done
     done;
 
-    let us = ref vertices in
-    while not (Bag.is_empty us) do
-      variant { cardinal !us }
-      let u = Bag.pop us in
-    
-      let vs = ref (succ u) in
-      while not (Bag.is_empty vs) do
-        variant { cardinal !vs }
-        let v = Bag.pop vs in
+    let e = ref edges in
+    while not (Bag.is_empty e) do
+      variant { cardinal !e }
 
-        if (get !m v) <<
-          ((get !m u) ++ (Finite (weight u v))) then
-          raise NegativeCycle
-      done
+      let (u, v) = Bag.pop e in
+
+      if (get !m v) <<
+        ((get !m u) ++ (Finite (weight u v))) then
+        raise NegativeCycle
     done;
 
     !m
