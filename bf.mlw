@@ -142,7 +142,7 @@ module BellmanFord
     forall v: vertex. mem v vertices ->
     match m[v] with
       | Finite n -> path s v n (* path, not shortest_path *)
-      | Infinite -> true
+      | Infinite -> forall d: int. 0 <= d < pass -> not (reachable v d)
     end
 
   let relax (m: ref distmap) (u: vertex) (v: vertex) (pass: int) =

@@ -10,9 +10,13 @@
   id="1"
   name="CVC3"
   version="2.4.1"/>
+ <prover
+  id="2"
+  name="Coq"
+  version="8.3pl2"/>
  <file
   name="../bf.mlw"
-  verified="true"
+  verified="false"
   expanded="true">
   <theory
    name="Graph"
@@ -40,7 +44,7 @@
    locfile="bf/../bf.mlw"
    loclnum="103" loccnumb="7" loccnume="10"
    verified="true"
-   expanded="true">
+   expanded="false">
    <goal
     name="WP_parameter is_empty"
     locfile="bf/../bf.mlw"
@@ -48,7 +52,7 @@
     expl="normal postcondition"
     sum="589568804de4b62603c5ca365ec8535c"
     proved="true"
-    expanded="true"
+    expanded="false"
     shape="ais_emptyV0qais_emptyV0F">
     <label
      name="expl:parameter is_empty">
@@ -68,7 +72,7 @@
     expl="normal postcondition"
     sum="d7463dfd0ce65c81df6dc6365dfcc462"
     proved="true"
-    expanded="true"
+    expanded="false"
     shape="ainfix =V1aremoveatakeV0V0AamematakeV0V0Iainfix =V1aremoveatakeV0V0FIais_emptyV0NF">
     <label
      name="expl:parameter pop">
@@ -86,16 +90,16 @@
    name="WP BellmanFord"
    locfile="bf/../bf.mlw"
    loclnum="127" loccnumb="7" loccnume="18"
-   verified="true"
+   verified="false"
    expanded="true">
    <goal
     name="WP_parameter relax"
     locfile="bf/../bf.mlw"
     loclnum="148" loccnumb="6" loccnume="11"
     expl="parameter relax"
-    sum="fbf99b09da82f429944b15856b347618"
+    sum="f6c7c77415befe7a6d137c7c1742f844"
     proved="true"
-    expanded="true"
+    expanded="false"
     shape="iCagetV3V0aInfinitefaFiniteVCagetV3V1aInfinitetaFiniteVainfix <ainfix +V4aweightV0V1V5ainfix =agetV6V7agetV3V7Iainfix =V7V1NFAapathsV6V2Iainfix =V6asetV3V1CagetV3V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V8aweightV0V1Fainfix =agetV3V9agetV3V9Iainfix =V9V1NFAapathsV3V2IapathsV3V2AamemV1asuccV0AamemV0averticesFFFF">
     <label
      name="expl:parameter relax">
@@ -105,7 +109,7 @@
      timelimit="10"
      obsolete="false"
      archived="false">
-     <result status="valid" time="0.46"/>
+     <result status="valid" time="1.50"/>
     </proof>
    </goal>
    <goal
@@ -113,8 +117,8 @@
     locfile="bf/../bf.mlw"
     loclnum="157" loccnumb="6" loccnume="18"
     expl="parameter bellman_ford"
-    sum="871fddb09f43ce9821cc55d1a1973607"
-    proved="true"
+    sum="5d327d5d0d9800db2ac4ed01c8f8514e"
+    proved="false"
     expanded="true"
     shape="iainfix =V2aTrueNiainfix =V6aTrueNainfix <acardinalV7acardinalV5Aainfix <=c0acardinalV5ICagetV0V8aInfinitefaFiniteVCagetV0V4aInfinitetaFiniteVainfix <V9ainfix +V10aweightV4V8NIainfix =V7aremoveV8V5AamemV8V5FFAais_emptyV5Nainfix <acardinalV3acardinalV1Aainfix <=c0acardinalV1Iais_emptyV5qainfix =V6aTrueFFIainfix =V3aremoveV4V1AamemV4V1FFAais_emptyV1NapathsV0acardinalaverticesIais_emptyV1qainfix =V2aTrueFFIapathsV0ainfix +ainfix -acardinalaverticesc1c1Aiainfix =V14aTrueNiainfix =V19aTrueNainfix <acardinalV20acardinalV17Aainfix <=c0acardinalV17AapathsV22V11AasubsetV20asuccV16Iainfix =agetV22V23agetV18V23Iainfix =V23V21NFAapathsV22V11FAapathsV18V11AamemV21asuccV16AamemV16averticesIainfix =V20aremoveV21V17AamemV21V17FFAais_emptyV17Nainfix <acardinalV15acardinalV12Aainfix <=c0acardinalV12AapathsV18V11AasubsetV15averticesIais_emptyV17qainfix =V19aTrueFIapathsV18V11AasubsetV17asuccV16FFAapathsV13V11AasubsetasuccV16asuccV16Iainfix =V15aremoveV16V12AamemV16V12FFAais_emptyV12NapathsV13ainfix +V11c1Iais_emptyV12qainfix =V14aTrueFIapathsV13V11AasubsetV12averticesFFAapathsV0V11AasubsetaverticesaverticesIapathsV0V11Iainfix <=V11ainfix -acardinalaverticesc1Aainfix <=c1V11FFAapathsainitialize_single_sourceasc1Iainfix <=c1ainfix -acardinalaverticesc1Aiainfix =V25aTrueNiainfix =V29aTrueNainfix <acardinalV30acardinalV28Aainfix <=c0acardinalV28ICagetainitialize_single_sourceasV31aInfinitefaFiniteVCagetainitialize_single_sourceasV27aInfinitetaFiniteVainfix <V32ainfix +V33aweightV27V31NIainfix =V30aremoveV31V28AamemV31V28FFAais_emptyV28Nainfix <acardinalV26acardinalV24Aainfix <=c0acardinalV24Iais_emptyV28qainfix =V29aTrueFFIainfix =V26aremoveV27V24AamemV27V24FFAais_emptyV24Napathsainitialize_single_sourceasacardinalaverticesIais_emptyV24qainfix =V25aTrueFFIainfix >c1ainfix -acardinalaverticesc1Aapathsainitialize_single_sourceasc1">
     <label
@@ -122,14 +126,14 @@
      </label>
     <transf
      name="split_goal"
-     proved="true"
+     proved="false"
      expanded="true">
      <goal
       name="WP_parameter bellman_ford.1"
       locfile="bf/../bf.mlw"
       loclnum="157" loccnumb="6" loccnume="18"
       expl="assertion"
-      sum="18e4a4c57b663e3ff2bf48fa4dbf239b"
+      sum="f954fb101510cfa2189c3fcf76fcc7af"
       proved="true"
       expanded="true"
       shape="apathsainitialize_single_sourceasc1">
@@ -137,11 +141,12 @@
        name="expl:parameter bellman_ford">
        </label>
       <proof
-       prover="1"
+       prover="2"
        timelimit="10"
+       edited="bf_WP_BellmanFord_WP_parameter_bellman_ford_2.v"
        obsolete="false"
        archived="false">
-       <result status="valid" time="0.04"/>
+       <result status="valid" time="0.89"/>
       </proof>
      </goal>
      <goal
@@ -149,9 +154,9 @@
       locfile="bf/../bf.mlw"
       loclnum="157" loccnumb="6" loccnume="18"
       expl="precondition"
-      sum="ff129ae79be1870a2f1c1353863db020"
+      sum="27fe82ce0f5251c47356b79c9941beed"
       proved="true"
-      expanded="true"
+      expanded="false"
       shape="ais_emptyV0NIainfix =V1aTrueNIais_emptyV0qainfix =V1aTrueFFIainfix >c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1">
       <label
        name="expl:parameter bellman_ford">
@@ -169,50 +174,10 @@
       locfile="bf/../bf.mlw"
       loclnum="157" loccnumb="6" loccnume="18"
       expl="precondition"
-      sum="4296ab2daffb833e2cbad3f2353afff8"
+      sum="3bf2126aa9ef61576dcd8bcabc06eb14"
       proved="true"
-      expanded="true"
+      expanded="false"
       shape="ais_emptyV4NIainfix =V5aTrueNIais_emptyV4qainfix =V5aTrueFFIainfix =V2aremoveV3V0AamemV3V0FFIais_emptyV0NIainfix =V1aTrueNIais_emptyV0qainfix =V1aTrueFFIainfix >c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1">
-      <label
-       name="expl:parameter bellman_ford">
-       </label>
-      <proof
-       prover="0"
-       timelimit="10"
-       obsolete="false"
-       archived="false">
-       <result status="valid" time="0.03"/>
-      </proof>
-     </goal>
-     <goal
-      name="WP_parameter bellman_ford.4"
-      locfile="bf/../bf.mlw"
-      loclnum="157" loccnumb="6" loccnume="18"
-      expl="loop variant decreases"
-      sum="04a5a10e5ab4b8ea6e2c4d0dd6bfbb4d"
-      proved="true"
-      expanded="true"
-      shape="ainfix <acardinalV6acardinalV4Aainfix <=c0acardinalV4ICagetainitialize_single_sourceasV7aInfinitefaFiniteVCagetainitialize_single_sourceasV3aInfinitetaFiniteVainfix <V8ainfix +V9aweightV3V7NIainfix =V6aremoveV7V4AamemV7V4FFIais_emptyV4NIainfix =V5aTrueNIais_emptyV4qainfix =V5aTrueFFIainfix =V2aremoveV3V0AamemV3V0FFIais_emptyV0NIainfix =V1aTrueNIais_emptyV0qainfix =V1aTrueFFIainfix >c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1">
-      <label
-       name="expl:parameter bellman_ford">
-       </label>
-      <proof
-       prover="0"
-       timelimit="10"
-       obsolete="false"
-       archived="false">
-       <result status="valid" time="0.03"/>
-      </proof>
-     </goal>
-     <goal
-      name="WP_parameter bellman_ford.5"
-      locfile="bf/../bf.mlw"
-      loclnum="157" loccnumb="6" loccnume="18"
-      expl="loop variant decreases"
-      sum="8bf241fc0fdbdb4395fd1ddf30c69f00"
-      proved="true"
-      expanded="true"
-      shape="ainfix <acardinalV2acardinalV0Aainfix <=c0acardinalV0Iainfix =V5aTrueNNIais_emptyV4qainfix =V5aTrueFFIainfix =V2aremoveV3V0AamemV3V0FFIais_emptyV0NIainfix =V1aTrueNIais_emptyV0qainfix =V1aTrueFFIainfix >c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1">
       <label
        name="expl:parameter bellman_ford">
        </label>
@@ -225,13 +190,53 @@
       </proof>
      </goal>
      <goal
+      name="WP_parameter bellman_ford.4"
+      locfile="bf/../bf.mlw"
+      loclnum="157" loccnumb="6" loccnume="18"
+      expl="loop variant decreases"
+      sum="d1f85e7968c49195032dd7322e9d7245"
+      proved="true"
+      expanded="false"
+      shape="ainfix <acardinalV6acardinalV4Aainfix <=c0acardinalV4ICagetainitialize_single_sourceasV7aInfinitefaFiniteVCagetainitialize_single_sourceasV3aInfinitetaFiniteVainfix <V8ainfix +V9aweightV3V7NIainfix =V6aremoveV7V4AamemV7V4FFIais_emptyV4NIainfix =V5aTrueNIais_emptyV4qainfix =V5aTrueFFIainfix =V2aremoveV3V0AamemV3V0FFIais_emptyV0NIainfix =V1aTrueNIais_emptyV0qainfix =V1aTrueFFIainfix >c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1">
+      <label
+       name="expl:parameter bellman_ford">
+       </label>
+      <proof
+       prover="0"
+       timelimit="10"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.04"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter bellman_ford.5"
+      locfile="bf/../bf.mlw"
+      loclnum="157" loccnumb="6" loccnume="18"
+      expl="loop variant decreases"
+      sum="d888b1e22613c0e9ffe39c6c15419061"
+      proved="true"
+      expanded="false"
+      shape="ainfix <acardinalV2acardinalV0Aainfix <=c0acardinalV0Iainfix =V5aTrueNNIais_emptyV4qainfix =V5aTrueFFIainfix =V2aremoveV3V0AamemV3V0FFIais_emptyV0NIainfix =V1aTrueNIais_emptyV0qainfix =V1aTrueFFIainfix >c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1">
+      <label
+       name="expl:parameter bellman_ford">
+       </label>
+      <proof
+       prover="0"
+       timelimit="10"
+       obsolete="false"
+       archived="false">
+       <result status="valid" time="0.04"/>
+      </proof>
+     </goal>
+     <goal
       name="WP_parameter bellman_ford.6"
       locfile="bf/../bf.mlw"
       loclnum="157" loccnumb="6" loccnume="18"
       expl="normal postcondition"
-      sum="6a79f2df8991c82dad3df46cd7cca52d"
+      sum="64d3569a6ff26e0f94d575b865d71256"
       proved="true"
-      expanded="true"
+      expanded="false"
       shape="apathsainitialize_single_sourceasacardinalaverticesIainfix =V1aTrueNNIais_emptyV0qainfix =V1aTrueFFIainfix >c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1">
       <label
        name="expl:parameter bellman_ford">
@@ -249,9 +254,9 @@
       locfile="bf/../bf.mlw"
       loclnum="157" loccnumb="6" loccnume="18"
       expl="for loop initialization"
-      sum="144723eb5bee63bc43b1ada4d54d18ce"
+      sum="ee5015f4792f4654899c073f41ac704a"
       proved="true"
-      expanded="true"
+      expanded="false"
       shape="apathsainitialize_single_sourceasc1Iainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1">
       <label
        name="expl:parameter bellman_ford">
@@ -269,19 +274,20 @@
       locfile="bf/../bf.mlw"
       loclnum="157" loccnumb="6" loccnume="18"
       expl="for loop preservation"
-      sum="5cbc016196f2e2f9701aa30c70e05e32"
-      proved="true"
+      sum="456344bc979bd65e1d6fcfa7cd47dc50"
+      proved="false"
       expanded="true"
       shape="iainfix =V4aTrueNiainfix =V9aTrueNainfix <acardinalV10acardinalV7Aainfix <=c0acardinalV7AapathsV12V1AasubsetV10asuccV6Iainfix =agetV12V13agetV8V13Iainfix =V13V11NFAapathsV12V1FAapathsV8V1AamemV11asuccV6AamemV6averticesIainfix =V10aremoveV11V7AamemV11V7FFAais_emptyV7Nainfix <acardinalV5acardinalV2Aainfix <=c0acardinalV2AapathsV8V1AasubsetV5averticesIais_emptyV7qainfix =V9aTrueFIapathsV8V1AasubsetV7asuccV6FFAapathsV3V1AasubsetasuccV6asuccV6Iainfix =V5aremoveV6V2AamemV6V2FFAais_emptyV2NapathsV3ainfix +V1c1Iais_emptyV2qainfix =V4aTrueFIapathsV3V1AasubsetV2averticesFFAapathsV0V1AasubsetaverticesaverticesIapathsV0V1Iainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1">
       <label
        name="expl:parameter bellman_ford">
        </label>
       <proof
-       prover="0"
+       prover="2"
        timelimit="10"
-       obsolete="false"
-       archived="false">
-       <result status="valid" time="0.24"/>
+       edited="bf_WP_BellmanFord_WP_parameter_bellman_ford_3.v"
+       obsolete="true"
+       archived="false"><unedited/>
+       
       </proof>
      </goal>
      <goal
@@ -289,9 +295,9 @@
       locfile="bf/../bf.mlw"
       loclnum="157" loccnumb="6" loccnume="18"
       expl="precondition"
-      sum="1663cf455eab7a3472dcdca8fc4cb751"
+      sum="2040a08210283bc19cd68a8d039c5bfa"
       proved="true"
-      expanded="true"
+      expanded="false"
       shape="ais_emptyV1NIainfix =V2aTrueNIais_emptyV1qainfix =V2aTrueFFIapathsV0ainfix +ainfix -acardinalaverticesc1c1FIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1">
       <label
        name="expl:parameter bellman_ford">
@@ -309,9 +315,9 @@
       locfile="bf/../bf.mlw"
       loclnum="157" loccnumb="6" loccnume="18"
       expl="precondition"
-      sum="a787e2179177451a649b8cddb094e703"
+      sum="364cb8b1cf83945ccf6ec579fe2968f2"
       proved="true"
-      expanded="true"
+      expanded="false"
       shape="ais_emptyV5NIainfix =V6aTrueNIais_emptyV5qainfix =V6aTrueFFIainfix =V3aremoveV4V1AamemV4V1FFIais_emptyV1NIainfix =V2aTrueNIais_emptyV1qainfix =V2aTrueFFIapathsV0ainfix +ainfix -acardinalaverticesc1c1FIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1">
       <label
        name="expl:parameter bellman_ford">
@@ -321,7 +327,7 @@
        timelimit="10"
        obsolete="false"
        archived="false">
-       <result status="valid" time="0.01"/>
+       <result status="valid" time="0.02"/>
       </proof>
      </goal>
      <goal
@@ -329,9 +335,9 @@
       locfile="bf/../bf.mlw"
       loclnum="157" loccnumb="6" loccnume="18"
       expl="loop variant decreases"
-      sum="ffeba6ded68213bb8eef153f35fc19aa"
+      sum="0089830a8246555d23082ef37bac2c08"
       proved="true"
-      expanded="true"
+      expanded="false"
       shape="ainfix <acardinalV7acardinalV5Aainfix <=c0acardinalV5ICagetV0V8aInfinitefaFiniteVCagetV0V4aInfinitetaFiniteVainfix <V9ainfix +V10aweightV4V8NIainfix =V7aremoveV8V5AamemV8V5FFIais_emptyV5NIainfix =V6aTrueNIais_emptyV5qainfix =V6aTrueFFIainfix =V3aremoveV4V1AamemV4V1FFIais_emptyV1NIainfix =V2aTrueNIais_emptyV1qainfix =V2aTrueFFIapathsV0ainfix +ainfix -acardinalaverticesc1c1FIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1">
       <label
        name="expl:parameter bellman_ford">
@@ -349,9 +355,9 @@
       locfile="bf/../bf.mlw"
       loclnum="157" loccnumb="6" loccnume="18"
       expl="loop variant decreases"
-      sum="eec2ec0d6e4abd22f1d1efa34b9cd74c"
+      sum="8838a7b8d3626b7721d9ef8ee822b468"
       proved="true"
-      expanded="true"
+      expanded="false"
       shape="ainfix <acardinalV3acardinalV1Aainfix <=c0acardinalV1Iainfix =V6aTrueNNIais_emptyV5qainfix =V6aTrueFFIainfix =V3aremoveV4V1AamemV4V1FFIais_emptyV1NIainfix =V2aTrueNIais_emptyV1qainfix =V2aTrueFFIapathsV0ainfix +ainfix -acardinalaverticesc1c1FIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1">
       <label
        name="expl:parameter bellman_ford">
@@ -369,9 +375,9 @@
       locfile="bf/../bf.mlw"
       loclnum="157" loccnumb="6" loccnume="18"
       expl="normal postcondition"
-      sum="13fef4c5fd598a984eca1e6ca33d635b"
+      sum="611c78738be93a18197b771a355a7f20"
       proved="true"
-      expanded="true"
+      expanded="false"
       shape="apathsV0acardinalaverticesIainfix =V2aTrueNNIais_emptyV1qainfix =V2aTrueFFIapathsV0ainfix +ainfix -acardinalaverticesc1c1FIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1">
       <label
        name="expl:parameter bellman_ford">
