@@ -15,34 +15,41 @@ theory Graph
   axiom s_in_graph: mem s vertices
 
   axiom edges_def:
-    forall x y: vertex, w: int. mem (x, y) edges ->
+    forall x y: vertex. mem (x, y) edges ->
     (mem x vertices /\ mem y vertices)
 
-  inductive path (v1 v2: vertex) (n: int) (d: int) =
+  inductive path (v1 v2: vertex) (n: int) =
     | path_empty:
-        forall v: vertex. path v v 0 0
+        forall v: vertex. path v v 0
     | path_succ:
-        forall v1 v2 v3: vertex, n d: int. path v1 v2 n d ->
-        mem (v2, v3) edges -> path v1 v3 (n + (weight v2 v3)) (d + 1)
+        forall v1 v2 v3: vertex, n: int. path v1 v2 n ->
+        mem (v2, v3) edges -> path v1 v3 (n + (weight v2 v3))
+
+  inductive reachable (v: vertex) (d: int) =
+    | reachable_empty:
+        forall v: vertex. reachable s 0
+    | reachable_succ:
+        forall v1 v2: vertex, d: int. reachable v1 d ->
+        mem (v1, v2) edges -> reachable v2 (d + 1)
 
   predicate shortest_path (v1 v2: vertex) (n: int) =
-    (exists d: int. path v1 v2 n d) /\
-    (forall m d: int. m < n -> not (path v1 v2 m d))
+    (path v1 v2 n) /\
+    (forall m: int. m < n -> not (path v1 v2 m))
 
   predicate no_path (v1 v2: vertex) =
-    forall n d: int. not (path v1 v2 n d)
+    forall n: int. not (path v1 v2 n)
 
-  lemma path_depth_nonneg:
-    forall v1 v2: vertex, n d: int.
-    path v1 v2 n d -> d >= 0
+  lemma reach_nonneg:
+    forall v: vertex, d: int.
+    reachable v d -> d >= 0
 
-  lemma path_depth_source:
-    forall v1 v2: vertex, n: int.
-    path v1 v2 n 0 -> v1 = v2
+  lemma reach_source:
+    forall v: vertex, n: int.
+    reachable v 0 -> v = s
 
   predicate negcycle =
     exists v: vertex. mem v vertices /\
-    exists n d: int. n < 0 /\ 0 < d <= cardinal vertices /\ path v v n d
+    exists n d: int. n < 0 /\ path v v n
 
 end 
 
@@ -140,8 +147,8 @@ module BellmanFord
   predicate paths (m: distmap) (pass: int) =
     forall v: vertex. mem v vertices ->
     match m[v] with
-      | Finite n -> exists d: int. 0 <= d < pass -> path s v n d
-      | Infinite -> forall n d: int. 0 <= d < pass -> not (path s v n d)
+      | Finite n -> path s v n
+      | Infinite -> forall n: int. not (path s v n)
     end
 
   let relax (m: ref distmap) (u: vertex) (v: vertex) (pass: int) =
