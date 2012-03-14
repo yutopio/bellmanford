@@ -168,24 +168,33 @@ Axiom edges_def : forall (x:vertex) (y:vertex), (mem (x, y) edges) -> ((mem x
   vertices) /\ (mem y vertices)).
 
 (* Why3 assumption *)
-Inductive path : vertex -> vertex -> Z -> Z -> Prop :=
-  | path_empty : forall (v:vertex), (path v v 0%Z 0%Z)
-  | path_succ : forall (v1:vertex) (v2:vertex) (v3:vertex) (n:Z) (d:Z),
-      (path v1 v2 n d) -> ((mem (v2, v3) edges) -> (path v1 v3
-      (n + (weight v2 v3))%Z (d + 1%Z)%Z)).
+Inductive path : vertex -> vertex -> Z -> Prop :=
+  | path_empty : forall (v:vertex), (path v v 0%Z)
+  | path_succ : forall (v1:vertex) (v2:vertex) (v3:vertex) (n:Z), (path v1 v2
+      n) -> ((mem (v2, v3) edges) -> (path v1 v3 (n + (weight v2 v3))%Z)).
 
 (* Why3 assumption *)
-Definition shortest_path(v1:vertex) (v2:vertex) (n:Z): Prop := (exists d:Z,
-  (path v1 v2 n d)) /\ forall (m:Z) (d:Z), (m <  n)%Z -> ~ (path v1 v2 m d).
+Inductive reachable : vertex -> Z -> Prop :=
+  | reachable_empty : (reachable s 0%Z)
+  | reachable_succ : forall (v1:vertex) (v2:vertex) (d:Z), (reachable v1
+      d) -> ((mem (v1, v2) edges) -> (reachable v2 (d + 1%Z)%Z)).
 
 (* Why3 assumption *)
-Definition no_path(v1:vertex) (v2:vertex): Prop := forall (n:Z) (d:Z),
-  ~ (path v1 v2 n d).
+Definition shortest_path(v1:vertex) (v2:vertex) (n:Z): Prop := (path v1 v2
+  n) /\ forall (m:Z), (m <  n)%Z -> ~ (path v1 v2 m).
+
+(* Why3 assumption *)
+Definition no_path(v1:vertex) (v2:vertex): Prop := forall (n:Z), ~ (path v1
+  v2 n).
+
+Axiom reach_nonneg : forall (v:vertex) (d:Z), (reachable v d) ->
+  (0%Z <= d)%Z.
+
+Axiom reach_source : forall (v:vertex), (reachable v 0%Z) -> (v = s).
 
 (* Why3 assumption *)
 Definition negcycle: Prop := exists v:vertex, (mem v vertices) /\ exists n:Z,
-  exists d:Z, (n <  0%Z)%Z /\ (((0%Z <  d)%Z /\
-  (d <= (cardinal vertices))%Z) /\ (path v v n d)).
+  (n <  0%Z)%Z /\ (path v v n).
 
 (* Why3 assumption *)
 Inductive dist  :=
@@ -271,37 +280,27 @@ Definition distmap  := (map vertex dist).
 Definition paths(m:(map vertex dist)) (pass:Z): Prop := forall (v:vertex),
   (mem v vertices) -> match (get m
   v) with
-  | (Finite n) => exists d:Z, ((0%Z <= d)%Z /\ (d <  pass)%Z) -> (path s v n
-      d)
-  | Infinite => forall (n:Z) (d:Z), ((0%Z <= d)%Z /\ (d <  pass)%Z) ->
-      ~ (path s v n d)
+  | (Finite n) => (path s v n)
+  | Infinite => forall (n:Z), ~ (path s v n)
   end.
 
 (* Why3 goal *)
-Theorem WP_parameter_bellman_ford : (paths (set (const Infinite:(map vertex
-  dist)) s (Finite 0%Z)) 1%Z).
+Theorem WP_parameter_bellman_ford : forall (v:vertex), (mem v vertices) ->
+  match (get (set (const Infinite:(map vertex dist)) s (Finite 0%Z))
+  v) with
+  | (Finite n) => True
+  | Infinite => forall (n:Z), ~ (path s v n)
+  end.
 
-unfold paths.
 intros.
 
 Require Import Classical.
 destruct (classic (s = v)).
-rewrite Select_eq.
-subst.
 
-(**** (0 <= d < 1)%Z -> d = 0 ***)
-(** apply path_empty. **)
-admit.
-auto.
+rewrite Select_eq ; auto.
+
 rewrite Select_neq.
 rewrite Const.
-intros.
-
-(**** (0 <= d < 1)%Z -> d = 0! ***)
-(** s <> v -> forall n. ~ path s v n 0 **)
-admit.
-
-auto.
 
 Qed.
 
