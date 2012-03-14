@@ -133,10 +133,14 @@ Definition no_path(v1:vertex) (v2:vertex): Prop := forall (n:Z), ~ (path v1
   v2 n).
 
 (* Why3 goal *)
-Theorem reach_nonneg : forall (v:vertex) (d:Z), (reachable v d) ->
-  (0%Z <= d)%Z.
+Theorem reach_nonneg : forall (v:vertex) (d:Z), (mem v vertices) ->
+  ((reachable v d) -> (0%Z <= d)%Z).
 
-induction 1 ; omega.
+intros v d h.
+induction 1.
+omega.
+apply edges_def in H0.
+intuition.
 
 Qed.
 

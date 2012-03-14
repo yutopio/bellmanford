@@ -41,11 +41,15 @@ theory Graph
 
   lemma reach_nonneg:
     forall v: vertex, d: int.
-    reachable v d -> d >= 0
+    mem v vertices -> reachable v d -> d >= 0
 
   lemma reach_source:
     forall v: vertex, n: int.
-    reachable v 0 -> v = s
+    mem v vertices -> reachable v 0 -> v = s
+
+  lemma reach_next:
+    forall v: vertex, d: int. reachable v (d + 1) ->
+    exists u: vertex. mem (u, v) edges /\ reachable u d
 
   predicate negcycle =
     exists v: vertex. mem v vertices /\
@@ -144,18 +148,25 @@ module BellmanFord
   function initialize_single_source (s: vertex) : distmap =
     (const Infinite)[s <- Finite 0]
 
-  predicate paths (m: distmap) (pass: int) =
+  predicate paths (m: distmap) (pass: int) (via: set (vertex, vertex)) =
     forall v: vertex. mem v vertices ->
     match m[v] with
       | Finite n -> path s v n
-      | Infinite -> forall d: int. 0 <= d < pass -> not (reachable v d)
+      | Infinite ->
+        (forall d: int. 0 <= d < pass -> not (reachable v d)) /\
+        (forall u: vertex. mem (u, v) via ->
+        forall d: int. 0 <= d < pass -> not (reachable u d))
     end
 
+  lemma paths_subset:
+    forall m: distmap, p: int, k: set (vertex, vertex).
+    paths m p k -> paths m p empty
+
   let relax (m: ref distmap) (u: vertex) (v: vertex) (pass: int) =
-    { exists w: int. mem (u, v) edges /\ paths !m pass }
+    { exists w: int. mem (u, v) edges /\ paths !m pass empty }
     let d = !m[u] ++ Finite (weight u v) in
     if d << !m[v] then m := !m[v <- d]
-    { paths !m pass /\
+    { paths !m pass empty /\
       forall x: vertex. (x <> v -> get !m x = get (old !m) x) }
 
   exception NegativeCycle (* list vertex *)
@@ -163,16 +174,15 @@ module BellmanFord
   let bellman_ford () =
     { }
     let m = ref (initialize_single_source s) in
-    assert { paths !m 1 };
+    assert { paths !m 1 empty };
 
     for i = 1 to cardinal vertices - 1 do
-      invariant { paths !m i }
+      invariant { paths !m i empty }
 
       let e = ref edges in
       while not (Bag.is_empty e) do
-        invariant { subset !e edges /\ paths !m i }
+        invariant { subset !e edges /\ paths !m i (diff edges !e) }
         variant { cardinal !e }
-
         let (u, v) = Bag.pop e in
         relax m u v i
       done
@@ -191,7 +201,7 @@ module BellmanFord
 
     !m
 
-    { paths result (cardinal vertices) }
+    { paths result (cardinal vertices) empty }
     | NegativeCycle -> { }
 
 end
