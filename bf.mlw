@@ -138,18 +138,18 @@ module BellmanFord
   function initialize_single_source (s: vertex) : distmap =
     (const Infinite)[s <- Finite 0]
 
-  predicate paths (m: distmap) =
+  predicate paths (m: distmap) (pass: int) =
     forall v: vertex. mem v vertices ->
     match m[v] with
       | Finite n -> path s v n (* path, not shortest_path *)
       | Infinite -> true
     end
 
-  let relax (m: ref distmap) (u: vertex) (v: vertex) =
-    { mem u vertices /\ mem v (succ u) /\ paths !m }
+  let relax (m: ref distmap) (u: vertex) (v: vertex) (pass: int) =
+    { mem u vertices /\ mem v (succ u) /\ paths !m pass }
     let d = !m[u] ++ Finite (weight u v) in
     if d << !m[v] then m := !m[v <- d]
-    { paths !m /\
+    { paths !m pass /\
       forall x: vertex. (x <> v -> get !m x = get (old !m) x) }
 
   exception NegativeCycle (* list vertex *)
@@ -157,22 +157,23 @@ module BellmanFord
   let bellman_ford () =
     { }
     let m = ref (initialize_single_source s) in
-    assert { paths !m };
+    assert { paths !m 1 };
+
     for i = 1 to cardinal vertices - 1 do
-      invariant { paths !m }
+      invariant { paths !m i }
 
       let us = ref vertices in
       while not (Bag.is_empty us) do
-        invariant { subset !us vertices /\ paths !m }
+        invariant { subset !us vertices /\ paths !m i }
         variant { cardinal !us }
         let u = Bag.pop us in
 
         let vs = ref (succ u) in
         while not (Bag.is_empty vs) do
-          invariant { subset !vs (succ u) /\ paths !m }
+          invariant { subset !vs (succ u) /\ paths !m i }
           variant { cardinal !vs }
           let v = Bag.pop vs in
-          relax m u v
+          relax m u v i
         done
       done
     done;
@@ -195,7 +196,7 @@ module BellmanFord
 
     !m
 
-    { paths result }
+    { paths result (cardinal vertices) }
     | NegativeCycle -> { }
 
 end
