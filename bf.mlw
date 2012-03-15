@@ -51,6 +51,11 @@ theory Graph
     forall v: vertex, d: int. reachable v (d + 1) ->
     exists u: vertex. mem (u, v) edges /\ reachable u d
 
+  lemma reach_most_n:
+    forall v: vertex, d: int. mem v vertices ->
+    0 <= d < cardinal vertices ->
+    not (reachable v d) -> no_path s v
+
   predicate negcycle =
     exists v: vertex. mem v vertices /\
     exists n d: int. n < 0 /\ path v v n
@@ -156,7 +161,8 @@ module BellmanFord
         (forall d: int. 0 <= d < pass -> not (reachable v d)) /\
         (forall u: vertex. mem (u, v) via ->
         forall d: int. 0 <= d < pass -> not (reachable u d))
-    end
+    end /\
+    ((no_path s v) -> m[v] = Infinite)
 
   lemma paths_subset:
     forall m: distmap, p: int, k: set (vertex, vertex).
