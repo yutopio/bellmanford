@@ -55,7 +55,7 @@ theory Graph
     exists v: vertex. mem v vertices /\
     exists n d: int. n < 0 /\ path v v n
 
-end 
+end
 
 theory Distance
 
@@ -83,7 +83,7 @@ theory Distance
         end
     end
 
-  predicate ge (x y: dist) =
+  predicate (>>=) (x y: dist) =
     match x with
       | Infinite -> true
       | Finite x ->
@@ -93,7 +93,7 @@ theory Distance
         end
     end
 
-  clone export comparison.MinMax with type t = dist, predicate ge = ge
+  clone export comparison.MinMax with type t = dist, predicate ge = (>>=)
 
 end
 
@@ -167,6 +167,7 @@ module BellmanFord
     let d = !m[u] ++ Finite (weight u v) in
     if d << !m[v] then m := !m[v <- d]
     { paths !m pass empty /\
+      (get (old !m) v >>= get !m v) /\
       forall x: vertex. (x <> v -> get !m x = get (old !m) x) }
 
   exception NegativeCycle (* list vertex *)
