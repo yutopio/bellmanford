@@ -173,8 +173,12 @@ module BellmanFord
     let d = !m[u] ++ Finite (weight u v) in
     if d << !m[v] then m := !m[v <- d]
     { paths !m pass empty /\
-      (get (old !m) v >>= get !m v) /\
-      forall x: vertex. (x <> v -> get !m x = get (old !m) x) }
+      ((old !m)[v] >>= !m[v]) /\
+      match (old !m)[v] with
+	| Finite n -> (shortest_path s v n -> !m[v] = (Finite n))
+        | Infinite -> true
+      end /\
+      forall x: vertex. (x <> v -> !m[x] = (old !m)[x]) }
 
   exception NegativeCycle (* list vertex *)
 
@@ -190,6 +194,7 @@ module BellmanFord
       while not (Bag.is_empty e) do
         invariant { subset !e edges /\ paths !m i (diff edges !e) }
         variant { cardinal !e }
+
         let (u, v) = Bag.pop e in
         relax m u v i
       done
@@ -201,14 +206,19 @@ module BellmanFord
 
       let (u, v) = Bag.pop e in
 
-      if (get !m v) <<
-        ((get !m u) ++ (Finite (weight u v))) then
+      if (!m[v]) << (!m[u] ++ (Finite (weight u v))) then
         raise NegativeCycle
     done;
 
     !m
-
-    { paths result (cardinal vertices) empty }
+    { paths result (cardinal vertices) empty /\
+      (forall v: vertex. mem v vertices ->
+      (no_path s v -> result[v] = Infinite) /\
+      (forall n: int. shortest_path s v n -> true) /\
+      match result[v] with
+	| Infinite -> no_path s v
+        | Finite _ -> true
+       end) }
     | NegativeCycle -> { }
 
 end
