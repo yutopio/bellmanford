@@ -32,6 +32,37 @@ theory Graph
         forall v1 v2: vertex, d: int. reachable v1 d ->
         mem (v1, v2) edges -> reachable v2 (d + 1)
 
+  lemma reach_nonneg:
+    forall v: vertex, d: int.
+    mem v vertices -> reachable v d -> d >= 0
+
+  lemma reach_source:
+    forall v: vertex, n: int.
+    mem v vertices -> reachable v 0 -> v = s
+
+(*
+  lemma path_reach_empty:
+    path s s 0 -> reachable s 0
+
+  lemma path_reach_succ:
+    forall u: vertex, n d: int. (path s u n -> reachable u d) ->
+    forall v: vertex. mem (u, v) edges ->
+    (path s v (n + weight u v) -> reachable v (d + 1))
+*)
+
+  lemma path_reach:
+    forall v: vertex, n: int. path s v n ->
+    exists d: int. 0 <= d < cardinal vertices ->
+    reachable v d
+
+  lemma reach_path:
+    forall v: vertex, d: int. 0 <= d < cardinal vertices ->
+    reachable v d -> exists n: int. path s v n
+
+  lemma reach_pred_existance:
+    forall v: vertex, d: int. reachable v (d + 1) ->
+    exists u: vertex. mem (u, v) edges /\ reachable u d
+
   predicate shortest_path (v1 v2: vertex) (n: int) =
     (path v1 v2 n) /\
     (forall m: int. m < n -> not (path v1 v2 m))
@@ -41,20 +72,14 @@ theory Graph
     (forall n: int. n < 0 -> not (path v v n)) ->
     shortest_path v v 0
 
+  lemma shortest_path_succ:
+    forall v: vertex. mem v vertices ->
+    forall d: int. shortest_path s v d ->
+    (exists u: vertex. mem (u, v) edges /\
+    forall w: int. w = weight u v /\ shortest_path s u (d - w))
+
   predicate no_path (v1 v2: vertex) =
     forall n: int. not (path v1 v2 n)
-
-  lemma reach_nonneg:
-    forall v: vertex, d: int.
-    mem v vertices -> reachable v d -> d >= 0
-
-  lemma reach_source:
-    forall v: vertex, n: int.
-    mem v vertices -> reachable v 0 -> v = s
-
-  lemma reach_next:
-    forall v: vertex, d: int. reachable v (d + 1) ->
-    exists u: vertex. mem (u, v) edges /\ reachable u d
 
   lemma reach_most_n:
     forall v: vertex, d: int. mem v vertices ->
