@@ -119,39 +119,11 @@ Inductive path : vertex -> vertex -> Z -> Z -> Prop :=
       (path v1 v2 n d) -> ((mem (v2, v3) edges) -> (path v1 v3
       (n + (weight v2 v3))%Z (d + 1%Z)%Z)).
 
-Axiom path_depth_nonneg : forall (v1:vertex) (v2:vertex) (n:Z) (d:Z),
+(* Why3 goal *)
+Theorem path_depth_nonneg : forall (v1:vertex) (v2:vertex) (n:Z) (d:Z),
   (path v1 v2 n d) -> (0%Z <= d)%Z.
 
-Axiom path_in_vertices : forall (v1:vertex) (v2:vertex) (n:Z) (d:Z), (path v1
-  v2 n d) -> ((mem v1 vertices) /\ (mem v2 vertices)).
-
-Axiom path_depth_empty : forall (v1:vertex) (v2:vertex) (n:Z), (path v1 v2 n
-  0%Z) -> ((v1 = v2) /\ (n = 0%Z)).
-
-Axiom path_pred_existence : forall (v1:vertex) (v3:vertex) (n:Z) (d:Z),
-  (0%Z <= d)%Z -> ((path v1 v3 n (d + 1%Z)%Z) -> exists v2:vertex, (mem (v2,
-  v3) edges) /\ (path v1 v2 (n - (weight v2 v3))%Z d)).
-
-(* Why3 assumption *)
-Definition shortest_path(v1:vertex) (v2:vertex) (n:Z) (d:Z): Prop := (path v1
-  v2 n d) /\ forall (m:Z) (dd:Z), (m <  n)%Z -> ~ (path v1 v2 m dd).
-
-(* Why3 assumption *)
-Definition no_path(v1:vertex) (v2:vertex): Prop := forall (n:Z) (d:Z),
-  ~ (path v1 v2 n d).
-
-(* Why3 goal *)
-Theorem path_trans : forall (v1:vertex) (v2:vertex) (v3:vertex) (n1:Z) (n2:Z)
-  (d1:Z) (d2:Z), (path v1 v2 n1 d1) -> ((path v2 v3 n2 d2) -> (path v1 v3
-  (n1 + n2)%Z (d1 + d2)%Z)).
-
-induction 2.
-replace (n1 + 0)%Z with n1 by omega.
-replace (d1 + 0)%Z with d1 by omega.
-auto.
-ring_simplify (n1 + (n + weight v2 v3))%Z.
-ring_simplify (d1 + (d + 1))%Z.
-apply path_succ; auto.
+induction 1 ; omega.
 
 Qed.
 

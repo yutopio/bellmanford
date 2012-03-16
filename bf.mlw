@@ -25,7 +25,7 @@ theory Graph
         forall v1 v2 v3: vertex, n d: int. path v1 v2 n d ->
         mem (v2, v3) edges -> path v1 v3 (n + (weight v2 v3)) (d + 1)
 
-  lemma path_dep_nonneg:
+  lemma path_depth_nonneg:
     forall v1 v2: vertex, n d: int.
     path v1 v2 n d -> d >= 0
 
@@ -33,9 +33,8 @@ theory Graph
      forall v1 v2: vertex, n d: int.
      mem v1 vertices -> path v1 v2 n d -> mem v2 vertices
 
-  lemma reach_empty:
+  lemma path_depth_empty:
     forall v1 v2: vertex, n d: int.
-    mem v1 vertices /\ mem v2 vertices ->
     path v1 v2 n 0 -> v1 = v2 /\ n = 0
 
 (*
@@ -78,6 +77,9 @@ theory Graph
 *)
   predicate no_path (v1 v2: vertex) =
     forall n d: int. not (path v1 v2 n d)
+
+  lemma no_path_not_same:
+    forall v: vertex. not (no_path v v)
 
   lemma path_trans:
     forall v1 v2 v3: vertex, n1 n2 d1 d2: int.
@@ -189,6 +191,7 @@ module BellmanFord
   use import module ref.Ref
   use import Graph
   use import Distance
+  use FSetTake
   use module Bag
 
   type distmap = map vertex dist
@@ -199,32 +202,45 @@ module BellmanFord
   predicate paths (m: distmap) (pass: int) (via: set (vertex, vertex)) =
     forall v: vertex. mem v vertices ->
     match m[v] with
-      | Finite n -> exists d: int. 0 <= d < pass /\ path s v n d
+      | Finite n ->
+        (exists d: int. 0 <= d < pass /\ path s v n d) \/
+        (exists u: vertex. mem (u, v) via /\
+          exists d: int. 0 <= d < pass /\ path s u (n - weight u v) pass)
       | Infinite ->
         (forall d: int. 0 <= d < pass ->
           forall n: int. not (path s v n d)) /\
         (forall u: vertex. mem (u, v) via ->
-        forall d: int. 0 <= d < pass ->
+          forall d: int. 0 <= d < pass ->
           forall n: int. not (path s u n d))
     end /\
-    ((no_path s v) -> m[v] = Infinite)
+    ((no_path s v) -> m[v] = Infinite) (** Redundant condition *)
 
   lemma paths_subset:
     forall m: distmap, p: int, k: set (vertex, vertex).
     paths m p k -> paths m p empty
 
-  let relax (m: ref distmap) (u: vertex) (v: vertex) (pass: int) =
-    { exists w: int. mem (u, v) edges /\ paths !m pass empty }
-    let d = !m[u] ++ Finite (weight u v) in
-    if d << !m[v] then m := !m[v <- d]
-    { paths !m pass empty /\
+  lemma paths_next:
+    forall m: distmap, p: int.
+    paths m p edges -> paths m (p + 1) empty
+
+  let relax (m: ref distmap) (u v: vertex) (pass: int)
+            (via: set (vertex, vertex)) =
+    { mem (u, v) edges /\ paths !m pass via }
+    let n = !m[u] ++ Finite (weight u v) in
+    if n << !m[v] then
+      assert { forall d: int. match !m[v] with
+                 | Finite n -> not (shortest_path s v n d)
+                 | Infinite -> true
+               end };
+      m := !m[v <- n]
+    { paths !m pass (add (u, v) via) /\
       ((old !m)[v] >>= !m[v]) /\
       match (old !m)[v] with
-        | Finite n -> (exists d: int. shortest_path s v n d ->
-            !m[v] = (Finite n))
+        | Finite n ->
+          (exists d: int. shortest_path s v n d) -> (old !m) = !m
         | Infinite -> true
       end /\
-      forall x: vertex. (x <> v -> !m[x] = (old !m)[x]) }
+      forall x: vertex. (x <> v -> (old !m)[x] = !m[x]) }
 
   exception NegativeCycle (* list vertex *)
 
@@ -236,13 +252,16 @@ module BellmanFord
     for i = 1 to cardinal vertices - 1 do
       invariant { paths !m i empty }
 
-      let e = ref edges in
-      while not (Bag.is_empty e) do
-        invariant { subset !e edges /\ paths !m i (diff edges !e) }
-        variant { cardinal !e }
+      let es = ref edges in
+      let es_co = ref empty in
+      while not (Bag.is_empty es) do
+        invariant { union !es !es_co = edges /\ inter !es !es_co = empty /\
+          paths !m i !es_co }
+        variant { cardinal !es }
 
-        let (u, v) = Bag.pop e in
-        relax m u v i
+        let (u, v) = Bag.pop es in
+        relax m u v i !es_co;
+        es_co := add (u, v) !es_co
       done
     done;
 

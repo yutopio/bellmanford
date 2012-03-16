@@ -29,29 +29,29 @@
    verified="false"
    expanded="true">
    <goal
-    name="path_dep_nonneg"
+    name="path_depth_nonneg"
     locfile="bf/../bf.mlw"
-    loclnum="28" loccnumb="8" loccnume="23"
-    sum="97c63621c2d8d83d9f626dc805196b47"
+    loclnum="28" loccnumb="8" loccnume="25"
+    sum="f895505b4b5064e6acdd13ff319d29cc"
     proved="true"
-    expanded="false"
+    expanded="true"
     shape="ainfix >=V3c0IapathV0V1V2V3F">
     <proof
      prover="2"
      timelimit="10"
-     edited="bf_Graph_path_dep_nonneg_1.v"
+     edited="bf_Graph_path_depth_nonneg_1.v"
      obsolete="false"
      archived="false">
-     <result status="valid" time="0.91"/>
+     <result status="valid" time="0.83"/>
     </proof>
    </goal>
    <goal
     name="path_in_vertices"
     locfile="bf/../bf.mlw"
     loclnum="32" loccnumb="8" loccnume="24"
-    sum="15ac40edc2a2f55a1fb341a3ddc35e95"
+    sum="5396e7ac8c499cf5d24e835f74f1e4b9"
     proved="true"
-    expanded="false"
+    expanded="true"
     shape="amemV1averticesIapathV0V1V2V3IamemV0averticesF">
     <proof
      prover="0"
@@ -62,28 +62,28 @@
     </proof>
    </goal>
    <goal
-    name="reach_empty"
+    name="path_depth_empty"
     locfile="bf/../bf.mlw"
-    loclnum="36" loccnumb="8" loccnume="19"
-    sum="9b995d645c732cb9dac38bd10bae7973"
+    loclnum="36" loccnumb="8" loccnume="24"
+    sum="81092c8687e5cd878911bed1b290bba9"
     proved="true"
-    expanded="false"
-    shape="ainfix =V2c0Aainfix =V0V1IapathV0V1V2c0IamemV1averticesAamemV0averticesF">
+    expanded="true"
+    shape="ainfix =V2c0Aainfix =V0V1IapathV0V1V2c0F">
     <proof
      prover="0"
      timelimit="10"
      obsolete="false"
      archived="false">
-     <result status="valid" time="0.03"/>
+     <result status="valid" time="0.02"/>
     </proof>
    </goal>
    <goal
     name="path_pred_existence"
     locfile="bf/../bf.mlw"
-    loclnum="59" loccnumb="8" loccnume="27"
-    sum="f8389b6e86e92c6a986e16cf09eb7826"
+    loclnum="58" loccnumb="8" loccnume="27"
+    sum="e20da1c67938bfad87a1535d435e21fd"
     proved="true"
-    expanded="false"
+    expanded="true"
     shape="apathV0V4ainfix -V2aweightV4V1V3AamemaTuple2V4V1aedgesEIapathV0V1V2ainfix +V3c1Iainfix >=V3c0F">
     <proof
      prover="0"
@@ -94,12 +94,28 @@
     </proof>
    </goal>
    <goal
+    name="no_path_not_same"
+    locfile="bf/../bf.mlw"
+    loclnum="81" loccnumb="8" loccnume="24"
+    sum="a343ee37a9bc1dab19b0260bc2350c4a"
+    proved="true"
+    expanded="true"
+    shape="ano_pathV0V0NF">
+    <proof
+     prover="1"
+     timelimit="10"
+     obsolete="false"
+     archived="false">
+     <result status="valid" time="0.01"/>
+    </proof>
+   </goal>
+   <goal
     name="path_trans"
     locfile="bf/../bf.mlw"
-    loclnum="82" loccnumb="8" loccnume="18"
-    sum="27a1b5328fc44306ee406e1feb5a20b8"
+    loclnum="84" loccnumb="8" loccnume="18"
+    sum="6519dd6cb21ab10f6950bf338c7327c1"
     proved="true"
-    expanded="false"
+    expanded="true"
     shape="apathV0V2ainfix +V3V4ainfix +V5V6IapathV1V2V4V6IapathV0V1V3V5F">
     <proof
      prover="2"
@@ -113,8 +129,8 @@
    <goal
     name="reach_less_than_n"
     locfile="bf/../bf.mlw"
-    loclnum="87" loccnumb="8" loccnume="25"
-    sum="5af62f23fd47326a74685f19b8e0ee53"
+    loclnum="89" loccnumb="8" loccnume="25"
+    sum="54b1aeb740aae0e911fee7d006eb2bf4"
     proved="false"
     expanded="false"
     shape="apathV0V1V5V4Aainfix <V4acardinalaverticesEIapathV0V1V3V2FIamemV0averticesF">
@@ -122,48 +138,48 @@
    <goal
     name="reach_most_n"
     locfile="bf/../bf.mlw"
-    loclnum="92" loccnumb="8" loccnume="20"
-    sum="1c251c1a99c2134a5f9b2038b4c7b82c"
+    loclnum="94" loccnumb="8" loccnume="20"
+    sum="988330e626930d752bafde30f22eebba"
     proved="true"
-    expanded="false"
+    expanded="true"
     shape="ano_pathV0V1IapathV0V1V2V3NIainfix <V3acardinalaverticesAainfix <=c0V3FIamemV1averticesAamemV0averticesF">
     <proof
      prover="1"
      timelimit="10"
      obsolete="false"
      archived="false">
-     <result status="valid" time="0.36"/>
+     <result status="valid" time="0.35"/>
     </proof>
    </goal>
   </theory>
   <theory
    name="Distance"
    locfile="bf/../bf.mlw"
-   loclnum="108" loccnumb="7" loccnume="15"
+   loclnum="110" loccnumb="7" loccnume="15"
    verified="true"
    expanded="false">
   </theory>
   <theory
    name="FSetTake"
    locfile="bf/../bf.mlw"
-   loclnum="148" loccnumb="7" loccnume="15"
+   loclnum="150" loccnumb="7" loccnume="15"
    verified="true"
    expanded="false">
   </theory>
   <theory
    name="WP Bag"
    locfile="bf/../bf.mlw"
-   loclnum="161" loccnumb="7" loccnume="10"
+   loclnum="163" loccnumb="7" loccnume="10"
    verified="true"
-   expanded="false">
+   expanded="true">
    <goal
     name="WP_parameter is_empty"
     locfile="bf/../bf.mlw"
-    loclnum="168" loccnumb="6" loccnume="14"
+    loclnum="170" loccnumb="6" loccnume="14"
     expl="normal postcondition"
     sum="589568804de4b62603c5ca365ec8535c"
     proved="true"
-    expanded="false"
+    expanded="true"
     shape="ais_emptyV0qais_emptyV0F">
     <label
      name="expl:parameter is_empty">
@@ -179,11 +195,11 @@
    <goal
     name="WP_parameter pop"
     locfile="bf/../bf.mlw"
-    loclnum="176" loccnumb="6" loccnume="9"
+    loclnum="178" loccnumb="6" loccnume="9"
     expl="normal postcondition"
     sum="d7463dfd0ce65c81df6dc6365dfcc462"
     proved="true"
-    expanded="false"
+    expanded="true"
     shape="ainfix =V1aremoveatakeV0V0AamematakeV0V0Iainfix =V1aremoveatakeV0V0FIais_emptyV0NF">
     <label
      name="expl:parameter pop">
@@ -200,92 +216,120 @@
   <theory
    name="WP BellmanFord"
    locfile="bf/../bf.mlw"
-   loclnum="185" loccnumb="7" loccnume="18"
+   loclnum="187" loccnumb="7" loccnume="18"
    verified="false"
    expanded="true">
    <goal
     name="paths_subset"
     locfile="bf/../bf.mlw"
-    loclnum="212" loccnumb="8" loccnume="20"
-    sum="987c4750c7369e964f72ff1e7fcf19b4"
+    loclnum="218" loccnumb="8" loccnume="20"
+    sum="83859a6838b7f772b6a9178c6c8a1ad3"
     proved="false"
-    expanded="true"
+    expanded="false"
     shape="apathsV0V1aemptyIapathsV0V1V2F">
     <transf
      name="inline_goal"
      proved="false"
-     expanded="true">
+     expanded="false">
      <goal
       name="paths_subset.1"
       locfile="bf/../bf.mlw"
-      loclnum="212" loccnumb="8" loccnume="20"
-      sum="fe5aa9b6c678318a03e80dc74e7a454c"
+      loclnum="218" loccnumb="8" loccnume="20"
+      sum="0c38627dd44386664194d761631953ed"
       proved="false"
-      expanded="true"
-      shape="ainfix =amixfix []V0V3aInfiniteIano_pathasV3ACamixfix []V0V3aFiniteVapathasV3V4V5Aainfix <V5V1Aainfix <=c0V5EaInfiniteapathasV6V8V7NFIainfix <V7V1Aainfix <=c0V7FIamemaTuple2V6V3aemptyFAapathasV3V10V9NFIainfix <V9V1Aainfix <=c0V9FIamemV3averticesFIainfix =amixfix []V0V11aInfiniteIano_pathasV11ACamixfix []V0V11aFiniteVapathasV11V12V13Aainfix <V13V1Aainfix <=c0V13EaInfiniteapathasV14V16V15NFIainfix <V15V1Aainfix <=c0V15FIamemaTuple2V14V11V2FAapathasV11V18V17NFIainfix <V17V1Aainfix <=c0V17FIamemV11averticesFF">
+      expanded="false"
+      shape="ainfix =amixfix []V0V3aInfiniteIano_pathasV3ACamixfix []V0V3aFiniteVapathasV5ainfix -V4aweightV5V3V1Aainfix <V6V1Aainfix <=c0V6EAamemaTuple2V5V3aemptyEOapathasV3V4V7Aainfix <V7V1Aainfix <=c0V7EaInfiniteapathasV8V10V9NFIainfix <V9V1Aainfix <=c0V9FIamemaTuple2V8V3aemptyFAapathasV3V12V11NFIainfix <V11V1Aainfix <=c0V11FIamemV3averticesFIainfix =amixfix []V0V13aInfiniteIano_pathasV13ACamixfix []V0V13aFiniteVapathasV15ainfix -V14aweightV15V13V1Aainfix <V16V1Aainfix <=c0V16EAamemaTuple2V15V13V2EOapathasV13V14V17Aainfix <V17V1Aainfix <=c0V17EaInfiniteapathasV18V20V19NFIainfix <V19V1Aainfix <=c0V19FIamemaTuple2V18V13V2FAapathasV13V22V21NFIainfix <V21V1Aainfix <=c0V21FIamemV13averticesFF">
       <transf
        name="split_goal"
        proved="false"
-       expanded="true">
+       expanded="false">
        <goal
         name="paths_subset.1.1"
         locfile="bf/../bf.mlw"
-        loclnum="212" loccnumb="8" loccnume="20"
-        sum="a203888724029db640e5c00825a10662"
+        loclnum="218" loccnumb="8" loccnume="20"
+        sum="057d05fc0302b518ef233cd1493a06a9"
         proved="false"
-        expanded="true"
-        shape="Camixfix []V0V3aFiniteVapathasV3V4V5Aainfix <V5V1Aainfix <=c0V5EaInfinitetIamemV3averticesFIainfix =amixfix []V0V6aInfiniteIano_pathasV6ACamixfix []V0V6aFiniteVapathasV6V7V8Aainfix <V8V1Aainfix <=c0V8EaInfiniteapathasV9V11V10NFIainfix <V10V1Aainfix <=c0V10FIamemaTuple2V9V6V2FAapathasV6V13V12NFIainfix <V12V1Aainfix <=c0V12FIamemV6averticesFF">
-        <transf
-         name="inline_goal"
-         proved="false"
-         expanded="true">
-         <goal
-          name="paths_subset.1.1.1"
-          locfile="bf/../bf.mlw"
-          loclnum="212" loccnumb="8" loccnume="20"
-          sum="caa230641e3ee3d3b61d9df9b3ed2af3"
-          proved="false"
-          expanded="false"
-          shape="Camixfix []V0V3aFiniteVapathasV3V4V5Aainfix <V5V1Aainfix =c0V5Oainfix <c0V5EaInfinitetIamemV3averticesFIainfix =agetV0V6aInfiniteIapathasV6V7V8NFACamixfix []V0V6aFiniteVapathasV6V9V10Aainfix <V10V1Aainfix =c0V10Oainfix <c0V10EaInfiniteapathasV11V13V12NFIainfix <V12V1Aainfix =c0V12Oainfix <c0V12FIamemaTuple2V11V6V2FAapathasV6V15V14NFIainfix <V14V1Aainfix =c0V14Oainfix <c0V14FIamemV6averticesFF">
-          <proof
-           prover="1"
-           timelimit="10"
-           obsolete="true"
-           archived="false">
-           <result status="valid" time="0.15"/>
-          </proof>
-         </goal>
-        </transf>
+        expanded="false"
+        shape="Camixfix []V0V3aFiniteVapathasV5ainfix -V4aweightV5V3V1Aainfix <V6V1Aainfix <=c0V6EAamemaTuple2V5V3aemptyEOapathasV3V4V7Aainfix <V7V1Aainfix <=c0V7EaInfinitetIamemV3averticesFIainfix =amixfix []V0V8aInfiniteIano_pathasV8ACamixfix []V0V8aFiniteVapathasV10ainfix -V9aweightV10V8V1Aainfix <V11V1Aainfix <=c0V11EAamemaTuple2V10V8V2EOapathasV8V9V12Aainfix <V12V1Aainfix <=c0V12EaInfiniteapathasV13V15V14NFIainfix <V14V1Aainfix <=c0V14FIamemaTuple2V13V8V2FAapathasV8V17V16NFIainfix <V16V1Aainfix <=c0V16FIamemV8averticesFF">
+        <proof
+         prover="0"
+         timelimit="10"
+         obsolete="false"
+         archived="false">
+         <result status="timeout" time="15.97"/>
+        </proof>
+        <proof
+         prover="1"
+         timelimit="10"
+         obsolete="true"
+         archived="false">
+         <result status="timeout" time="13.99"/>
+        </proof>
+        <proof
+         prover="3"
+         timelimit="10"
+         obsolete="true"
+         archived="false">
+         <result status="timeout" time="13.62"/>
+        </proof>
        </goal>
        <goal
         name="paths_subset.1.2"
         locfile="bf/../bf.mlw"
-        loclnum="212" loccnumb="8" loccnume="20"
-        sum="15abda93b0cc5f2a19172b50c2a75852"
+        loclnum="218" loccnumb="8" loccnume="20"
+        sum="2dafdc9cba6163ff313f6a3e3eeebc7c"
         proved="false"
-        expanded="true"
-        shape="Camixfix []V0V3aFiniteVtaInfiniteapathasV3V6V5NFIainfix <V5V1Aainfix <=c0V5FIamemV3averticesFIainfix =amixfix []V0V7aInfiniteIano_pathasV7ACamixfix []V0V7aFiniteVapathasV7V8V9Aainfix <V9V1Aainfix <=c0V9EaInfiniteapathasV10V12V11NFIainfix <V11V1Aainfix <=c0V11FIamemaTuple2V10V7V2FAapathasV7V14V13NFIainfix <V13V1Aainfix <=c0V13FIamemV7averticesFF">
+        expanded="false"
+        shape="Camixfix []V0V3aFiniteVtaInfiniteapathasV3V6V5NFIainfix <V5V1Aainfix <=c0V5FIamemV3averticesFIainfix =amixfix []V0V7aInfiniteIano_pathasV7ACamixfix []V0V7aFiniteVapathasV9ainfix -V8aweightV9V7V1Aainfix <V10V1Aainfix <=c0V10EAamemaTuple2V9V7V2EOapathasV7V8V11Aainfix <V11V1Aainfix <=c0V11EaInfiniteapathasV12V14V13NFIainfix <V13V1Aainfix <=c0V13FIamemaTuple2V12V7V2FAapathasV7V16V15NFIainfix <V15V1Aainfix <=c0V15FIamemV7averticesFF">
+        <proof
+         prover="0"
+         timelimit="10"
+         obsolete="false"
+         archived="false"><undone/>
+         
+        </proof>
+        <proof
+         prover="1"
+         timelimit="10"
+         obsolete="true"
+         archived="false">
+         <result status="valid" time="0.06"/>
+        </proof>
+        <proof
+         prover="3"
+         timelimit="10"
+         obsolete="true"
+         archived="false">
+         <result status="valid" time="0.26"/>
+        </proof>
        </goal>
        <goal
         name="paths_subset.1.3"
         locfile="bf/../bf.mlw"
-        loclnum="212" loccnumb="8" loccnume="20"
-        sum="aa79185b71695a56a39f5e03e65945cb"
+        loclnum="218" loccnumb="8" loccnume="20"
+        sum="023b20910702a0e500dcafcf3553a265"
         proved="false"
-        expanded="true"
-        shape="Camixfix []V0V3aFiniteVtaInfiniteapathasV5V7V6NFIainfix <V6V1Aainfix <=c0V6FIamemaTuple2V5V3aemptyFIamemV3averticesFIainfix =amixfix []V0V8aInfiniteIano_pathasV8ACamixfix []V0V8aFiniteVapathasV8V9V10Aainfix <V10V1Aainfix <=c0V10EaInfiniteapathasV11V13V12NFIainfix <V12V1Aainfix <=c0V12FIamemaTuple2V11V8V2FAapathasV8V15V14NFIainfix <V14V1Aainfix <=c0V14FIamemV8averticesFF">
+        expanded="false"
+        shape="Camixfix []V0V3aFiniteVtaInfiniteapathasV5V7V6NFIainfix <V6V1Aainfix <=c0V6FIamemaTuple2V5V3aemptyFIamemV3averticesFIainfix =amixfix []V0V8aInfiniteIano_pathasV8ACamixfix []V0V8aFiniteVapathasV10ainfix -V9aweightV10V8V1Aainfix <V11V1Aainfix <=c0V11EAamemaTuple2V10V8V2EOapathasV8V9V12Aainfix <V12V1Aainfix <=c0V12EaInfiniteapathasV13V15V14NFIainfix <V14V1Aainfix <=c0V14FIamemaTuple2V13V8V2FAapathasV8V17V16NFIainfix <V16V1Aainfix <=c0V16FIamemV8averticesFF">
         <transf
          name="inline_goal"
          proved="false"
-         expanded="true">
+         expanded="false">
          <goal
           name="paths_subset.1.3.1"
           locfile="bf/../bf.mlw"
-          loclnum="212" loccnumb="8" loccnume="20"
-          sum="1807d1b00a0e7f227a91c02e0e014b86"
+          loclnum="218" loccnumb="8" loccnume="20"
+          sum="2e7a15505a6bb9608c4b4b9846e16409"
           proved="false"
           expanded="false"
-          shape="Camixfix []V0V3aFiniteVtaInfiniteapathasV5V7V6NFIainfix <V6V1Aainfix =c0V6Oainfix <c0V6FIamemaTuple2V5V3aemptyFIamemV3averticesFIainfix =agetV0V8aInfiniteIapathasV8V9V10NFACamixfix []V0V8aFiniteVapathasV8V11V12Aainfix <V12V1Aainfix =c0V12Oainfix <c0V12EaInfiniteapathasV13V15V14NFIainfix <V14V1Aainfix =c0V14Oainfix <c0V14FIamemaTuple2V13V8V2FAapathasV8V17V16NFIainfix <V16V1Aainfix =c0V16Oainfix <c0V16FIamemV8averticesFF">
+          shape="Camixfix []V0V3aFiniteVtaInfiniteapathasV5V7V6NFIainfix <V6V1Aainfix =c0V6Oainfix <c0V6FIamemaTuple2V5V3aemptyFIamemV3averticesFIainfix =agetV0V8aInfiniteIapathasV8V9V10NFACamixfix []V0V8aFiniteVapathasV12ainfix -V11aweightV12V8V1Aainfix <V13V1Aainfix =c0V13Oainfix <c0V13EAamemaTuple2V12V8V2EOapathasV8V11V14Aainfix <V14V1Aainfix =c0V14Oainfix <c0V14EaInfiniteapathasV15V17V16NFIainfix <V16V1Aainfix =c0V16Oainfix <c0V16FIamemaTuple2V15V8V2FAapathasV8V19V18NFIainfix <V18V1Aainfix =c0V18Oainfix <c0V18FIamemV8averticesFF">
+          <proof
+           prover="0"
+           timelimit="10"
+           obsolete="false"
+           archived="false"><undone/>
+           
+          </proof>
           <proof
            prover="1"
            timelimit="10"
@@ -293,23 +337,30 @@
            archived="false">
            <result status="valid" time="0.05"/>
           </proof>
+          <proof
+           prover="3"
+           timelimit="10"
+           obsolete="true"
+           archived="false">
+           <result status="valid" time="0.04"/>
+          </proof>
          </goal>
         </transf>
        </goal>
        <goal
         name="paths_subset.1.4"
         locfile="bf/../bf.mlw"
-        loclnum="212" loccnumb="8" loccnume="20"
-        sum="5a18d8451978e068f9d0f66bfde2e82b"
-        proved="false"
+        loclnum="218" loccnumb="8" loccnume="20"
+        sum="d1c3d594b2b17e2bb0c17bfad8824e0d"
+        proved="true"
         expanded="false"
-        shape="ainfix =amixfix []V0V3aInfiniteIano_pathasV3IamemV3averticesFIainfix =amixfix []V0V4aInfiniteIano_pathasV4ACamixfix []V0V4aFiniteVapathasV4V5V6Aainfix <V6V1Aainfix <=c0V6EaInfiniteapathasV7V9V8NFIainfix <V8V1Aainfix <=c0V8FIamemaTuple2V7V4V2FAapathasV4V11V10NFIainfix <V10V1Aainfix <=c0V10FIamemV4averticesFF">
+        shape="ainfix =amixfix []V0V3aInfiniteIano_pathasV3IamemV3averticesFIainfix =amixfix []V0V4aInfiniteIano_pathasV4ACamixfix []V0V4aFiniteVapathasV6ainfix -V5aweightV6V4V1Aainfix <V7V1Aainfix <=c0V7EAamemaTuple2V6V4V2EOapathasV4V5V8Aainfix <V8V1Aainfix <=c0V8EaInfiniteapathasV9V11V10NFIainfix <V10V1Aainfix <=c0V10FIamemaTuple2V9V4V2FAapathasV4V13V12NFIainfix <V12V1Aainfix <=c0V12FIamemV4averticesFF">
         <proof
          prover="0"
          timelimit="10"
-         obsolete="true"
+         obsolete="false"
          archived="false">
-         <result status="valid" time="0.02"/>
+         <result status="valid" time="0.03"/>
         </proof>
        </goal>
       </transf>
@@ -317,191 +368,237 @@
     </transf>
    </goal>
    <goal
+    name="paths_next"
+    locfile="bf/../bf.mlw"
+    loclnum="222" loccnumb="8" loccnume="18"
+    sum="3078ec69af9efa5db44e2bbeaa72065b"
+    proved="false"
+    expanded="false"
+    shape="apathsV0ainfix +V1c1aemptyIapathsV0V1aedgesF">
+    <proof
+     prover="0"
+     timelimit="10"
+     obsolete="false"
+     archived="false"><undone/>
+     
+    </proof>
+   </goal>
+   <goal
     name="WP_parameter relax"
     locfile="bf/../bf.mlw"
-    loclnum="216" loccnumb="6" loccnume="11"
+    loclnum="226" loccnumb="6" loccnume="11"
     expl="parameter relax"
-    sum="c689889db78fc8340bca65cc24c6886f"
+    sum="0200bb23978a93e869ba6afa146d6ba3"
     proved="false"
-    expanded="true"
-    shape="iCagetV3V0aInfinitefaFiniteVCagetV3V1aInfinitetaFiniteVainfix <ainfix +V4aweightV0V1V5ainfix =agetV6V7agetV3V7Iainfix =V7V1NFACagetV3V1aFiniteVainfix =agetV6V1aFiniteV8Iashortest_pathasV1V8V9EaInfinitetACagetV3V1aInfinitetaFiniteVCagetV6V1aInfinitefaFiniteVainfix >=V10V11AapathsV6V2aemptyIainfix =V6asetV3V1CagetV3V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V12aweightV0V1Fainfix =agetV3V13agetV3V13Iainfix =V13V1NFACagetV3V1aFiniteVainfix =agetV3V1aFiniteV14Iashortest_pathasV1V14V15EaInfinitetACagetV3V1aInfinitetaFiniteVCagetV3V1aInfinitefaFiniteVainfix >=V16V17AapathsV3V2aemptyIapathsV3V2aemptyAamemaTuple2V0V1aedgesFFFF">
+    expanded="false"
+    shape="iCagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V5aweightV0V1V6ainfix =agetV4V8agetV7V8Iainfix =V8V1NFACagetV4V1aFiniteVainfix =V4V7Iashortest_pathasV1V9V10EaInfinitetACagetV4V1aInfinitetaFiniteVCagetV7V1aInfinitefaFiniteVainfix >=V11V12AapathsV7V2aaddaTuple2V0V1V3Iainfix =V7asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V13aweightV0V1FACagetV4V1aFiniteVashortest_pathasV1V15V14NaInfinitetFainfix =agetV4V17agetV16V17Iainfix =V17V1NFACagetV4V1aFiniteVainfix =V4V16Iashortest_pathasV1V18V19EaInfinitetACagetV4V1aInfinitetaFiniteVCagetV16V1aInfinitefaFiniteVainfix >=V20V21AapathsV16V2aaddaTuple2V0V1V3Iainfix =V16asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V22aweightV0V1FIapathsV4V2V3AamemaTuple2V0V1aedgesFFFFF">
     <label
      name="expl:parameter relax">
      </label>
     <transf
      name="split_goal"
      proved="false"
-     expanded="true">
+     expanded="false">
      <goal
       name="WP_parameter relax.1"
       locfile="bf/../bf.mlw"
-      loclnum="216" loccnumb="6" loccnume="11"
-      expl="normal postcondition"
-      sum="c483d987724e214780612e6e7d9c266c"
+      loclnum="226" loccnumb="6" loccnume="11"
+      expl="assertion"
+      sum="4a4b55d1e2d11ea4fc1ca13a5b1664bf"
       proved="false"
-      expanded="true"
-      shape="ainfix =agetV4V5agetV3V5Iainfix =V5V1NFACagetV3V1aFiniteVainfix =agetV4V1aFiniteV6Iashortest_pathasV1V6V7EaInfinitetACagetV3V1aInfinitetaFiniteVCagetV4V1aInfinitefaFiniteVainfix >=V8V9AapathsV4V2aemptyIainfix =V4asetV3V1CagetV3V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V10aweightV0V1FICagetV3V0aInfinitefaFiniteVCagetV3V1aInfinitetaFiniteVainfix <ainfix +V11aweightV0V1V12IapathsV3V2aemptyAamemaTuple2V0V1aedgesFFFF">
+      expanded="false"
+      shape="CagetV4V1aFiniteVashortest_pathasV1V6V5NaInfinitetFICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V7aweightV0V1V8IapathsV4V2V3AamemaTuple2V0V1aedgesFFFFF">
+      <label
+       name="expl:parameter relax">
+       </label>
+      <proof
+       prover="0"
+       timelimit="10"
+       obsolete="true"
+       archived="false">
+       <result status="timeout" time="16.18"/>
+      </proof>
+     </goal>
+     <goal
+      name="WP_parameter relax.2"
+      locfile="bf/../bf.mlw"
+      loclnum="226" loccnumb="6" loccnume="11"
+      expl="normal postcondition"
+      sum="bbfc66211cfd7ca562141c84fbda7687"
+      proved="false"
+      expanded="false"
+      shape="ainfix =agetV4V6agetV5V6Iainfix =V6V1NFACagetV4V1aFiniteVainfix =V4V5Iashortest_pathasV1V7V8EaInfinitetACagetV4V1aInfinitetaFiniteVCagetV5V1aInfinitefaFiniteVainfix >=V9V10AapathsV5V2aaddaTuple2V0V1V3Iainfix =V5asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V11aweightV0V1FICagetV4V1aFiniteVashortest_pathasV1V13V12NaInfinitetFICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V14aweightV0V1V15IapathsV4V2V3AamemaTuple2V0V1aedgesFFFFF">
       <label
        name="expl:parameter relax">
        </label>
       <transf
        name="split_goal"
        proved="false"
-       expanded="true">
+       expanded="false">
        <goal
-        name="WP_parameter relax.1.1"
+        name="WP_parameter relax.2.1"
         locfile="bf/../bf.mlw"
-        loclnum="216" loccnumb="6" loccnume="11"
+        loclnum="226" loccnumb="6" loccnume="11"
         expl="parameter relax"
-        sum="7ba83985eb9999a3441a9faee1415f53"
+        sum="e3bc5025df71f11f793dce5bc107317c"
         proved="false"
-        expanded="true"
-        shape="apathsV4V2aemptyIainfix =V4asetV3V1CagetV3V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V5aweightV0V1FICagetV3V0aInfinitefaFiniteVCagetV3V1aInfinitetaFiniteVainfix <ainfix +V6aweightV0V1V7IapathsV3V2aemptyAamemaTuple2V0V1aedgesFFFF">
+        expanded="false"
+        shape="apathsV5V2aaddaTuple2V0V1V3Iainfix =V5asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V6aweightV0V1FICagetV4V1aFiniteVashortest_pathasV1V8V7NaInfinitetFICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V9aweightV0V1V10IapathsV4V2V3AamemaTuple2V0V1aedgesFFFFF">
         <label
          name="expl:parameter relax">
          </label>
         <transf
          name="inline_goal"
          proved="false"
-         expanded="true">
+         expanded="false">
          <goal
-          name="WP_parameter relax.1.1.1"
+          name="WP_parameter relax.2.1.1"
           locfile="bf/../bf.mlw"
-          loclnum="216" loccnumb="6" loccnume="11"
+          loclnum="226" loccnumb="6" loccnume="11"
           expl="parameter relax"
-          sum="e19397f426f055708aaaae67ce2425b7"
+          sum="dbfd50a26654ba742efc8a50c40a4547"
           proved="false"
-          expanded="true"
-          shape="ainfix =amixfix []V4V5aInfiniteIano_pathasV5ACamixfix []V4V5aFiniteVapathasV5V6V7Aainfix <V7V2Aainfix <=c0V7EaInfiniteapathasV8V10V9NFIainfix <V9V2Aainfix <=c0V9FIamemaTuple2V8V5aemptyFAapathasV5V12V11NFIainfix <V11V2Aainfix <=c0V11FIamemV5averticesFIainfix =V4asetV3V1CagetV3V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V13aweightV0V1FICagetV3V0aInfinitefaFiniteVCagetV3V1aInfinitetaFiniteVainfix <ainfix +V14aweightV0V1V15Iainfix =amixfix []V3V16aInfiniteIano_pathasV16ACamixfix []V3V16aFiniteVapathasV16V17V18Aainfix <V18V2Aainfix <=c0V18EaInfiniteapathasV19V21V20NFIainfix <V20V2Aainfix <=c0V20FIamemaTuple2V19V16aemptyFAapathasV16V23V22NFIainfix <V22V2Aainfix <=c0V22FIamemV16averticesFAamemaTuple2V0V1aedgesFFFF">
+          expanded="false"
+          shape="ainfix =amixfix []V5V6aInfiniteIano_pathasV6ACamixfix []V5V6aFiniteVapathasV8ainfix -V7aweightV8V6V2Aainfix <V9V2Aainfix <=c0V9EAamemaTuple2V8V6aaddaTuple2V0V1V3EOapathasV6V7V10Aainfix <V10V2Aainfix <=c0V10EaInfiniteapathasV11V13V12NFIainfix <V12V2Aainfix <=c0V12FIamemaTuple2V11V6aaddaTuple2V0V1V3FAapathasV6V15V14NFIainfix <V14V2Aainfix <=c0V14FIamemV6averticesFIainfix =V5asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V16aweightV0V1FICagetV4V1aFiniteVapathasV1V19V20NIainfix <V19V18FAapathasV1V18V17NaInfinitetFICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V21aweightV0V1V22Iainfix =amixfix []V4V23aInfiniteIano_pathasV23ACamixfix []V4V23aFiniteVapathasV25ainfix -V24aweightV25V23V2Aainfix <V26V2Aainfix <=c0V26EAamemaTuple2V25V23V3EOapathasV23V24V27Aainfix <V27V2Aainfix <=c0V27EaInfiniteapathasV28V30V29NFIainfix <V29V2Aainfix <=c0V29FIamemaTuple2V28V23V3FAapathasV23V32V31NFIainfix <V31V2Aainfix <=c0V31FIamemV23averticesFAamemaTuple2V0V1aedgesFFFFF">
           <label
            name="expl:parameter relax">
            </label>
           <transf
            name="split_goal"
            proved="false"
-           expanded="true">
+           expanded="false">
            <goal
-            name="WP_parameter relax.1.1.1.1"
+            name="WP_parameter relax.2.1.1.1"
             locfile="bf/../bf.mlw"
-            loclnum="216" loccnumb="6" loccnume="11"
+            loclnum="226" loccnumb="6" loccnume="11"
             expl="parameter relax"
-            sum="084b390bd980972605c40197218a89fe"
-            proved="false"
-            expanded="true"
-            shape="Camixfix []V4V5aFiniteVapathasV5V6V7Aainfix <V7V2Aainfix <=c0V7EaInfinitetIamemV5averticesFIainfix =V4asetV3V1CagetV3V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V8aweightV0V1FICagetV3V0aInfinitefaFiniteVCagetV3V1aInfinitetaFiniteVainfix <ainfix +V9aweightV0V1V10Iainfix =amixfix []V3V11aInfiniteIano_pathasV11ACamixfix []V3V11aFiniteVapathasV11V12V13Aainfix <V13V2Aainfix <=c0V13EaInfiniteapathasV14V16V15NFIainfix <V15V2Aainfix <=c0V15FIamemaTuple2V14V11aemptyFAapathasV11V18V17NFIainfix <V17V2Aainfix <=c0V17FIamemV11averticesFAamemaTuple2V0V1aedgesFFFF">
-            <label
-             name="expl:parameter relax">
-             </label>
-            <transf
-             name="inline_goal"
-             proved="false"
-             expanded="true">
-             <goal
-              name="WP_parameter relax.1.1.1.1.1"
-              locfile="bf/../bf.mlw"
-              loclnum="216" loccnumb="6" loccnume="11"
-              expl="parameter relax"
-              sum="c9518520614b8794d28ab4f0325890ad"
-              proved="false"
-              expanded="true"
-              shape="Camixfix []V4V5aFiniteVapathasV5V6V7Aainfix <V7V2Aainfix =c0V7Oainfix <c0V7EaInfinitetIamemV5averticesFIainfix =V4asetV3V1CagetV3V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V8aweightV0V1FICagetV3V0aInfinitefaFiniteVCagetV3V1aInfinitetaFiniteVainfix <ainfix +V9aweightV0V1V10Iainfix =agetV3V11aInfiniteIapathasV11V12V13NFACamixfix []V3V11aFiniteVapathasV11V14V15Aainfix <V15V2Aainfix =c0V15Oainfix <c0V15EaInfiniteapathasV16V18V17NFIainfix <V17V2Aainfix =c0V17Oainfix <c0V17FIamemaTuple2V16V11aemptyFAapathasV11V20V19NFIainfix <V19V2Aainfix =c0V19Oainfix <c0V19FIamemV11averticesFAamemaTuple2V0V1aedgesFFFF">
-              <label
-               name="expl:parameter relax">
-               </label>
-             </goal>
-            </transf>
-           </goal>
-           <goal
-            name="WP_parameter relax.1.1.1.2"
-            locfile="bf/../bf.mlw"
-            loclnum="216" loccnumb="6" loccnume="11"
-            expl="parameter relax"
-            sum="4ba35fb099315eae8767c64ef3a0aa0e"
-            proved="false"
-            expanded="true"
-            shape="Camixfix []V4V5aFiniteVtaInfiniteapathasV5V8V7NFIainfix <V7V2Aainfix <=c0V7FIamemV5averticesFIainfix =V4asetV3V1CagetV3V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V9aweightV0V1FICagetV3V0aInfinitefaFiniteVCagetV3V1aInfinitetaFiniteVainfix <ainfix +V10aweightV0V1V11Iainfix =amixfix []V3V12aInfiniteIano_pathasV12ACamixfix []V3V12aFiniteVapathasV12V13V14Aainfix <V14V2Aainfix <=c0V14EaInfiniteapathasV15V17V16NFIainfix <V16V2Aainfix <=c0V16FIamemaTuple2V15V12aemptyFAapathasV12V19V18NFIainfix <V18V2Aainfix <=c0V18FIamemV12averticesFAamemaTuple2V0V1aedgesFFFF">
-            <label
-             name="expl:parameter relax">
-             </label>
-            <transf
-             name="inline_goal"
-             proved="false"
-             expanded="true">
-             <goal
-              name="WP_parameter relax.1.1.1.2.1"
-              locfile="bf/../bf.mlw"
-              loclnum="216" loccnumb="6" loccnume="11"
-              expl="parameter relax"
-              sum="76f78bae57c2651c3270ef4989017b6d"
-              proved="false"
-              expanded="true"
-              shape="Camixfix []V4V5aFiniteVtaInfiniteapathasV5V8V7NFIainfix <V7V2Aainfix =c0V7Oainfix <c0V7FIamemV5averticesFIainfix =V4asetV3V1CagetV3V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V9aweightV0V1FICagetV3V0aInfinitefaFiniteVCagetV3V1aInfinitetaFiniteVainfix <ainfix +V10aweightV0V1V11Iainfix =agetV3V12aInfiniteIapathasV12V13V14NFACamixfix []V3V12aFiniteVapathasV12V15V16Aainfix <V16V2Aainfix =c0V16Oainfix <c0V16EaInfiniteapathasV17V19V18NFIainfix <V18V2Aainfix =c0V18Oainfix <c0V18FIamemaTuple2V17V12aemptyFAapathasV12V21V20NFIainfix <V20V2Aainfix =c0V20Oainfix <c0V20FIamemV12averticesFAamemaTuple2V0V1aedgesFFFF">
-              <label
-               name="expl:parameter relax">
-               </label>
-             </goal>
-            </transf>
-           </goal>
-           <goal
-            name="WP_parameter relax.1.1.1.3"
-            locfile="bf/../bf.mlw"
-            loclnum="216" loccnumb="6" loccnume="11"
-            expl="parameter relax"
-            sum="089e3a42d3c16c776cffe64320a5e981"
+            sum="9d98343107b0ac9011aa5275a5185ff3"
             proved="false"
             expanded="false"
-            shape="Camixfix []V4V5aFiniteVtaInfiniteapathasV7V9V8NFIainfix <V8V2Aainfix <=c0V8FIamemaTuple2V7V5aemptyFIamemV5averticesFIainfix =V4asetV3V1CagetV3V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V10aweightV0V1FICagetV3V0aInfinitefaFiniteVCagetV3V1aInfinitetaFiniteVainfix <ainfix +V11aweightV0V1V12Iainfix =amixfix []V3V13aInfiniteIano_pathasV13ACamixfix []V3V13aFiniteVapathasV13V14V15Aainfix <V15V2Aainfix <=c0V15EaInfiniteapathasV16V18V17NFIainfix <V17V2Aainfix <=c0V17FIamemaTuple2V16V13aemptyFAapathasV13V20V19NFIainfix <V19V2Aainfix <=c0V19FIamemV13averticesFAamemaTuple2V0V1aedgesFFFF">
+            shape="Camixfix []V5V6aFiniteVapathasV8ainfix -V7aweightV8V6V2Aainfix <V9V2Aainfix <=c0V9EAamemaTuple2V8V6aaddaTuple2V0V1V3EOapathasV6V7V10Aainfix <V10V2Aainfix <=c0V10EaInfinitetIamemV6averticesFIainfix =V5asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V11aweightV0V1FICagetV4V1aFiniteVapathasV1V14V15NIainfix <V14V13FAapathasV1V13V12NaInfinitetFICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V16aweightV0V1V17Iainfix =amixfix []V4V18aInfiniteIano_pathasV18ACamixfix []V4V18aFiniteVapathasV20ainfix -V19aweightV20V18V2Aainfix <V21V2Aainfix <=c0V21EAamemaTuple2V20V18V3EOapathasV18V19V22Aainfix <V22V2Aainfix <=c0V22EaInfiniteapathasV23V25V24NFIainfix <V24V2Aainfix <=c0V24FIamemaTuple2V23V18V3FAapathasV18V27V26NFIainfix <V26V2Aainfix <=c0V26FIamemV18averticesFAamemaTuple2V0V1aedgesFFFFF">
             <label
              name="expl:parameter relax">
              </label>
+            <proof
+             prover="0"
+             timelimit="10"
+             obsolete="true"
+             archived="false">
+             <result status="timeout" time="14.27"/>
+            </proof>
             <proof
              prover="1"
              timelimit="10"
              obsolete="true"
              archived="false">
-             <result status="valid" time="0.08"/>
-            </proof>
-            <proof
-             prover="3"
-             timelimit="10"
-             obsolete="true"
-             archived="false">
-             <result status="valid" time="0.05"/>
+             <result status="timeout" time="19.28"/>
             </proof>
            </goal>
            <goal
-            name="WP_parameter relax.1.1.1.4"
+            name="WP_parameter relax.2.1.1.2"
             locfile="bf/../bf.mlw"
-            loclnum="216" loccnumb="6" loccnume="11"
+            loclnum="226" loccnumb="6" loccnume="11"
             expl="parameter relax"
-            sum="ea4c6e0d1e8a3d8fc12d2bb4067cd084"
+            sum="9f221cfd53d80bf3ad0383be4a829833"
             proved="false"
             expanded="false"
-            shape="ainfix =amixfix []V4V5aInfiniteIano_pathasV5IamemV5averticesFIainfix =V4asetV3V1CagetV3V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V6aweightV0V1FICagetV3V0aInfinitefaFiniteVCagetV3V1aInfinitetaFiniteVainfix <ainfix +V7aweightV0V1V8Iainfix =amixfix []V3V9aInfiniteIano_pathasV9ACamixfix []V3V9aFiniteVapathasV9V10V11Aainfix <V11V2Aainfix <=c0V11EaInfiniteapathasV12V14V13NFIainfix <V13V2Aainfix <=c0V13FIamemaTuple2V12V9aemptyFAapathasV9V16V15NFIainfix <V15V2Aainfix <=c0V15FIamemV9averticesFAamemaTuple2V0V1aedgesFFFF">
+            shape="Camixfix []V5V6aFiniteVtaInfiniteapathasV6V9V8NFIainfix <V8V2Aainfix <=c0V8FIamemV6averticesFIainfix =V5asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V10aweightV0V1FICagetV4V1aFiniteVapathasV1V13V14NIainfix <V13V12FAapathasV1V12V11NaInfinitetFICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V15aweightV0V1V16Iainfix =amixfix []V4V17aInfiniteIano_pathasV17ACamixfix []V4V17aFiniteVapathasV19ainfix -V18aweightV19V17V2Aainfix <V20V2Aainfix <=c0V20EAamemaTuple2V19V17V3EOapathasV17V18V21Aainfix <V21V2Aainfix <=c0V21EaInfiniteapathasV22V24V23NFIainfix <V23V2Aainfix <=c0V23FIamemaTuple2V22V17V3FAapathasV17V26V25NFIainfix <V25V2Aainfix <=c0V25FIamemV17averticesFAamemaTuple2V0V1aedgesFFFFF">
+            <label
+             name="expl:parameter relax">
+             </label>
+            <transf
+             name="inline_goal"
+             proved="false"
+             expanded="false">
+             <goal
+              name="WP_parameter relax.2.1.1.2.1"
+              locfile="bf/../bf.mlw"
+              loclnum="226" loccnumb="6" loccnume="11"
+              expl="parameter relax"
+              sum="857af237861c110e7cd3d0809e2e3448"
+              proved="false"
+              expanded="false"
+              shape="Camixfix []V5V6aFiniteVtaInfiniteapathasV6V9V8NFIainfix <V8V2Aainfix =c0V8Oainfix <c0V8FIamemV6averticesFIainfix =V5asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V10aweightV0V1FICagetV4V1aFiniteVapathasV1V13V14NIainfix <V13V12FAapathasV1V12V11NaInfinitetFICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V15aweightV0V1V16Iainfix =agetV4V17aInfiniteIapathasV17V18V19NFACamixfix []V4V17aFiniteVapathasV21ainfix -V20aweightV21V17V2Aainfix <V22V2Aainfix =c0V22Oainfix <c0V22EAamemaTuple2V21V17V3EOapathasV17V20V23Aainfix <V23V2Aainfix =c0V23Oainfix <c0V23EaInfiniteapathasV24V26V25NFIainfix <V25V2Aainfix =c0V25Oainfix <c0V25FIamemaTuple2V24V17V3FAapathasV17V28V27NFIainfix <V27V2Aainfix =c0V27Oainfix <c0V27FIamemV17averticesFAamemaTuple2V0V1aedgesFFFFF">
+              <label
+               name="expl:parameter relax">
+               </label>
+              <proof
+               prover="0"
+               timelimit="10"
+               obsolete="true"
+               archived="false">
+               <result status="timeout" time="18.49"/>
+              </proof>
+              <proof
+               prover="1"
+               timelimit="10"
+               obsolete="true"
+               archived="false">
+               <result status="valid" time="0.30"/>
+              </proof>
+             </goal>
+            </transf>
+           </goal>
+           <goal
+            name="WP_parameter relax.2.1.1.3"
+            locfile="bf/../bf.mlw"
+            loclnum="226" loccnumb="6" loccnume="11"
+            expl="parameter relax"
+            sum="5e754b1414647327e3e4dac71e9a6387"
+            proved="false"
+            expanded="false"
+            shape="Camixfix []V5V6aFiniteVtaInfiniteapathasV8V10V9NFIainfix <V9V2Aainfix <=c0V9FIamemaTuple2V8V6aaddaTuple2V0V1V3FIamemV6averticesFIainfix =V5asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V11aweightV0V1FICagetV4V1aFiniteVapathasV1V14V15NIainfix <V14V13FAapathasV1V13V12NaInfinitetFICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V16aweightV0V1V17Iainfix =amixfix []V4V18aInfiniteIano_pathasV18ACamixfix []V4V18aFiniteVapathasV20ainfix -V19aweightV20V18V2Aainfix <V21V2Aainfix <=c0V21EAamemaTuple2V20V18V3EOapathasV18V19V22Aainfix <V22V2Aainfix <=c0V22EaInfiniteapathasV23V25V24NFIainfix <V24V2Aainfix <=c0V24FIamemaTuple2V23V18V3FAapathasV18V27V26NFIainfix <V26V2Aainfix <=c0V26FIamemV18averticesFAamemaTuple2V0V1aedgesFFFFF">
             <label
              name="expl:parameter relax">
              </label>
             <proof
+             prover="0"
+             timelimit="10"
+             obsolete="true"
+             archived="false">
+             <result status="timeout" time="18.08"/>
+            </proof>
+            <proof
+             prover="1"
+             timelimit="10"
+             obsolete="true"
+             archived="false">
+             <result status="valid" time="0.27"/>
+            </proof>
+            <proof
              prover="3"
              timelimit="10"
              obsolete="true"
              archived="false">
-             <result status="valid" time="0.16"/>
+             <result status="timeout" time="13.07"/>
             </proof>
+           </goal>
+           <goal
+            name="WP_parameter relax.2.1.1.4"
+            locfile="bf/../bf.mlw"
+            loclnum="226" loccnumb="6" loccnume="11"
+            expl="parameter relax"
+            sum="ab95ddb5cdfef6aaa23e426c468eb3b2"
+            proved="false"
+            expanded="false"
+            shape="ainfix =amixfix []V5V6aInfiniteIano_pathasV6IamemV6averticesFIainfix =V5asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V7aweightV0V1FICagetV4V1aFiniteVapathasV1V10V11NIainfix <V10V9FAapathasV1V9V8NaInfinitetFICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V12aweightV0V1V13Iainfix =amixfix []V4V14aInfiniteIano_pathasV14ACamixfix []V4V14aFiniteVapathasV16ainfix -V15aweightV16V14V2Aainfix <V17V2Aainfix <=c0V17EAamemaTuple2V16V14V3EOapathasV14V15V18Aainfix <V18V2Aainfix <=c0V18EaInfiniteapathasV19V21V20NFIainfix <V20V2Aainfix <=c0V20FIamemaTuple2V19V14V3FAapathasV14V23V22NFIainfix <V22V2Aainfix <=c0V22FIamemV14averticesFAamemaTuple2V0V1aedgesFFFFF">
+            <label
+             name="expl:parameter relax">
+             </label>
            </goal>
           </transf>
          </goal>
         </transf>
        </goal>
        <goal
-        name="WP_parameter relax.1.2"
+        name="WP_parameter relax.2.2"
         locfile="bf/../bf.mlw"
-        loclnum="216" loccnumb="6" loccnume="11"
+        loclnum="226" loccnumb="6" loccnume="11"
         expl="parameter relax"
-        sum="34cecb236584cf87444a57add887a44d"
+        sum="1d1a976076a4aa2ec9989a9cd9d5db9b"
         proved="false"
         expanded="false"
-        shape="CagetV3V1aInfinitetaFiniteVCagetV4V1aInfinitefaFiniteVtIainfix =V4asetV3V1CagetV3V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V7aweightV0V1FICagetV3V0aInfinitefaFiniteVCagetV3V1aInfinitetaFiniteVainfix <ainfix +V8aweightV0V1V9IapathsV3V2aemptyAamemaTuple2V0V1aedgesFFFF">
+        shape="CagetV4V1aInfinitetaFiniteVCagetV5V1aInfinitefaFiniteVtIainfix =V5asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V8aweightV0V1FICagetV4V1aFiniteVashortest_pathasV1V10V9NaInfinitetFICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V11aweightV0V1V12IapathsV4V2V3AamemaTuple2V0V1aedgesFFFFF">
         <label
          name="expl:parameter relax">
          </label>
@@ -512,16 +609,30 @@
          archived="false">
          <result status="valid" time="0.05"/>
         </proof>
+        <proof
+         prover="1"
+         timelimit="10"
+         obsolete="true"
+         archived="false">
+         <result status="valid" time="0.04"/>
+        </proof>
+        <proof
+         prover="3"
+         timelimit="10"
+         obsolete="true"
+         archived="false">
+         <result status="valid" time="0.04"/>
+        </proof>
        </goal>
        <goal
-        name="WP_parameter relax.1.3"
+        name="WP_parameter relax.2.3"
         locfile="bf/../bf.mlw"
-        loclnum="216" loccnumb="6" loccnume="11"
+        loclnum="226" loccnumb="6" loccnume="11"
         expl="parameter relax"
-        sum="68de9f37ff30392342a853e3abd8e916"
+        sum="750137376dd60e7eacd59bf051a021d3"
         proved="false"
         expanded="false"
-        shape="CagetV3V1aInfinitetaFiniteVCagetV4V1aInfinitetaFiniteVainfix >=V5V6Iainfix =V4asetV3V1CagetV3V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V7aweightV0V1FICagetV3V0aInfinitefaFiniteVCagetV3V1aInfinitetaFiniteVainfix <ainfix +V8aweightV0V1V9IapathsV3V2aemptyAamemaTuple2V0V1aedgesFFFF">
+        shape="CagetV4V1aInfinitetaFiniteVCagetV5V1aInfinitetaFiniteVainfix >=V6V7Iainfix =V5asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V8aweightV0V1FICagetV4V1aFiniteVashortest_pathasV1V10V9NaInfinitetFICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V11aweightV0V1V12IapathsV4V2V3AamemaTuple2V0V1aedgesFFFFF">
         <label
          name="expl:parameter relax">
          </label>
@@ -530,21 +641,15 @@
          timelimit="10"
          obsolete="true"
          archived="false">
-         <result status="valid" time="0.08"/>
+         <result status="valid" time="0.10"/>
         </proof>
-       </goal>
-       <goal
-        name="WP_parameter relax.1.4"
-        locfile="bf/../bf.mlw"
-        loclnum="216" loccnumb="6" loccnume="11"
-        expl="parameter relax"
-        sum="24c3ada3ba3e04e947b499d1b95282d0"
-        proved="false"
-        expanded="false"
-        shape="CagetV3V1aFiniteVainfix =agetV4V1aFiniteV5Iashortest_pathasV1V5V6EaInfinitetIainfix =V4asetV3V1CagetV3V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V7aweightV0V1FICagetV3V0aInfinitefaFiniteVCagetV3V1aInfinitetaFiniteVainfix <ainfix +V8aweightV0V1V9IapathsV3V2aemptyAamemaTuple2V0V1aedgesFFFF">
-        <label
-         name="expl:parameter relax">
-         </label>
+        <proof
+         prover="1"
+         timelimit="10"
+         obsolete="true"
+         archived="false">
+         <result status="valid" time="0.09"/>
+        </proof>
         <proof
          prover="3"
          timelimit="10"
@@ -554,14 +659,14 @@
         </proof>
        </goal>
        <goal
-        name="WP_parameter relax.1.5"
+        name="WP_parameter relax.2.4"
         locfile="bf/../bf.mlw"
-        loclnum="216" loccnumb="6" loccnume="11"
+        loclnum="226" loccnumb="6" loccnume="11"
         expl="parameter relax"
-        sum="ca155fabe06dd436838d3114971a3da8"
+        sum="624124ac8a8dffbde01dca58de3d3bd3"
         proved="false"
         expanded="false"
-        shape="ainfix =agetV4V5agetV3V5Iainfix =V5V1NFIainfix =V4asetV3V1CagetV3V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V6aweightV0V1FICagetV3V0aInfinitefaFiniteVCagetV3V1aInfinitetaFiniteVainfix <ainfix +V7aweightV0V1V8IapathsV3V2aemptyAamemaTuple2V0V1aedgesFFFF">
+        shape="CagetV4V1aFiniteVainfix =V4V5Iashortest_pathasV1V6V7EaInfinitetIainfix =V5asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V8aweightV0V1FICagetV4V1aFiniteVashortest_pathasV1V10V9NaInfinitetFICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V11aweightV0V1V12IapathsV4V2V3AamemaTuple2V0V1aedgesFFFFF">
         <label
          name="expl:parameter relax">
          </label>
@@ -570,56 +675,32 @@
          timelimit="10"
          obsolete="true"
          archived="false">
-         <result status="valid" time="0.02"/>
+         <result status="timeout" time="18.66"/>
         </proof>
-       </goal>
-      </transf>
-     </goal>
-     <goal
-      name="WP_parameter relax.2"
-      locfile="bf/../bf.mlw"
-      loclnum="216" loccnumb="6" loccnume="11"
-      expl="normal postcondition"
-      sum="2126fe5457bfb1209dddeea0586ec9d1"
-      proved="false"
-      expanded="true"
-      shape="ainfix =agetV3V4agetV3V4Iainfix =V4V1NFACagetV3V1aFiniteVainfix =agetV3V1aFiniteV5Iashortest_pathasV1V5V6EaInfinitetACagetV3V1aInfinitetaFiniteVCagetV3V1aInfinitefaFiniteVainfix >=V7V8AapathsV3V2aemptyICagetV3V0aInfinitefaFiniteVCagetV3V1aInfinitetaFiniteVainfix <ainfix +V9aweightV0V1V10NIapathsV3V2aemptyAamemaTuple2V0V1aedgesFFFF">
-      <label
-       name="expl:parameter relax">
-       </label>
-      <transf
-       name="split_goal"
-       proved="false"
-       expanded="true">
-       <goal
-        name="WP_parameter relax.2.1"
-        locfile="bf/../bf.mlw"
-        loclnum="216" loccnumb="6" loccnume="11"
-        expl="parameter relax"
-        sum="6691ec07a7d86955463bebc73dad0dbb"
-        proved="false"
-        expanded="false"
-        shape="apathsV3V2aemptyICagetV3V0aInfinitefaFiniteVCagetV3V1aInfinitetaFiniteVainfix <ainfix +V4aweightV0V1V5NIapathsV3V2aemptyAamemaTuple2V0V1aedgesFFFF">
-        <label
-         name="expl:parameter relax">
-         </label>
         <proof
-         prover="0"
+         prover="1"
          timelimit="10"
          obsolete="true"
          archived="false">
-         <result status="valid" time="0.02"/>
+         <result status="timeout" time="18.80"/>
+        </proof>
+        <proof
+         prover="3"
+         timelimit="10"
+         obsolete="true"
+         archived="false">
+         <result status="timeout" time="18.70"/>
         </proof>
        </goal>
        <goal
-        name="WP_parameter relax.2.2"
+        name="WP_parameter relax.2.5"
         locfile="bf/../bf.mlw"
-        loclnum="216" loccnumb="6" loccnume="11"
+        loclnum="226" loccnumb="6" loccnume="11"
         expl="parameter relax"
-        sum="f491fd18c685e9f209d4506ff755a49b"
+        sum="a0098559b212a6da59a214a8ec3b718c"
         proved="false"
         expanded="false"
-        shape="CagetV3V1aInfinitetaFiniteVCagetV3V1aInfinitefaFiniteVtICagetV3V0aInfinitefaFiniteVCagetV3V1aInfinitetaFiniteVainfix <ainfix +V6aweightV0V1V7NIapathsV3V2aemptyAamemaTuple2V0V1aedgesFFFF">
+        shape="ainfix =agetV4V6agetV5V6Iainfix =V6V1NFIainfix =V5asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V7aweightV0V1FICagetV4V1aFiniteVashortest_pathasV1V9V8NaInfinitetFICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V10aweightV0V1V11IapathsV4V2V3AamemaTuple2V0V1aedgesFFFFF">
         <label
          name="expl:parameter relax">
          </label>
@@ -630,16 +711,211 @@
          archived="false">
          <result status="valid" time="0.03"/>
         </proof>
+        <proof
+         prover="1"
+         timelimit="10"
+         obsolete="true"
+         archived="false">
+         <result status="valid" time="0.04"/>
+        </proof>
+        <proof
+         prover="3"
+         timelimit="10"
+         obsolete="true"
+         archived="false">
+         <result status="valid" time="0.04"/>
+        </proof>
        </goal>
+      </transf>
+     </goal>
+     <goal
+      name="WP_parameter relax.3"
+      locfile="bf/../bf.mlw"
+      loclnum="226" loccnumb="6" loccnume="11"
+      expl="normal postcondition"
+      sum="1fb323ced78e43b1d1f58d5d84441060"
+      proved="false"
+      expanded="false"
+      shape="ainfix =agetV4V6agetV5V6Iainfix =V6V1NFACagetV4V1aFiniteVainfix =V4V5Iashortest_pathasV1V7V8EaInfinitetACagetV4V1aInfinitetaFiniteVCagetV5V1aInfinitefaFiniteVainfix >=V9V10AapathsV5V2aaddaTuple2V0V1V3Iainfix =V5asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V11aweightV0V1FICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V12aweightV0V1V13NIapathsV4V2V3AamemaTuple2V0V1aedgesFFFFF">
+      <label
+       name="expl:parameter relax">
+       </label>
+      <transf
+       name="split_goal"
+       proved="false"
+       expanded="false">
        <goal
-        name="WP_parameter relax.2.3"
+        name="WP_parameter relax.3.1"
         locfile="bf/../bf.mlw"
-        loclnum="216" loccnumb="6" loccnume="11"
+        loclnum="226" loccnumb="6" loccnume="11"
         expl="parameter relax"
-        sum="add7c19f587ba71833c31b609419d508"
+        sum="7b913aaaf51372cb88f81a454329e912"
         proved="false"
         expanded="false"
-        shape="CagetV3V1aInfinitetaFiniteVCagetV3V1aInfinitetaFiniteVainfix >=V4V5ICagetV3V0aInfinitefaFiniteVCagetV3V1aInfinitetaFiniteVainfix <ainfix +V6aweightV0V1V7NIapathsV3V2aemptyAamemaTuple2V0V1aedgesFFFF">
+        shape="apathsV5V2aaddaTuple2V0V1V3Iainfix =V5asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V6aweightV0V1FICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V7aweightV0V1V8NIapathsV4V2V3AamemaTuple2V0V1aedgesFFFFF">
+        <label
+         name="expl:parameter relax">
+         </label>
+        <transf
+         name="inline_goal"
+         proved="false"
+         expanded="false">
+         <goal
+          name="WP_parameter relax.3.1.1"
+          locfile="bf/../bf.mlw"
+          loclnum="226" loccnumb="6" loccnume="11"
+          expl="parameter relax"
+          sum="02c02b1b8e90d6aea60f609b2a87ccfe"
+          proved="false"
+          expanded="false"
+          shape="ainfix =amixfix []V5V6aInfiniteIano_pathasV6ACamixfix []V5V6aFiniteVapathasV8ainfix -V7aweightV8V6V2Aainfix <V9V2Aainfix <=c0V9EAamemaTuple2V8V6aaddaTuple2V0V1V3EOapathasV6V7V10Aainfix <V10V2Aainfix <=c0V10EaInfiniteapathasV11V13V12NFIainfix <V12V2Aainfix <=c0V12FIamemaTuple2V11V6aaddaTuple2V0V1V3FAapathasV6V15V14NFIainfix <V14V2Aainfix <=c0V14FIamemV6averticesFIainfix =V5asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V16aweightV0V1FICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V17aweightV0V1V18NIainfix =amixfix []V4V19aInfiniteIano_pathasV19ACamixfix []V4V19aFiniteVapathasV21ainfix -V20aweightV21V19V2Aainfix <V22V2Aainfix <=c0V22EAamemaTuple2V21V19V3EOapathasV19V20V23Aainfix <V23V2Aainfix <=c0V23EaInfiniteapathasV24V26V25NFIainfix <V25V2Aainfix <=c0V25FIamemaTuple2V24V19V3FAapathasV19V28V27NFIainfix <V27V2Aainfix <=c0V27FIamemV19averticesFAamemaTuple2V0V1aedgesFFFFF">
+          <label
+           name="expl:parameter relax">
+           </label>
+          <transf
+           name="split_goal"
+           proved="false"
+           expanded="false">
+           <goal
+            name="WP_parameter relax.3.1.1.1"
+            locfile="bf/../bf.mlw"
+            loclnum="226" loccnumb="6" loccnume="11"
+            expl="parameter relax"
+            sum="95ff53df221e54855c1ce4800d838835"
+            proved="false"
+            expanded="false"
+            shape="Camixfix []V5V6aFiniteVapathasV8ainfix -V7aweightV8V6V2Aainfix <V9V2Aainfix <=c0V9EAamemaTuple2V8V6aaddaTuple2V0V1V3EOapathasV6V7V10Aainfix <V10V2Aainfix <=c0V10EaInfinitetIamemV6averticesFIainfix =V5asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V11aweightV0V1FICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V12aweightV0V1V13NIainfix =amixfix []V4V14aInfiniteIano_pathasV14ACamixfix []V4V14aFiniteVapathasV16ainfix -V15aweightV16V14V2Aainfix <V17V2Aainfix <=c0V17EAamemaTuple2V16V14V3EOapathasV14V15V18Aainfix <V18V2Aainfix <=c0V18EaInfiniteapathasV19V21V20NFIainfix <V20V2Aainfix <=c0V20FIamemaTuple2V19V14V3FAapathasV14V23V22NFIainfix <V22V2Aainfix <=c0V22FIamemV14averticesFAamemaTuple2V0V1aedgesFFFFF">
+            <label
+             name="expl:parameter relax">
+             </label>
+            <transf
+             name="inline_goal"
+             proved="false"
+             expanded="false">
+             <goal
+              name="WP_parameter relax.3.1.1.1.1"
+              locfile="bf/../bf.mlw"
+              loclnum="226" loccnumb="6" loccnume="11"
+              expl="parameter relax"
+              sum="2e771015d7602517818ae02d5225408b"
+              proved="false"
+              expanded="false"
+              shape="Camixfix []V5V6aFiniteVapathasV8ainfix -V7aweightV8V6V2Aainfix <V9V2Aainfix =c0V9Oainfix <c0V9EAamemaTuple2V8V6aaddaTuple2V0V1V3EOapathasV6V7V10Aainfix <V10V2Aainfix =c0V10Oainfix <c0V10EaInfinitetIamemV6averticesFIainfix =V5asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V11aweightV0V1FICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V12aweightV0V1V13NIainfix =agetV4V14aInfiniteIapathasV14V15V16NFACamixfix []V4V14aFiniteVapathasV18ainfix -V17aweightV18V14V2Aainfix <V19V2Aainfix =c0V19Oainfix <c0V19EAamemaTuple2V18V14V3EOapathasV14V17V20Aainfix <V20V2Aainfix =c0V20Oainfix <c0V20EaInfiniteapathasV21V23V22NFIainfix <V22V2Aainfix =c0V22Oainfix <c0V22FIamemaTuple2V21V14V3FAapathasV14V25V24NFIainfix <V24V2Aainfix =c0V24Oainfix <c0V24FIamemV14averticesFAamemaTuple2V0V1aedgesFFFFF">
+              <label
+               name="expl:parameter relax">
+               </label>
+              <proof
+               prover="0"
+               timelimit="10"
+               obsolete="true"
+               archived="false">
+               <result status="timeout" time="19.06"/>
+              </proof>
+              <proof
+               prover="1"
+               timelimit="10"
+               obsolete="true"
+               archived="false">
+               <result status="timeout" time="13.89"/>
+              </proof>
+              <proof
+               prover="3"
+               timelimit="10"
+               obsolete="true"
+               archived="false">
+               <result status="timeout" time="15.71"/>
+              </proof>
+              <proof
+               prover="2"
+               timelimit="10"
+               edited="bf_WP_BellmanFord_WP_parameter_relax_4.v"
+               obsolete="true"
+               archived="false">
+               <result status="unknown" time="1.16"/>
+              </proof>
+             </goal>
+            </transf>
+           </goal>
+           <goal
+            name="WP_parameter relax.3.1.1.2"
+            locfile="bf/../bf.mlw"
+            loclnum="226" loccnumb="6" loccnume="11"
+            expl="parameter relax"
+            sum="e768dcfd9b1e09ac515f163d2ba33931"
+            proved="false"
+            expanded="false"
+            shape="Camixfix []V5V6aFiniteVtaInfiniteapathasV6V9V8NFIainfix <V8V2Aainfix <=c0V8FIamemV6averticesFIainfix =V5asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V10aweightV0V1FICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V11aweightV0V1V12NIainfix =amixfix []V4V13aInfiniteIano_pathasV13ACamixfix []V4V13aFiniteVapathasV15ainfix -V14aweightV15V13V2Aainfix <V16V2Aainfix <=c0V16EAamemaTuple2V15V13V3EOapathasV13V14V17Aainfix <V17V2Aainfix <=c0V17EaInfiniteapathasV18V20V19NFIainfix <V19V2Aainfix <=c0V19FIamemaTuple2V18V13V3FAapathasV13V22V21NFIainfix <V21V2Aainfix <=c0V21FIamemV13averticesFAamemaTuple2V0V1aedgesFFFFF">
+            <label
+             name="expl:parameter relax">
+             </label>
+            <proof
+             prover="0"
+             timelimit="10"
+             obsolete="true"
+             archived="false">
+             <result status="timeout" time="14.88"/>
+            </proof>
+            <proof
+             prover="1"
+             timelimit="10"
+             obsolete="true"
+             archived="false">
+             <result status="timeout" time="19.14"/>
+            </proof>
+           </goal>
+           <goal
+            name="WP_parameter relax.3.1.1.3"
+            locfile="bf/../bf.mlw"
+            loclnum="226" loccnumb="6" loccnume="11"
+            expl="parameter relax"
+            sum="d5f70858b58c70f474de424b91d8570b"
+            proved="false"
+            expanded="false"
+            shape="Camixfix []V5V6aFiniteVtaInfiniteapathasV8V10V9NFIainfix <V9V2Aainfix <=c0V9FIamemaTuple2V8V6aaddaTuple2V0V1V3FIamemV6averticesFIainfix =V5asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V11aweightV0V1FICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V12aweightV0V1V13NIainfix =amixfix []V4V14aInfiniteIano_pathasV14ACamixfix []V4V14aFiniteVapathasV16ainfix -V15aweightV16V14V2Aainfix <V17V2Aainfix <=c0V17EAamemaTuple2V16V14V3EOapathasV14V15V18Aainfix <V18V2Aainfix <=c0V18EaInfiniteapathasV19V21V20NFIainfix <V20V2Aainfix <=c0V20FIamemaTuple2V19V14V3FAapathasV14V23V22NFIainfix <V22V2Aainfix <=c0V22FIamemV14averticesFAamemaTuple2V0V1aedgesFFFFF">
+            <label
+             name="expl:parameter relax">
+             </label>
+            <proof
+             prover="0"
+             timelimit="10"
+             obsolete="true"
+             archived="false">
+             <result status="timeout" time="14.65"/>
+            </proof>
+            <proof
+             prover="1"
+             timelimit="10"
+             obsolete="true"
+             archived="false">
+             <result status="timeout" time="17.39"/>
+            </proof>
+           </goal>
+           <goal
+            name="WP_parameter relax.3.1.1.4"
+            locfile="bf/../bf.mlw"
+            loclnum="226" loccnumb="6" loccnume="11"
+            expl="parameter relax"
+            sum="b028b5f2276d7e4d69daa40f5aaa7206"
+            proved="false"
+            expanded="false"
+            shape="ainfix =amixfix []V5V6aInfiniteIano_pathasV6IamemV6averticesFIainfix =V5asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V7aweightV0V1FICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V8aweightV0V1V9NIainfix =amixfix []V4V10aInfiniteIano_pathasV10ACamixfix []V4V10aFiniteVapathasV12ainfix -V11aweightV12V10V2Aainfix <V13V2Aainfix <=c0V13EAamemaTuple2V12V10V3EOapathasV10V11V14Aainfix <V14V2Aainfix <=c0V14EaInfiniteapathasV15V17V16NFIainfix <V16V2Aainfix <=c0V16FIamemaTuple2V15V10V3FAapathasV10V19V18NFIainfix <V18V2Aainfix <=c0V18FIamemV10averticesFAamemaTuple2V0V1aedgesFFFFF">
+            <label
+             name="expl:parameter relax">
+             </label>
+           </goal>
+          </transf>
+         </goal>
+        </transf>
+       </goal>
+       <goal
+        name="WP_parameter relax.3.2"
+        locfile="bf/../bf.mlw"
+        loclnum="226" loccnumb="6" loccnume="11"
+        expl="parameter relax"
+        sum="c1eccf9324f37b7ba579bb9669d15a0c"
+        proved="false"
+        expanded="false"
+        shape="CagetV4V1aInfinitetaFiniteVCagetV5V1aInfinitefaFiniteVtIainfix =V5asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V8aweightV0V1FICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V9aweightV0V1V10NIapathsV4V2V3AamemaTuple2V0V1aedgesFFFFF">
         <label
          name="expl:parameter relax">
          </label>
@@ -648,56 +924,93 @@
          timelimit="10"
          obsolete="true"
          archived="false">
-         <result status="valid" time="0.04"/>
+         <result status="timeout" time="16.48"/>
+        </proof>
+        <proof
+         prover="1"
+         timelimit="10"
+         obsolete="true"
+         archived="false">
+         <result status="timeout" time="17.42"/>
+        </proof>
+        <proof
+         prover="3"
+         timelimit="10"
+         obsolete="true"
+         archived="false">
+         <result status="timeout" time="16.69"/>
         </proof>
        </goal>
        <goal
-        name="WP_parameter relax.2.4"
+        name="WP_parameter relax.3.3"
         locfile="bf/../bf.mlw"
-        loclnum="216" loccnumb="6" loccnume="11"
+        loclnum="226" loccnumb="6" loccnume="11"
         expl="parameter relax"
-        sum="57bb87a4d1124722799f581baf35f4f0"
+        sum="59900118840a04c46ff9365ff587934f"
         proved="false"
-        expanded="true"
-        shape="CagetV3V1aFiniteVainfix =agetV3V1aFiniteV4Iashortest_pathasV1V4V5EaInfinitetICagetV3V0aInfinitefaFiniteVCagetV3V1aInfinitetaFiniteVainfix <ainfix +V6aweightV0V1V7NIapathsV3V2aemptyAamemaTuple2V0V1aedgesFFFF">
+        expanded="false"
+        shape="CagetV4V1aInfinitetaFiniteVCagetV5V1aInfinitetaFiniteVainfix >=V6V7Iainfix =V5asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V8aweightV0V1FICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V9aweightV0V1V10NIapathsV4V2V3AamemaTuple2V0V1aedgesFFFFF">
         <label
          name="expl:parameter relax">
          </label>
-        <transf
-         name="inline_goal"
-         proved="false"
-         expanded="true">
-         <goal
-          name="WP_parameter relax.2.4.1"
-          locfile="bf/../bf.mlw"
-          loclnum="216" loccnumb="6" loccnume="11"
-          expl="parameter relax"
-          sum="ba86d1dce1de6dd958147c0c40db28e3"
-          proved="false"
-          expanded="false"
-          shape="CagetV3V1aFiniteVainfix =agetV3V1aFiniteV4IapathasV1V6V7NIainfix <V6V4FAapathasV1V4V5EaInfinitetICagetV3V0aInfinitefaFiniteVCagetV3V1aInfinitetaFiniteVainfix <ainfix +V8aweightV0V1V9NIainfix =amixfix []V3V10aInfiniteIano_pathasV10ACamixfix []V3V10aFiniteVapathasV10V11V12Aainfix <V12V2Aainfix <=c0V12EaInfiniteapathasV13V15V14NFIainfix <V14V2Aainfix <=c0V14FIamemaTuple2V13V10aemptyFAapathasV10V17V16NFIainfix <V16V2Aainfix <=c0V16FIamemV10averticesFAamemaTuple2V0V1aedgesFFFF">
-          <label
-           name="expl:parameter relax">
-           </label>
-          <proof
-           prover="0"
-           timelimit="10"
-           obsolete="true"
-           archived="false">
-           <result status="valid" time="0.16"/>
-          </proof>
-         </goal>
-        </transf>
+        <proof
+         prover="0"
+         timelimit="10"
+         obsolete="true"
+         archived="false">
+         <result status="timeout" time="17.23"/>
+        </proof>
+        <proof
+         prover="1"
+         timelimit="10"
+         obsolete="true"
+         archived="false">
+         <result status="timeout" time="18.78"/>
+        </proof>
+        <proof
+         prover="3"
+         timelimit="10"
+         obsolete="true"
+         archived="false">
+         <result status="timeout" time="14.85"/>
+        </proof>
        </goal>
        <goal
-        name="WP_parameter relax.2.5"
+        name="WP_parameter relax.3.4"
         locfile="bf/../bf.mlw"
-        loclnum="216" loccnumb="6" loccnume="11"
+        loclnum="226" loccnumb="6" loccnume="11"
         expl="parameter relax"
-        sum="1d476ff7b28176ee513165e8e65f34d4"
+        sum="4eae9e46a1aa91c5a8975290188bb043"
         proved="false"
         expanded="false"
-        shape="ainfix =agetV3V4agetV3V4Iainfix =V4V1NFICagetV3V0aInfinitefaFiniteVCagetV3V1aInfinitetaFiniteVainfix <ainfix +V5aweightV0V1V6NIapathsV3V2aemptyAamemaTuple2V0V1aedgesFFFF">
+        shape="CagetV4V1aFiniteVainfix =V4V5Iashortest_pathasV1V6V7EaInfinitetIainfix =V5asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V8aweightV0V1FICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V9aweightV0V1V10NIapathsV4V2V3AamemaTuple2V0V1aedgesFFFFF">
+        <label
+         name="expl:parameter relax">
+         </label>
+        <proof
+         prover="0"
+         timelimit="10"
+         obsolete="true"
+         archived="false">
+         <result status="timeout" time="19.07"/>
+        </proof>
+        <proof
+         prover="3"
+         timelimit="10"
+         obsolete="true"
+         archived="false">
+         <result status="timeout" time="11.56"/>
+        </proof>
+       </goal>
+       <goal
+        name="WP_parameter relax.3.5"
+        locfile="bf/../bf.mlw"
+        loclnum="226" loccnumb="6" loccnume="11"
+        expl="parameter relax"
+        sum="5ecf6fdb5ed5f0aa2d9892855ff67345"
+        proved="false"
+        expanded="false"
+        shape="ainfix =agetV4V6agetV5V6Iainfix =V6V1NFIainfix =V5asetV4V1CagetV4V0aInfiniteaInfiniteaFiniteVaFiniteainfix +V7aweightV0V1FICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V8aweightV0V1V9NIapathsV4V2V3AamemaTuple2V0V1aedgesFFFFF">
         <label
          name="expl:parameter relax">
          </label>
@@ -708,6 +1021,20 @@
          archived="false">
          <result status="valid" time="0.02"/>
         </proof>
+        <proof
+         prover="1"
+         timelimit="10"
+         obsolete="true"
+         archived="false">
+         <result status="valid" time="0.04"/>
+        </proof>
+        <proof
+         prover="3"
+         timelimit="10"
+         obsolete="true"
+         archived="false">
+         <result status="valid" time="0.04"/>
+        </proof>
        </goal>
       </transf>
      </goal>
@@ -716,12 +1043,12 @@
    <goal
     name="WP_parameter bellman_ford"
     locfile="bf/../bf.mlw"
-    loclnum="231" loccnumb="6" loccnume="18"
+    loclnum="250" loccnumb="6" loccnume="18"
     expl="parameter bellman_ford"
-    sum="b0c721f821161f7fc0b5147c51f6753c"
+    sum="1c22f830b894fadad1a80360d882a02a"
     proved="false"
     expanded="true"
-    shape="iainfix =V2aTrueNLaTuple2V4V5ainfix <acardinalV3acardinalV1Aainfix <=c0acardinalV1ICagetV0V5aInfinitefaFiniteVCagetV0V4aInfinitetaFiniteVainfix <V7ainfix +V8aweightV4V5NIainfix =V3aremoveV6V1AamemV6V1FFAais_emptyV1NCagetV0V9aInfiniteano_pathasV9aFiniteVashortest_pathasV9V10V11EIamemV9averticesFAainfix =agetV0V12aFiniteV13Iashortest_pathasV12V13V14FAainfix =agetV0V12aInfiniteIano_pathasV12IamemV12averticesFAapathsV0acardinalaverticesaemptyIais_emptyV1qainfix =V2aTrueFFIapathsV0ainfix +ainfix -acardinalaverticesc1c1aemptyAiainfix =V18aTrueNLaTuple2V20V21ainfix <acardinalV19acardinalV16Aainfix <=c0acardinalV16AapathsV23V15adiffaedgesV19AasubsetV19aedgesIainfix =agetV23V24agetV17V24Iainfix =V24V21NFACagetV17V21aFiniteVainfix =agetV23V21aFiniteV25Iashortest_pathasV21V25V26EaInfinitetACagetV17V21aInfinitetaFiniteVCagetV23V21aInfinitefaFiniteVainfix >=V27V28AapathsV23V15aemptyFAapathsV17V15aemptyAamemaTuple2V20V21aedgesIainfix =V19aremoveV22V16AamemV22V16FFAais_emptyV16NapathsV17ainfix +V15c1aemptyIais_emptyV16qainfix =V18aTrueFIapathsV17V15adiffaedgesV16AasubsetV16aedgesFFAapathsV0V15adiffaedgesaedgesAasubsetaedgesaedgesIapathsV0V15aemptyIainfix <=V15ainfix -acardinalaverticesc1Aainfix <=c1V15FFAapathsainitialize_single_sourceasc1aemptyIainfix <=c1ainfix -acardinalaverticesc1Aiainfix =V30aTrueNLaTuple2V32V33ainfix <acardinalV31acardinalV29Aainfix <=c0acardinalV29ICagetainitialize_single_sourceasV33aInfinitefaFiniteVCagetainitialize_single_sourceasV32aInfinitetaFiniteVainfix <V35ainfix +V36aweightV32V33NIainfix =V31aremoveV34V29AamemV34V29FFAais_emptyV29NCagetainitialize_single_sourceasV37aInfiniteano_pathasV37aFiniteVashortest_pathasV37V38V39EIamemV37averticesFAainfix =agetainitialize_single_sourceasV40aFiniteV41Iashortest_pathasV40V41V42FAainfix =agetainitialize_single_sourceasV40aInfiniteIano_pathasV40IamemV40averticesFAapathsainitialize_single_sourceasacardinalaverticesaemptyIais_emptyV29qainfix =V30aTrueFFIainfix >c1ainfix -acardinalaverticesc1Aapathsainitialize_single_sourceasc1aempty">
+    shape="iainfix =V2aTrueNLaTuple2V4V5ainfix <acardinalV3acardinalV1Aainfix <=c0acardinalV1ICagetV0V5aInfinitefaFiniteVCagetV0V4aInfinitetaFiniteVainfix <V7ainfix +V8aweightV4V5NIainfix =V3aremoveV6V1AamemV6V1FFAais_emptyV1NCagetV0V9aInfiniteano_pathasV9aFiniteVashortest_pathasV9V10V11EIamemV9averticesFAainfix =agetV0V12aFiniteV13Iashortest_pathasV12V13V14FAainfix =agetV0V12aInfiniteIano_pathasV12IamemV12averticesFAapathsV0acardinalaverticesaemptyIais_emptyV1qainfix =V2aTrueFFIapathsV0ainfix +ainfix -acardinalaverticesc1c1aemptyAiainfix =V19aTrueNLaTuple2V21V22ainfix <acardinalV20acardinalV17Aainfix <=c0acardinalV17AapathsV24V15V25Aainfix =ainterV20V25aemptyAainfix =aunionV20V25aedgesIainfix =V25aaddaTuple2V21V22V16FIainfix =agetV18V26agetV24V26Iainfix =V26V22NFACagetV18V22aFiniteVainfix =V18V24Iashortest_pathasV22V27V28EaInfinitetACagetV18V22aInfinitetaFiniteVCagetV24V22aInfinitefaFiniteVainfix >=V29V30AapathsV24V15aaddaTuple2V21V22V16FAapathsV18V15V16AamemaTuple2V21V22aedgesIainfix =V20aremoveV23V17AamemV23V17FFAais_emptyV17NapathsV18ainfix +V15c1aemptyIais_emptyV17qainfix =V19aTrueFIapathsV18V15V16Aainfix =ainterV17V16aemptyAainfix =aunionV17V16aedgesFFFAapathsV0V15aemptyAainfix =ainteraedgesaemptyaemptyAainfix =aunionaedgesaemptyaedgesIapathsV0V15aemptyIainfix <=V15ainfix -acardinalaverticesc1Aainfix <=c1V15FFAapathsainitialize_single_sourceasc1aemptyIainfix <=c1ainfix -acardinalaverticesc1Aiainfix =V32aTrueNLaTuple2V34V35ainfix <acardinalV33acardinalV31Aainfix <=c0acardinalV31ICagetainitialize_single_sourceasV35aInfinitefaFiniteVCagetainitialize_single_sourceasV34aInfinitetaFiniteVainfix <V37ainfix +V38aweightV34V35NIainfix =V33aremoveV36V31AamemV36V31FFAais_emptyV31NCagetainitialize_single_sourceasV39aInfiniteano_pathasV39aFiniteVashortest_pathasV39V40V41EIamemV39averticesFAainfix =agetainitialize_single_sourceasV42aFiniteV43Iashortest_pathasV42V43V44FAainfix =agetainitialize_single_sourceasV42aInfiniteIano_pathasV42IamemV42averticesFAapathsainitialize_single_sourceasacardinalaverticesaemptyIais_emptyV31qainfix =V32aTrueFFIainfix >c1ainfix -acardinalaverticesc1Aapathsainitialize_single_sourceasc1aempty">
     <label
      name="expl:parameter bellman_ford">
      </label>
@@ -732,9 +1059,9 @@
      <goal
       name="WP_parameter bellman_ford.1"
       locfile="bf/../bf.mlw"
-      loclnum="231" loccnumb="6" loccnume="18"
+      loclnum="250" loccnumb="6" loccnume="18"
       expl="assertion"
-      sum="6205057685de92d50cfc1f51969edb61"
+      sum="e3a755ca8b31a0174bb8b95c84ddf82d"
       proved="false"
       expanded="true"
       shape="apathsainitialize_single_sourceasc1aempty">
@@ -748,12 +1075,12 @@
        <goal
         name="WP_parameter bellman_ford.1.1"
         locfile="bf/../bf.mlw"
-        loclnum="231" loccnumb="6" loccnume="18"
+        loclnum="250" loccnumb="6" loccnume="18"
         expl="assertion"
-        sum="ed196c10c02478fb51bddf949adc7de2"
+        sum="dae7b1a21d10a39119c0bc58614a5849"
         proved="false"
         expanded="true"
-        shape="ainfix =amixfix []ainitialize_single_sourceasV0aInfiniteIano_pathasV0ACamixfix []ainitialize_single_sourceasV0aFiniteVapathasV0V1V2Aainfix <V2c1Aainfix <=c0V2EaInfiniteapathasV3V5V4NFIainfix <V4c1Aainfix <=c0V4FIamemaTuple2V3V0aemptyFAapathasV0V7V6NFIainfix <V6c1Aainfix <=c0V6FIamemV0averticesF">
+        shape="ainfix =amixfix []ainitialize_single_sourceasV0aInfiniteIano_pathasV0ACamixfix []ainitialize_single_sourceasV0aFiniteVapathasV2ainfix -V1aweightV2V0c1Aainfix <V3c1Aainfix <=c0V3EAamemaTuple2V2V0aemptyEOapathasV0V1V4Aainfix <V4c1Aainfix <=c0V4EaInfiniteapathasV5V7V6NFIainfix <V6c1Aainfix <=c0V6FIamemaTuple2V5V0aemptyFAapathasV0V9V8NFIainfix <V8c1Aainfix <=c0V8FIamemV0averticesF">
         <label
          name="expl:parameter bellman_ford">
          </label>
@@ -764,12 +1091,12 @@
          <goal
           name="WP_parameter bellman_ford.1.1.1"
           locfile="bf/../bf.mlw"
-          loclnum="231" loccnumb="6" loccnume="18"
+          loclnum="250" loccnumb="6" loccnume="18"
           expl="assertion"
-          sum="7af91f9e9a74d5011fd2c1e95164e80e"
+          sum="e6d5e3c3ca798f8e8bd2944d13991a31"
           proved="false"
           expanded="true"
-          shape="Camixfix []ainitialize_single_sourceasV0aFiniteVapathasV0V1V2Aainfix <V2c1Aainfix <=c0V2EaInfinitetIamemV0averticesF">
+          shape="Camixfix []ainitialize_single_sourceasV0aFiniteVapathasV2ainfix -V1aweightV2V0c1Aainfix <V3c1Aainfix <=c0V3EAamemaTuple2V2V0aemptyEOapathasV0V1V4Aainfix <V4c1Aainfix <=c0V4EaInfinitetIamemV0averticesF">
           <label
            name="expl:parameter bellman_ford">
            </label>
@@ -778,17 +1105,31 @@
            timelimit="10"
            obsolete="true"
            archived="false">
-           <result status="unknown" time="0.06"/>
+           <result status="unknown" time="0.07"/>
+          </proof>
+          <proof
+           prover="1"
+           timelimit="10"
+           obsolete="true"
+           archived="false">
+           <result status="timeout" time="11.39"/>
+          </proof>
+          <proof
+           prover="3"
+           timelimit="10"
+           obsolete="true"
+           archived="false">
+           <result status="timeout" time="11.59"/>
           </proof>
          </goal>
          <goal
           name="WP_parameter bellman_ford.1.1.2"
           locfile="bf/../bf.mlw"
-          loclnum="231" loccnumb="6" loccnume="18"
+          loclnum="250" loccnumb="6" loccnume="18"
           expl="assertion"
-          sum="5d53ce1c540f7fd487c676004f1b02f5"
+          sum="476940b88fcab6aaa5fb902a0e960743"
           proved="false"
-          expanded="false"
+          expanded="true"
           shape="Camixfix []ainitialize_single_sourceasV0aFiniteVtaInfiniteapathasV0V3V2NFIainfix <V2c1Aainfix <=c0V2FIamemV0averticesF">
           <label
            name="expl:parameter bellman_ford">
@@ -798,15 +1139,29 @@
            timelimit="10"
            obsolete="true"
            archived="false">
-           <result status="valid" time="0.03"/>
+           <result status="valid" time="0.02"/>
+          </proof>
+          <proof
+           prover="1"
+           timelimit="10"
+           obsolete="true"
+           archived="false">
+           <result status="valid" time="0.05"/>
+          </proof>
+          <proof
+           prover="3"
+           timelimit="10"
+           obsolete="true"
+           archived="false">
+           <result status="valid" time="0.05"/>
           </proof>
          </goal>
          <goal
           name="WP_parameter bellman_ford.1.1.3"
           locfile="bf/../bf.mlw"
-          loclnum="231" loccnumb="6" loccnume="18"
+          loclnum="250" loccnumb="6" loccnume="18"
           expl="assertion"
-          sum="46a0342d36a6fd14f72c75e097aac966"
+          sum="28b89e5112d5a256d0df65ac15b12457"
           proved="false"
           expanded="true"
           shape="Camixfix []ainitialize_single_sourceasV0aFiniteVtaInfiniteapathasV2V4V3NFIainfix <V3c1Aainfix <=c0V3FIamemaTuple2V2V0aemptyFIamemV0averticesF">
@@ -814,32 +1169,32 @@
            name="expl:parameter bellman_ford">
            </label>
           <proof
-           prover="0"
+           prover="1"
            timelimit="10"
            obsolete="true"
            archived="false">
-           <result status="timeout" time="12.86"/>
+           <result status="valid" time="0.04"/>
+          </proof>
+          <proof
+           prover="3"
+           timelimit="10"
+           obsolete="true"
+           archived="false">
+           <result status="valid" time="0.04"/>
           </proof>
          </goal>
          <goal
           name="WP_parameter bellman_ford.1.1.4"
           locfile="bf/../bf.mlw"
-          loclnum="231" loccnumb="6" loccnume="18"
+          loclnum="250" loccnumb="6" loccnume="18"
           expl="assertion"
-          sum="62e25cf93f92b3534c25de3eb1bb3a9c"
+          sum="d6d09f21b68d964cc9f383683d4ca4da"
           proved="false"
-          expanded="true"
+          expanded="false"
           shape="ainfix =amixfix []ainitialize_single_sourceasV0aInfiniteIano_pathasV0IamemV0averticesF">
           <label
            name="expl:parameter bellman_ford">
            </label>
-          <proof
-           prover="0"
-           timelimit="10"
-           obsolete="true"
-           archived="false">
-           <result status="unknown" time="0.04"/>
-          </proof>
          </goal>
         </transf>
        </goal>
@@ -848,11 +1203,11 @@
      <goal
       name="WP_parameter bellman_ford.2"
       locfile="bf/../bf.mlw"
-      loclnum="231" loccnumb="6" loccnume="18"
+      loclnum="250" loccnumb="6" loccnume="18"
       expl="precondition"
-      sum="6322c994ca26d95fffa6b8f6bdbfc29f"
+      sum="2f6a1829b87e339e526a7e43d9313ec3"
       proved="false"
-      expanded="false"
+      expanded="true"
       shape="ais_emptyV0NIainfix =V1aTrueNIais_emptyV0qainfix =V1aTrueFFIainfix >c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
       <label
        name="expl:parameter bellman_ford">
@@ -864,15 +1219,29 @@
        archived="false">
        <result status="valid" time="0.02"/>
       </proof>
+      <proof
+       prover="1"
+       timelimit="10"
+       obsolete="true"
+       archived="false">
+       <result status="valid" time="0.03"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       obsolete="true"
+       archived="false">
+       <result status="valid" time="0.00"/>
+      </proof>
      </goal>
      <goal
       name="WP_parameter bellman_ford.3"
       locfile="bf/../bf.mlw"
-      loclnum="231" loccnumb="6" loccnume="18"
+      loclnum="250" loccnumb="6" loccnume="18"
       expl="loop variant decreases"
-      sum="434769f04146395ba8fdb5e3dc95ccfa"
+      sum="8e114ad8e8e9e1604e94ff9a3a58dd93"
       proved="false"
-      expanded="false"
+      expanded="true"
       shape="LaTuple2V3V4ainfix <acardinalV2acardinalV0Aainfix <=c0acardinalV0ICagetainitialize_single_sourceasV4aInfinitefaFiniteVCagetainitialize_single_sourceasV3aInfinitetaFiniteVainfix <V6ainfix +V7aweightV3V4NIainfix =V2aremoveV5V0AamemV5V0FFIais_emptyV0NIainfix =V1aTrueNIais_emptyV0qainfix =V1aTrueFFIainfix >c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
       <label
        name="expl:parameter bellman_ford">
@@ -882,43 +1251,78 @@
        timelimit="10"
        obsolete="true"
        archived="false">
-       <result status="valid" time="0.03"/>
+       <result status="valid" time="0.04"/>
+      </proof>
+      <proof
+       prover="1"
+       timelimit="10"
+       obsolete="true"
+       archived="false">
+       <result status="valid" time="0.04"/>
       </proof>
      </goal>
      <goal
       name="WP_parameter bellman_ford.4"
       locfile="bf/../bf.mlw"
-      loclnum="231" loccnumb="6" loccnume="18"
+      loclnum="250" loccnumb="6" loccnume="18"
       expl="assertion"
-      sum="f3b9951f66453648baf0cf0bba6ba0de"
+      sum="43bf8fabcad4d09b3960963cbdba5fe2"
       proved="false"
-      expanded="false"
+      expanded="true"
       shape="ainfix =agetainitialize_single_sourceasV2aFiniteV3Iashortest_pathasV2V3V4FAainfix =agetainitialize_single_sourceasV2aInfiniteIano_pathasV2IamemV2averticesFAapathsainitialize_single_sourceasacardinalaverticesaemptyIainfix =V1aTrueNNIais_emptyV0qainfix =V1aTrueFFIainfix >c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
       <label
        name="expl:parameter bellman_ford">
        </label>
+      <proof
+       prover="0"
+       timelimit="10"
+       obsolete="true"
+       archived="false">
+       <result status="timeout" time="17.46"/>
+      </proof>
+      <proof
+       prover="1"
+       timelimit="10"
+       obsolete="true"
+       archived="false">
+       <result status="valid" time="1.37"/>
+      </proof>
      </goal>
      <goal
       name="WP_parameter bellman_ford.5"
       locfile="bf/../bf.mlw"
-      loclnum="231" loccnumb="6" loccnume="18"
+      loclnum="250" loccnumb="6" loccnume="18"
       expl="normal postcondition"
-      sum="780cb25fc31b99776983756d00ca142f"
+      sum="c7aaea5f33160043d15b56ee8e8b4174"
       proved="false"
-      expanded="false"
+      expanded="true"
       shape="Cagetainitialize_single_sourceasV2aInfiniteano_pathasV2aFiniteVashortest_pathasV2V3V4EIamemV2averticesFIainfix =agetainitialize_single_sourceasV5aFiniteV6Iashortest_pathasV5V6V7FAainfix =agetainitialize_single_sourceasV5aInfiniteIano_pathasV5IamemV5averticesFAapathsainitialize_single_sourceasacardinalaverticesaemptyIainfix =V1aTrueNNIais_emptyV0qainfix =V1aTrueFFIainfix >c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
       <label
        name="expl:parameter bellman_ford">
        </label>
+      <proof
+       prover="1"
+       timelimit="10"
+       obsolete="true"
+       archived="false">
+       <result status="valid" time="0.30"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       obsolete="true"
+       archived="false">
+       <result status="valid" time="0.23"/>
+      </proof>
      </goal>
      <goal
       name="WP_parameter bellman_ford.6"
       locfile="bf/../bf.mlw"
-      loclnum="231" loccnumb="6" loccnume="18"
+      loclnum="250" loccnumb="6" loccnume="18"
       expl="for loop initialization"
-      sum="4b32b1d19d12c8d6d60cbdfa82d87159"
+      sum="80b1d5c9277d186f8041a07f1f932a4c"
       proved="false"
-      expanded="false"
+      expanded="true"
       shape="apathsainitialize_single_sourceasc1aemptyIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
       <label
        name="expl:parameter bellman_ford">
@@ -928,18 +1332,32 @@
        timelimit="10"
        obsolete="true"
        archived="false">
+       <result status="valid" time="0.01"/>
+      </proof>
+      <proof
+       prover="1"
+       timelimit="10"
+       obsolete="true"
+       archived="false">
        <result status="valid" time="0.03"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       obsolete="true"
+       archived="false">
+       <result status="valid" time="0.00"/>
       </proof>
      </goal>
      <goal
       name="WP_parameter bellman_ford.7"
       locfile="bf/../bf.mlw"
-      loclnum="231" loccnumb="6" loccnume="18"
+      loclnum="250" loccnumb="6" loccnume="18"
       expl="for loop preservation"
-      sum="63cfb3529c96028745470bfa4965c0c4"
+      sum="160f600261d710f69f71d6791e21dee8"
       proved="false"
       expanded="true"
-      shape="iainfix =V4aTrueNLaTuple2V6V7ainfix <acardinalV5acardinalV2Aainfix <=c0acardinalV2AapathsV9V1adiffaedgesV5AasubsetV5aedgesIainfix =agetV9V10agetV3V10Iainfix =V10V7NFACagetV3V7aFiniteVainfix =agetV9V7aFiniteV11Iashortest_pathasV7V11V12EaInfinitetACagetV3V7aInfinitetaFiniteVCagetV9V7aInfinitefaFiniteVainfix >=V13V14AapathsV9V1aemptyFAapathsV3V1aemptyAamemaTuple2V6V7aedgesIainfix =V5aremoveV8V2AamemV8V2FFAais_emptyV2NapathsV3ainfix +V1c1aemptyIais_emptyV2qainfix =V4aTrueFIapathsV3V1adiffaedgesV2AasubsetV2aedgesFFAapathsV0V1adiffaedgesaedgesAasubsetaedgesaedgesIapathsV0V1aemptyIainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
+      shape="iainfix =V5aTrueNLaTuple2V7V8ainfix <acardinalV6acardinalV3Aainfix <=c0acardinalV3AapathsV10V1V11Aainfix =ainterV6V11aemptyAainfix =aunionV6V11aedgesIainfix =V11aaddaTuple2V7V8V2FIainfix =agetV4V12agetV10V12Iainfix =V12V8NFACagetV4V8aFiniteVainfix =V4V10Iashortest_pathasV8V13V14EaInfinitetACagetV4V8aInfinitetaFiniteVCagetV10V8aInfinitefaFiniteVainfix >=V15V16AapathsV10V1aaddaTuple2V7V8V2FAapathsV4V1V2AamemaTuple2V7V8aedgesIainfix =V6aremoveV9V3AamemV9V3FFAais_emptyV3NapathsV4ainfix +V1c1aemptyIais_emptyV3qainfix =V5aTrueFIapathsV4V1V2Aainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFAapathsV0V1aemptyAainfix =ainteraedgesaemptyaemptyAainfix =aunionaedgesaemptyaedgesIapathsV0V1aemptyIainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
       <label
        name="expl:parameter bellman_ford">
        </label>
@@ -950,55 +1368,171 @@
        <goal
         name="WP_parameter bellman_ford.7.1"
         locfile="bf/../bf.mlw"
-        loclnum="231" loccnumb="6" loccnume="18"
+        loclnum="250" loccnumb="6" loccnume="18"
         expl="for loop preservation"
-        sum="8be12a2dfd573dcea5dbd08fc0e9c9b1"
+        sum="d5417e1a9b7aa79cd62e714f94af9c7f"
         proved="false"
-        expanded="true"
-        shape="apathsV0V1adiffaedgesaedgesAasubsetaedgesaedgesIapathsV0V1aemptyIainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
+        expanded="false"
+        shape="apathsV0V1aemptyAainfix =ainteraedgesaemptyaemptyAainfix =aunionaedgesaemptyaedgesIapathsV0V1aemptyIainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
         <label
          name="expl:parameter bellman_ford">
          </label>
-        <proof
-         prover="0"
-         timelimit="10"
-         obsolete="true"
-         archived="false">
-         <result status="timeout" time="10.20"/>
-        </proof>
+       </goal>
+       <goal
+        name="WP_parameter bellman_ford.7.2"
+        locfile="bf/../bf.mlw"
+        loclnum="250" loccnumb="6" loccnume="18"
+        expl="for loop preservation"
+        sum="602c165e52532e49d7e0b97afdc8af32"
+        proved="false"
+        expanded="true"
+        shape="ais_emptyV3NIainfix =V5aTrueNIais_emptyV3qainfix =V5aTrueFIapathsV4V1V2Aainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIapathsV0V1aemptyIainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
+        <label
+         name="expl:parameter bellman_ford">
+         </label>
         <transf
          name="split_goal"
          proved="false"
          expanded="true">
          <goal
-          name="WP_parameter bellman_ford.7.1.1"
+          name="WP_parameter bellman_ford.7.2.1"
           locfile="bf/../bf.mlw"
-          loclnum="231" loccnumb="6" loccnume="18"
+          loclnum="250" loccnumb="6" loccnume="18"
           expl="for loop preservation"
-          sum="309a04e0478f3a7dd47b295c8452381f"
-          proved="false"
-          expanded="false"
-          shape="asubsetaedgesaedgesIapathsV0V1aemptyIainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
-          <label
-           name="expl:parameter bellman_ford">
-           </label>
-          <proof
-           prover="0"
-           timelimit="10"
-           obsolete="true"
-           archived="false">
-           <result status="valid" time="0.04"/>
-          </proof>
-         </goal>
-         <goal
-          name="WP_parameter bellman_ford.7.1.2"
-          locfile="bf/../bf.mlw"
-          loclnum="231" loccnumb="6" loccnume="18"
-          expl="for loop preservation"
-          sum="5e349035cb62eddf4adfa9f90bf4ac3d"
+          sum="602c165e52532e49d7e0b97afdc8af32"
           proved="false"
           expanded="true"
-          shape="apathsV0V1adiffaedgesaedgesIapathsV0V1aemptyIainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
+          shape="ais_emptyV3NIainfix =V5aTrueNIais_emptyV3qainfix =V5aTrueFIapathsV4V1V2Aainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIapathsV0V1aemptyIainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
+          <label
+           name="expl:parameter bellman_ford">
+           </label>
+          <transf
+           name="inline_goal"
+           proved="false"
+           expanded="true">
+           <goal
+            name="WP_parameter bellman_ford.7.2.1.1"
+            locfile="bf/../bf.mlw"
+            loclnum="250" loccnumb="6" loccnume="18"
+            expl="for loop preservation"
+            sum="df95cb0cb5a2b697d8febaedb99f88ee"
+            proved="false"
+            expanded="true"
+            shape="amemV6V3NFNIainfix =V5aTrueNIamemV7V3NFqainfix =V5aTrueFIainfix =amixfix []V4V8aInfiniteIano_pathasV8ACamixfix []V4V8aFiniteVapathasV10ainfix -V9aweightV10V8V1Aainfix <V11V1Aainfix <=c0V11EAamemaTuple2V10V8V2EOapathasV8V9V12Aainfix <V12V1Aainfix <=c0V12EaInfiniteapathasV13V15V14NFIainfix <V14V1Aainfix <=c0V14FIamemaTuple2V13V8V2FAapathasV8V17V16NFIainfix <V16V1Aainfix <=c0V16FIamemV8averticesFAainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIainfix =amixfix []V0V18aInfiniteIano_pathasV18ACamixfix []V0V18aFiniteVapathasV20ainfix -V19aweightV20V18V1Aainfix <V21V1Aainfix <=c0V21EAamemaTuple2V20V18aemptyEOapathasV18V19V22Aainfix <V22V1Aainfix <=c0V22EaInfiniteapathasV23V25V24NFIainfix <V24V1Aainfix <=c0V24FIamemaTuple2V23V18aemptyFAapathasV18V27V26NFIainfix <V26V1Aainfix <=c0V26FIamemV18averticesFIainfix =V1ainfix -acardinalaverticesc1Oainfix <V1ainfix -acardinalaverticesc1Aainfix =c1V1Oainfix <c1V1FFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV28aInfiniteIano_pathasV28ACamixfix []ainitialize_single_sourceasV28aFiniteVapathasV30ainfix -V29aweightV30V28c1Aainfix <V31c1Aainfix <=c0V31EAamemaTuple2V30V28aemptyEOapathasV28V29V32Aainfix <V32c1Aainfix <=c0V32EaInfiniteapathasV33V35V34NFIainfix <V34c1Aainfix <=c0V34FIamemaTuple2V33V28aemptyFAapathasV28V37V36NFIainfix <V36c1Aainfix <=c0V36FIamemV28averticesF">
+            <label
+             name="expl:parameter bellman_ford">
+             </label>
+            <transf
+             name="split_goal"
+             proved="false"
+             expanded="true">
+             <goal
+              name="WP_parameter bellman_ford.7.2.1.1.1"
+              locfile="bf/../bf.mlw"
+              loclnum="250" loccnumb="6" loccnume="18"
+              expl="for loop preservation"
+              sum="df95cb0cb5a2b697d8febaedb99f88ee"
+              proved="false"
+              expanded="true"
+              shape="amemV6V3NFNIainfix =V5aTrueNIamemV7V3NFqainfix =V5aTrueFIainfix =amixfix []V4V8aInfiniteIano_pathasV8ACamixfix []V4V8aFiniteVapathasV10ainfix -V9aweightV10V8V1Aainfix <V11V1Aainfix <=c0V11EAamemaTuple2V10V8V2EOapathasV8V9V12Aainfix <V12V1Aainfix <=c0V12EaInfiniteapathasV13V15V14NFIainfix <V14V1Aainfix <=c0V14FIamemaTuple2V13V8V2FAapathasV8V17V16NFIainfix <V16V1Aainfix <=c0V16FIamemV8averticesFAainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIainfix =amixfix []V0V18aInfiniteIano_pathasV18ACamixfix []V0V18aFiniteVapathasV20ainfix -V19aweightV20V18V1Aainfix <V21V1Aainfix <=c0V21EAamemaTuple2V20V18aemptyEOapathasV18V19V22Aainfix <V22V1Aainfix <=c0V22EaInfiniteapathasV23V25V24NFIainfix <V24V1Aainfix <=c0V24FIamemaTuple2V23V18aemptyFAapathasV18V27V26NFIainfix <V26V1Aainfix <=c0V26FIamemV18averticesFIainfix =V1ainfix -acardinalaverticesc1Oainfix <V1ainfix -acardinalaverticesc1Aainfix =c1V1Oainfix <c1V1FFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV28aInfiniteIano_pathasV28ACamixfix []ainitialize_single_sourceasV28aFiniteVapathasV30ainfix -V29aweightV30V28c1Aainfix <V31c1Aainfix <=c0V31EAamemaTuple2V30V28aemptyEOapathasV28V29V32Aainfix <V32c1Aainfix <=c0V32EaInfiniteapathasV33V35V34NFIainfix <V34c1Aainfix <=c0V34FIamemaTuple2V33V28aemptyFAapathasV28V37V36NFIainfix <V36c1Aainfix <=c0V36FIamemV28averticesF">
+              <label
+               name="expl:parameter bellman_ford">
+               </label>
+              <proof
+               prover="0"
+               timelimit="10"
+               obsolete="true"
+               archived="false">
+               <result status="valid" time="0.05"/>
+              </proof>
+             </goal>
+            </transf>
+           </goal>
+          </transf>
+         </goal>
+        </transf>
+       </goal>
+       <goal
+        name="WP_parameter bellman_ford.7.3"
+        locfile="bf/../bf.mlw"
+        loclnum="250" loccnumb="6" loccnume="18"
+        expl="for loop preservation"
+        sum="a44bcf6be29060b492e9306bf461e8bd"
+        proved="false"
+        expanded="true"
+        shape="LaTuple2V7V8apathsV4V1V2AamemaTuple2V7V8aedgesIainfix =V6aremoveV9V3AamemV9V3FFIais_emptyV3NIainfix =V5aTrueNIais_emptyV3qainfix =V5aTrueFIapathsV4V1V2Aainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIapathsV0V1aemptyIainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
+        <label
+         name="expl:parameter bellman_ford">
+         </label>
+        <transf
+         name="split_goal"
+         proved="false"
+         expanded="true">
+         <goal
+          name="WP_parameter bellman_ford.7.3.1"
+          locfile="bf/../bf.mlw"
+          loclnum="250" loccnumb="6" loccnume="18"
+          expl="for loop preservation"
+          sum="5efc128e57b31ef562d6de007b7ef724"
+          proved="false"
+          expanded="true"
+          shape="LaTuple2V7V8amemaTuple2V7V8aedgesIainfix =V6aremoveV9V3AamemV9V3FFIais_emptyV3NIainfix =V5aTrueNIais_emptyV3qainfix =V5aTrueFIapathsV4V1V2Aainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIapathsV0V1aemptyIainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
+          <label
+           name="expl:parameter bellman_ford">
+           </label>
+          <transf
+           name="inline_goal"
+           proved="false"
+           expanded="true">
+           <goal
+            name="WP_parameter bellman_ford.7.3.1.1"
+            locfile="bf/../bf.mlw"
+            loclnum="250" loccnumb="6" loccnume="18"
+            expl="for loop preservation"
+            sum="6b5b3d6b38d30697729c534da1b943bf"
+            proved="false"
+            expanded="true"
+            shape="LaTuple2V7V8amemaTuple2V7V8aedgesIainfix =V6aremoveV9V3AamemV9V3FFIamemV10V3NFNIainfix =V5aTrueNIamemV11V3NFqainfix =V5aTrueFIainfix =amixfix []V4V12aInfiniteIano_pathasV12ACamixfix []V4V12aFiniteVapathasV14ainfix -V13aweightV14V12V1Aainfix <V15V1Aainfix <=c0V15EAamemaTuple2V14V12V2EOapathasV12V13V16Aainfix <V16V1Aainfix <=c0V16EaInfiniteapathasV17V19V18NFIainfix <V18V1Aainfix <=c0V18FIamemaTuple2V17V12V2FAapathasV12V21V20NFIainfix <V20V1Aainfix <=c0V20FIamemV12averticesFAainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIainfix =amixfix []V0V22aInfiniteIano_pathasV22ACamixfix []V0V22aFiniteVapathasV24ainfix -V23aweightV24V22V1Aainfix <V25V1Aainfix <=c0V25EAamemaTuple2V24V22aemptyEOapathasV22V23V26Aainfix <V26V1Aainfix <=c0V26EaInfiniteapathasV27V29V28NFIainfix <V28V1Aainfix <=c0V28FIamemaTuple2V27V22aemptyFAapathasV22V31V30NFIainfix <V30V1Aainfix <=c0V30FIamemV22averticesFIainfix =V1ainfix -acardinalaverticesc1Oainfix <V1ainfix -acardinalaverticesc1Aainfix =c1V1Oainfix <c1V1FFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV32aInfiniteIano_pathasV32ACamixfix []ainitialize_single_sourceasV32aFiniteVapathasV34ainfix -V33aweightV34V32c1Aainfix <V35c1Aainfix <=c0V35EAamemaTuple2V34V32aemptyEOapathasV32V33V36Aainfix <V36c1Aainfix <=c0V36EaInfiniteapathasV37V39V38NFIainfix <V38c1Aainfix <=c0V38FIamemaTuple2V37V32aemptyFAapathasV32V41V40NFIainfix <V40c1Aainfix <=c0V40FIamemV32averticesF">
+            <label
+             name="expl:parameter bellman_ford">
+             </label>
+            <transf
+             name="split_goal"
+             proved="false"
+             expanded="true">
+             <goal
+              name="WP_parameter bellman_ford.7.3.1.1.1"
+              locfile="bf/../bf.mlw"
+              loclnum="250" loccnumb="6" loccnume="18"
+              expl="for loop preservation"
+              sum="6b5b3d6b38d30697729c534da1b943bf"
+              proved="false"
+              expanded="true"
+              shape="LaTuple2V7V8amemaTuple2V7V8aedgesIainfix =V6aremoveV9V3AamemV9V3FFIamemV10V3NFNIainfix =V5aTrueNIamemV11V3NFqainfix =V5aTrueFIainfix =amixfix []V4V12aInfiniteIano_pathasV12ACamixfix []V4V12aFiniteVapathasV14ainfix -V13aweightV14V12V1Aainfix <V15V1Aainfix <=c0V15EAamemaTuple2V14V12V2EOapathasV12V13V16Aainfix <V16V1Aainfix <=c0V16EaInfiniteapathasV17V19V18NFIainfix <V18V1Aainfix <=c0V18FIamemaTuple2V17V12V2FAapathasV12V21V20NFIainfix <V20V1Aainfix <=c0V20FIamemV12averticesFAainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIainfix =amixfix []V0V22aInfiniteIano_pathasV22ACamixfix []V0V22aFiniteVapathasV24ainfix -V23aweightV24V22V1Aainfix <V25V1Aainfix <=c0V25EAamemaTuple2V24V22aemptyEOapathasV22V23V26Aainfix <V26V1Aainfix <=c0V26EaInfiniteapathasV27V29V28NFIainfix <V28V1Aainfix <=c0V28FIamemaTuple2V27V22aemptyFAapathasV22V31V30NFIainfix <V30V1Aainfix <=c0V30FIamemV22averticesFIainfix =V1ainfix -acardinalaverticesc1Oainfix <V1ainfix -acardinalaverticesc1Aainfix =c1V1Oainfix <c1V1FFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV32aInfiniteIano_pathasV32ACamixfix []ainitialize_single_sourceasV32aFiniteVapathasV34ainfix -V33aweightV34V32c1Aainfix <V35c1Aainfix <=c0V35EAamemaTuple2V34V32aemptyEOapathasV32V33V36Aainfix <V36c1Aainfix <=c0V36EaInfiniteapathasV37V39V38NFIainfix <V38c1Aainfix <=c0V38FIamemaTuple2V37V32aemptyFAapathasV32V41V40NFIainfix <V40c1Aainfix <=c0V40FIamemV32averticesF">
+              <label
+               name="expl:parameter bellman_ford">
+               </label>
+              <proof
+               prover="1"
+               timelimit="10"
+               obsolete="true"
+               archived="false">
+               <result status="timeout" time="12.02"/>
+              </proof>
+             </goal>
+            </transf>
+           </goal>
+          </transf>
+         </goal>
+         <goal
+          name="WP_parameter bellman_ford.7.3.2"
+          locfile="bf/../bf.mlw"
+          loclnum="250" loccnumb="6" loccnume="18"
+          expl="for loop preservation"
+          sum="bdcf276560c5a1e8e3e9e1256148a2bd"
+          proved="false"
+          expanded="true"
+          shape="LaTuple2V7V8apathsV4V1V2Iainfix =V6aremoveV9V3AamemV9V3FFIais_emptyV3NIainfix =V5aTrueNIais_emptyV3qainfix =V5aTrueFIapathsV4V1V2Aainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIapathsV0V1aemptyIainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
           <label
            name="expl:parameter bellman_ford">
            </label>
@@ -1007,74 +1541,34 @@
            timelimit="10"
            obsolete="true"
            archived="false">
-           <result status="timeout" time="16.47"/>
+           <result status="valid" time="0.02"/>
           </proof>
           <proof
            prover="1"
            timelimit="10"
            obsolete="true"
            archived="false">
-           <result status="timeout" time="11.67"/>
+           <result status="valid" time="0.04"/>
           </proof>
           <proof
            prover="3"
            timelimit="10"
            obsolete="true"
            archived="false">
-           <result status="timeout" time="10.94"/>
+           <result status="failure" time="0.00"/>
           </proof>
          </goal>
         </transf>
        </goal>
        <goal
-        name="WP_parameter bellman_ford.7.2"
-        locfile="bf/../bf.mlw"
-        loclnum="231" loccnumb="6" loccnume="18"
-        expl="for loop preservation"
-        sum="82f59e78d488dcbeccbb47aeb085a0c1"
-        proved="false"
-        expanded="false"
-        shape="ais_emptyV2NIainfix =V4aTrueNIais_emptyV2qainfix =V4aTrueFIapathsV3V1adiffaedgesV2AasubsetV2aedgesFFIapathsV0V1aemptyIainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
-        <label
-         name="expl:parameter bellman_ford">
-         </label>
-        <proof
-         prover="0"
-         timelimit="10"
-         obsolete="true"
-         archived="false">
-         <result status="valid" time="0.02"/>
-        </proof>
-       </goal>
-       <goal
-        name="WP_parameter bellman_ford.7.3"
-        locfile="bf/../bf.mlw"
-        loclnum="231" loccnumb="6" loccnume="18"
-        expl="for loop preservation"
-        sum="7aad65344af42ae237ae090acf708bf6"
-        proved="false"
-        expanded="false"
-        shape="LaTuple2V6V7apathsV3V1aemptyAamemaTuple2V6V7aedgesIainfix =V5aremoveV8V2AamemV8V2FFIais_emptyV2NIainfix =V4aTrueNIais_emptyV2qainfix =V4aTrueFIapathsV3V1adiffaedgesV2AasubsetV2aedgesFFIapathsV0V1aemptyIainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
-        <label
-         name="expl:parameter bellman_ford">
-         </label>
-        <proof
-         prover="0"
-         timelimit="10"
-         obsolete="true"
-         archived="false">
-         <result status="valid" time="0.09"/>
-        </proof>
-       </goal>
-       <goal
         name="WP_parameter bellman_ford.7.4"
         locfile="bf/../bf.mlw"
-        loclnum="231" loccnumb="6" loccnume="18"
+        loclnum="250" loccnumb="6" loccnume="18"
         expl="for loop preservation"
-        sum="34454c1d79de910eee3c2dcc447c4049"
+        sum="dcf79bcef46750ca76e5cc3c8f51c5ab"
         proved="false"
         expanded="true"
-        shape="LaTuple2V6V7apathsV9V1adiffaedgesV5AasubsetV5aedgesIainfix =agetV9V10agetV3V10Iainfix =V10V7NFACagetV3V7aFiniteVainfix =agetV9V7aFiniteV11Iashortest_pathasV7V11V12EaInfinitetACagetV3V7aInfinitetaFiniteVCagetV9V7aInfinitefaFiniteVainfix >=V13V14AapathsV9V1aemptyFIapathsV3V1aemptyAamemaTuple2V6V7aedgesIainfix =V5aremoveV8V2AamemV8V2FFIais_emptyV2NIainfix =V4aTrueNIais_emptyV2qainfix =V4aTrueFIapathsV3V1adiffaedgesV2AasubsetV2aedgesFFIapathsV0V1aemptyIainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
+        shape="LaTuple2V7V8apathsV10V1V11Aainfix =ainterV6V11aemptyAainfix =aunionV6V11aedgesIainfix =V11aaddaTuple2V7V8V2FIainfix =agetV4V12agetV10V12Iainfix =V12V8NFACagetV4V8aFiniteVainfix =V4V10Iashortest_pathasV8V13V14EaInfinitetACagetV4V8aInfinitetaFiniteVCagetV10V8aInfinitefaFiniteVainfix >=V15V16AapathsV10V1aaddaTuple2V7V8V2FIapathsV4V1V2AamemaTuple2V7V8aedgesIainfix =V6aremoveV9V3AamemV9V3FFIais_emptyV3NIainfix =V5aTrueNIais_emptyV3qainfix =V5aTrueFIapathsV4V1V2Aainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIapathsV0V1aemptyIainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
         <label
          name="expl:parameter bellman_ford">
          </label>
@@ -1085,32 +1579,53 @@
          <goal
           name="WP_parameter bellman_ford.7.4.1"
           locfile="bf/../bf.mlw"
-          loclnum="231" loccnumb="6" loccnume="18"
+          loclnum="250" loccnumb="6" loccnume="18"
           expl="for loop preservation"
-          sum="ec504d8d5937831fcbea0105ddb1d012"
+          sum="e5c764c9d6717bfa85076aaa7f0fa0c0"
           proved="false"
           expanded="false"
-          shape="LaTuple2V6V7asubsetV5aedgesIainfix =agetV9V10agetV3V10Iainfix =V10V7NFACagetV3V7aFiniteVainfix =agetV9V7aFiniteV11Iashortest_pathasV7V11V12EaInfinitetACagetV3V7aInfinitetaFiniteVCagetV9V7aInfinitefaFiniteVainfix >=V13V14AapathsV9V1aemptyFIapathsV3V1aemptyAamemaTuple2V6V7aedgesIainfix =V5aremoveV8V2AamemV8V2FFIais_emptyV2NIainfix =V4aTrueNIais_emptyV2qainfix =V4aTrueFIapathsV3V1adiffaedgesV2AasubsetV2aedgesFFIapathsV0V1aemptyIainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
+          shape="LaTuple2V7V8ainfix =aunionV6V11aedgesIainfix =V11aaddaTuple2V7V8V2FIainfix =agetV4V12agetV10V12Iainfix =V12V8NFACagetV4V8aFiniteVainfix =V4V10Iashortest_pathasV8V13V14EaInfinitetACagetV4V8aInfinitetaFiniteVCagetV10V8aInfinitefaFiniteVainfix >=V15V16AapathsV10V1aaddaTuple2V7V8V2FIapathsV4V1V2AamemaTuple2V7V8aedgesIainfix =V6aremoveV9V3AamemV9V3FFIais_emptyV3NIainfix =V5aTrueNIais_emptyV3qainfix =V5aTrueFIapathsV4V1V2Aainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIapathsV0V1aemptyIainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
           <label
            name="expl:parameter bellman_ford">
            </label>
-          <proof
-           prover="0"
-           timelimit="10"
-           obsolete="true"
-           archived="false">
-           <result status="valid" time="0.03"/>
-          </proof>
          </goal>
          <goal
           name="WP_parameter bellman_ford.7.4.2"
           locfile="bf/../bf.mlw"
-          loclnum="231" loccnumb="6" loccnume="18"
+          loclnum="250" loccnumb="6" loccnume="18"
           expl="for loop preservation"
-          sum="402cd466b40e8557a391b768af71355d"
+          sum="e212548c470cdeeda6e4548c70d71711"
           proved="false"
           expanded="true"
-          shape="LaTuple2V6V7apathsV9V1adiffaedgesV5Iainfix =agetV9V10agetV3V10Iainfix =V10V7NFACagetV3V7aFiniteVainfix =agetV9V7aFiniteV11Iashortest_pathasV7V11V12EaInfinitetACagetV3V7aInfinitetaFiniteVCagetV9V7aInfinitefaFiniteVainfix >=V13V14AapathsV9V1aemptyFIapathsV3V1aemptyAamemaTuple2V6V7aedgesIainfix =V5aremoveV8V2AamemV8V2FFIais_emptyV2NIainfix =V4aTrueNIais_emptyV2qainfix =V4aTrueFIapathsV3V1adiffaedgesV2AasubsetV2aedgesFFIapathsV0V1aemptyIainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
+          shape="LaTuple2V7V8ainfix =ainterV6V11aemptyIainfix =V11aaddaTuple2V7V8V2FIainfix =agetV4V12agetV10V12Iainfix =V12V8NFACagetV4V8aFiniteVainfix =V4V10Iashortest_pathasV8V13V14EaInfinitetACagetV4V8aInfinitetaFiniteVCagetV10V8aInfinitefaFiniteVainfix >=V15V16AapathsV10V1aaddaTuple2V7V8V2FIapathsV4V1V2AamemaTuple2V7V8aedgesIainfix =V6aremoveV9V3AamemV9V3FFIais_emptyV3NIainfix =V5aTrueNIais_emptyV3qainfix =V5aTrueFIapathsV4V1V2Aainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIapathsV0V1aemptyIainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
+          <label
+           name="expl:parameter bellman_ford">
+           </label>
+          <proof
+           prover="1"
+           timelimit="10"
+           obsolete="true"
+           archived="false">
+           <result status="timeout" time="10.10"/>
+          </proof>
+          <proof
+           prover="2"
+           timelimit="10"
+           edited="bf_WP_BellmanFord_WP_parameter_bellman_ford_5.v"
+           obsolete="true"
+           archived="false"><undone/>
+           
+          </proof>
+         </goal>
+         <goal
+          name="WP_parameter bellman_ford.7.4.3"
+          locfile="bf/../bf.mlw"
+          loclnum="250" loccnumb="6" loccnume="18"
+          expl="for loop preservation"
+          sum="152f6d91cdf23a234d359ef1e61a4ea0"
+          proved="false"
+          expanded="true"
+          shape="LaTuple2V7V8apathsV10V1V11Iainfix =V11aaddaTuple2V7V8V2FIainfix =agetV4V12agetV10V12Iainfix =V12V8NFACagetV4V8aFiniteVainfix =V4V10Iashortest_pathasV8V13V14EaInfinitetACagetV4V8aInfinitetaFiniteVCagetV10V8aInfinitefaFiniteVainfix >=V15V16AapathsV10V1aaddaTuple2V7V8V2FIapathsV4V1V2AamemaTuple2V7V8aedgesIainfix =V6aremoveV9V3AamemV9V3FFIais_emptyV3NIainfix =V5aTrueNIais_emptyV3qainfix =V5aTrueFIapathsV4V1V2Aainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIapathsV0V1aemptyIainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
           <label
            name="expl:parameter bellman_ford">
            </label>
@@ -1119,14 +1634,14 @@
            proved="false"
            expanded="true">
            <goal
-            name="WP_parameter bellman_ford.7.4.2.1"
+            name="WP_parameter bellman_ford.7.4.3.1"
             locfile="bf/../bf.mlw"
-            loclnum="231" loccnumb="6" loccnume="18"
+            loclnum="250" loccnumb="6" loccnume="18"
             expl="for loop preservation"
-            sum="09afcc9999bd7e967acdf1a37cad6d85"
+            sum="bed0dd3629b62cd428c9882f7257e329"
             proved="false"
             expanded="true"
-            shape="LaTuple2V6V7ainfix =amixfix []V9V10aInfiniteIano_pathasV10ACamixfix []V9V10aFiniteVapathasV10V11V12Aainfix <V12V1Aainfix <=c0V12EaInfiniteapathasV13V15V14NFIainfix <V14V1Aainfix <=c0V14FIamemaTuple2V13V10adiffaedgesV5FAapathasV10V17V16NFIainfix <V16V1Aainfix <=c0V16FIamemV10averticesFIainfix =agetV9V18agetV3V18Iainfix =V18V7NFACagetV3V7aFiniteVainfix =agetV9V7aFiniteV19IapathasV7V21V22NIainfix <V21V19FAapathasV7V19V20EaInfinitetACagetV3V7aInfinitetaFiniteVCagetV9V7aInfinitefaFiniteVainfix <=V24V23Aainfix =amixfix []V9V25aInfiniteIano_pathasV25ACamixfix []V9V25aFiniteVapathasV25V26V27Aainfix <V27V1Aainfix <=c0V27EaInfiniteapathasV28V30V29NFIainfix <V29V1Aainfix <=c0V29FIamemaTuple2V28V25aemptyFAapathasV25V32V31NFIainfix <V31V1Aainfix <=c0V31FIamemV25averticesFFIainfix =amixfix []V3V33aInfiniteIano_pathasV33ACamixfix []V3V33aFiniteVapathasV33V34V35Aainfix <V35V1Aainfix <=c0V35EaInfiniteapathasV36V38V37NFIainfix <V37V1Aainfix <=c0V37FIamemaTuple2V36V33aemptyFAapathasV33V40V39NFIainfix <V39V1Aainfix <=c0V39FIamemV33averticesFAamemaTuple2V6V7aedgesIainfix =V5aremoveV8V2AamemV8V2FFIamemV41V2NFNIainfix =V4aTrueNIamemV42V2NFqainfix =V4aTrueFIainfix =amixfix []V3V43aInfiniteIano_pathasV43ACamixfix []V3V43aFiniteVapathasV43V44V45Aainfix <V45V1Aainfix <=c0V45EaInfiniteapathasV46V48V47NFIainfix <V47V1Aainfix <=c0V47FIamemaTuple2V46V43adiffaedgesV2FAapathasV43V50V49NFIainfix <V49V1Aainfix <=c0V49FIamemV43averticesFAamemV51aedgesIamemV51V2FFFIainfix =amixfix []V0V52aInfiniteIano_pathasV52ACamixfix []V0V52aFiniteVapathasV52V53V54Aainfix <V54V1Aainfix <=c0V54EaInfiniteapathasV55V57V56NFIainfix <V56V1Aainfix <=c0V56FIamemaTuple2V55V52aemptyFAapathasV52V59V58NFIainfix <V58V1Aainfix <=c0V58FIamemV52averticesFIainfix =V1ainfix -acardinalaverticesc1Oainfix <V1ainfix -acardinalaverticesc1Aainfix =c1V1Oainfix <c1V1FFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV60aInfiniteIano_pathasV60ACamixfix []ainitialize_single_sourceasV60aFiniteVapathasV60V61V62Aainfix <V62c1Aainfix <=c0V62EaInfiniteapathasV63V65V64NFIainfix <V64c1Aainfix <=c0V64FIamemaTuple2V63V60aemptyFAapathasV60V67V66NFIainfix <V66c1Aainfix <=c0V66FIamemV60averticesF">
+            shape="LaTuple2V7V8ainfix =amixfix []V10V12aInfiniteIano_pathasV12ACamixfix []V10V12aFiniteVapathasV14ainfix -V13aweightV14V12V1Aainfix <V15V1Aainfix <=c0V15EAamemaTuple2V14V12V11EOapathasV12V13V16Aainfix <V16V1Aainfix <=c0V16EaInfiniteapathasV17V19V18NFIainfix <V18V1Aainfix <=c0V18FIamemaTuple2V17V12V11FAapathasV12V21V20NFIainfix <V20V1Aainfix <=c0V20FIamemV12averticesFIainfix =V11aaddaTuple2V7V8V2FIainfix =agetV4V22agetV10V22Iainfix =V22V8NFACagetV4V8aFiniteVainfix =V4V10IapathasV8V25V26NIainfix <V25V23FAapathasV8V23V24EaInfinitetACagetV4V8aInfinitetaFiniteVCagetV10V8aInfinitefaFiniteVainfix <=V28V27Aainfix =amixfix []V10V29aInfiniteIano_pathasV29ACamixfix []V10V29aFiniteVapathasV31ainfix -V30aweightV31V29V1Aainfix <V32V1Aainfix <=c0V32EAamemaTuple2V31V29aaddaTuple2V7V8V2EOapathasV29V30V33Aainfix <V33V1Aainfix <=c0V33EaInfiniteapathasV34V36V35NFIainfix <V35V1Aainfix <=c0V35FIamemaTuple2V34V29aaddaTuple2V7V8V2FAapathasV29V38V37NFIainfix <V37V1Aainfix <=c0V37FIamemV29averticesFFIainfix =amixfix []V4V39aInfiniteIano_pathasV39ACamixfix []V4V39aFiniteVapathasV41ainfix -V40aweightV41V39V1Aainfix <V42V1Aainfix <=c0V42EAamemaTuple2V41V39V2EOapathasV39V40V43Aainfix <V43V1Aainfix <=c0V43EaInfiniteapathasV44V46V45NFIainfix <V45V1Aainfix <=c0V45FIamemaTuple2V44V39V2FAapathasV39V48V47NFIainfix <V47V1Aainfix <=c0V47FIamemV39averticesFAamemaTuple2V7V8aedgesIainfix =V6aremoveV9V3AamemV9V3FFIamemV49V3NFNIainfix =V5aTrueNIamemV50V3NFqainfix =V5aTrueFIainfix =amixfix []V4V51aInfiniteIano_pathasV51ACamixfix []V4V51aFiniteVapathasV53ainfix -V52aweightV53V51V1Aainfix <V54V1Aainfix <=c0V54EAamemaTuple2V53V51V2EOapathasV51V52V55Aainfix <V55V1Aainfix <=c0V55EaInfiniteapathasV56V58V57NFIainfix <V57V1Aainfix <=c0V57FIamemaTuple2V56V51V2FAapathasV51V60V59NFIainfix <V59V1Aainfix <=c0V59FIamemV51averticesFAainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIainfix =amixfix []V0V61aInfiniteIano_pathasV61ACamixfix []V0V61aFiniteVapathasV63ainfix -V62aweightV63V61V1Aainfix <V64V1Aainfix <=c0V64EAamemaTuple2V63V61aemptyEOapathasV61V62V65Aainfix <V65V1Aainfix <=c0V65EaInfiniteapathasV66V68V67NFIainfix <V67V1Aainfix <=c0V67FIamemaTuple2V66V61aemptyFAapathasV61V70V69NFIainfix <V69V1Aainfix <=c0V69FIamemV61averticesFIainfix =V1ainfix -acardinalaverticesc1Oainfix <V1ainfix -acardinalaverticesc1Aainfix =c1V1Oainfix <c1V1FFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV71aInfiniteIano_pathasV71ACamixfix []ainitialize_single_sourceasV71aFiniteVapathasV73ainfix -V72aweightV73V71c1Aainfix <V74c1Aainfix <=c0V74EAamemaTuple2V73V71aemptyEOapathasV71V72V75Aainfix <V75c1Aainfix <=c0V75EaInfiniteapathasV76V78V77NFIainfix <V77c1Aainfix <=c0V77FIamemaTuple2V76V71aemptyFAapathasV71V80V79NFIainfix <V79c1Aainfix <=c0V79FIamemV71averticesF">
             <label
              name="expl:parameter bellman_ford">
              </label>
@@ -1135,14 +1650,27 @@
              proved="false"
              expanded="true">
              <goal
-              name="WP_parameter bellman_ford.7.4.2.1.1"
+              name="WP_parameter bellman_ford.7.4.3.1.1"
               locfile="bf/../bf.mlw"
-              loclnum="231" loccnumb="6" loccnume="18"
+              loclnum="250" loccnumb="6" loccnume="18"
               expl="for loop preservation"
-              sum="8c48f64b836b37484b4c4ea80bca92b0"
+              sum="990a842697992117d0c5ee24b0ccf6bb"
               proved="false"
               expanded="false"
-              shape="LaTuple2V6V7Camixfix []V9V10aFiniteVapathasV10V11V12Aainfix <V12V1Aainfix <=c0V12EaInfinitetIamemV10averticesFIainfix =agetV9V13agetV3V13Iainfix =V13V7NFACagetV3V7aFiniteVainfix =agetV9V7aFiniteV14IapathasV7V16V17NIainfix <V16V14FAapathasV7V14V15EaInfinitetACagetV3V7aInfinitetaFiniteVCagetV9V7aInfinitefaFiniteVainfix <=V19V18Aainfix =amixfix []V9V20aInfiniteIano_pathasV20ACamixfix []V9V20aFiniteVapathasV20V21V22Aainfix <V22V1Aainfix <=c0V22EaInfiniteapathasV23V25V24NFIainfix <V24V1Aainfix <=c0V24FIamemaTuple2V23V20aemptyFAapathasV20V27V26NFIainfix <V26V1Aainfix <=c0V26FIamemV20averticesFFIainfix =amixfix []V3V28aInfiniteIano_pathasV28ACamixfix []V3V28aFiniteVapathasV28V29V30Aainfix <V30V1Aainfix <=c0V30EaInfiniteapathasV31V33V32NFIainfix <V32V1Aainfix <=c0V32FIamemaTuple2V31V28aemptyFAapathasV28V35V34NFIainfix <V34V1Aainfix <=c0V34FIamemV28averticesFAamemaTuple2V6V7aedgesIainfix =V5aremoveV8V2AamemV8V2FFIamemV36V2NFNIainfix =V4aTrueNIamemV37V2NFqainfix =V4aTrueFIainfix =amixfix []V3V38aInfiniteIano_pathasV38ACamixfix []V3V38aFiniteVapathasV38V39V40Aainfix <V40V1Aainfix <=c0V40EaInfiniteapathasV41V43V42NFIainfix <V42V1Aainfix <=c0V42FIamemaTuple2V41V38adiffaedgesV2FAapathasV38V45V44NFIainfix <V44V1Aainfix <=c0V44FIamemV38averticesFAamemV46aedgesIamemV46V2FFFIainfix =amixfix []V0V47aInfiniteIano_pathasV47ACamixfix []V0V47aFiniteVapathasV47V48V49Aainfix <V49V1Aainfix <=c0V49EaInfiniteapathasV50V52V51NFIainfix <V51V1Aainfix <=c0V51FIamemaTuple2V50V47aemptyFAapathasV47V54V53NFIainfix <V53V1Aainfix <=c0V53FIamemV47averticesFIainfix =V1ainfix -acardinalaverticesc1Oainfix <V1ainfix -acardinalaverticesc1Aainfix =c1V1Oainfix <c1V1FFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV55aInfiniteIano_pathasV55ACamixfix []ainitialize_single_sourceasV55aFiniteVapathasV55V56V57Aainfix <V57c1Aainfix <=c0V57EaInfiniteapathasV58V60V59NFIainfix <V59c1Aainfix <=c0V59FIamemaTuple2V58V55aemptyFAapathasV55V62V61NFIainfix <V61c1Aainfix <=c0V61FIamemV55averticesF">
+              shape="LaTuple2V7V8Camixfix []V10V12aFiniteVapathasV14ainfix -V13aweightV14V12V1Aainfix <V15V1Aainfix <=c0V15EAamemaTuple2V14V12V11EOapathasV12V13V16Aainfix <V16V1Aainfix <=c0V16EaInfinitetIamemV12averticesFIainfix =V11aaddaTuple2V7V8V2FIainfix =agetV4V17agetV10V17Iainfix =V17V8NFACagetV4V8aFiniteVainfix =V4V10IapathasV8V20V21NIainfix <V20V18FAapathasV8V18V19EaInfinitetACagetV4V8aInfinitetaFiniteVCagetV10V8aInfinitefaFiniteVainfix <=V23V22Aainfix =amixfix []V10V24aInfiniteIano_pathasV24ACamixfix []V10V24aFiniteVapathasV26ainfix -V25aweightV26V24V1Aainfix <V27V1Aainfix <=c0V27EAamemaTuple2V26V24aaddaTuple2V7V8V2EOapathasV24V25V28Aainfix <V28V1Aainfix <=c0V28EaInfiniteapathasV29V31V30NFIainfix <V30V1Aainfix <=c0V30FIamemaTuple2V29V24aaddaTuple2V7V8V2FAapathasV24V33V32NFIainfix <V32V1Aainfix <=c0V32FIamemV24averticesFFIainfix =amixfix []V4V34aInfiniteIano_pathasV34ACamixfix []V4V34aFiniteVapathasV36ainfix -V35aweightV36V34V1Aainfix <V37V1Aainfix <=c0V37EAamemaTuple2V36V34V2EOapathasV34V35V38Aainfix <V38V1Aainfix <=c0V38EaInfiniteapathasV39V41V40NFIainfix <V40V1Aainfix <=c0V40FIamemaTuple2V39V34V2FAapathasV34V43V42NFIainfix <V42V1Aainfix <=c0V42FIamemV34averticesFAamemaTuple2V7V8aedgesIainfix =V6aremoveV9V3AamemV9V3FFIamemV44V3NFNIainfix =V5aTrueNIamemV45V3NFqainfix =V5aTrueFIainfix =amixfix []V4V46aInfiniteIano_pathasV46ACamixfix []V4V46aFiniteVapathasV48ainfix -V47aweightV48V46V1Aainfix <V49V1Aainfix <=c0V49EAamemaTuple2V48V46V2EOapathasV46V47V50Aainfix <V50V1Aainfix <=c0V50EaInfiniteapathasV51V53V52NFIainfix <V52V1Aainfix <=c0V52FIamemaTuple2V51V46V2FAapathasV46V55V54NFIainfix <V54V1Aainfix <=c0V54FIamemV46averticesFAainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIainfix =amixfix []V0V56aInfiniteIano_pathasV56ACamixfix []V0V56aFiniteVapathasV58ainfix -V57aweightV58V56V1Aainfix <V59V1Aainfix <=c0V59EAamemaTuple2V58V56aemptyEOapathasV56V57V60Aainfix <V60V1Aainfix <=c0V60EaInfiniteapathasV61V63V62NFIainfix <V62V1Aainfix <=c0V62FIamemaTuple2V61V56aemptyFAapathasV56V65V64NFIainfix <V64V1Aainfix <=c0V64FIamemV56averticesFIainfix =V1ainfix -acardinalaverticesc1Oainfix <V1ainfix -acardinalaverticesc1Aainfix =c1V1Oainfix <c1V1FFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV66aInfiniteIano_pathasV66ACamixfix []ainitialize_single_sourceasV66aFiniteVapathasV68ainfix -V67aweightV68V66c1Aainfix <V69c1Aainfix <=c0V69EAamemaTuple2V68V66aemptyEOapathasV66V67V70Aainfix <V70c1Aainfix <=c0V70EaInfiniteapathasV71V73V72NFIainfix <V72c1Aainfix <=c0V72FIamemaTuple2V71V66aemptyFAapathasV66V75V74NFIainfix <V74c1Aainfix <=c0V74FIamemV66averticesF">
+              <label
+               name="expl:parameter bellman_ford">
+               </label>
+             </goal>
+             <goal
+              name="WP_parameter bellman_ford.7.4.3.1.2"
+              locfile="bf/../bf.mlw"
+              loclnum="250" loccnumb="6" loccnume="18"
+              expl="for loop preservation"
+              sum="32cf6b6c751e97a1483d0155f85dba12"
+              proved="false"
+              expanded="false"
+              shape="LaTuple2V7V8Camixfix []V10V12aFiniteVtaInfiniteapathasV12V15V14NFIainfix <V14V1Aainfix <=c0V14FIamemV12averticesFIainfix =V11aaddaTuple2V7V8V2FIainfix =agetV4V16agetV10V16Iainfix =V16V8NFACagetV4V8aFiniteVainfix =V4V10IapathasV8V19V20NIainfix <V19V17FAapathasV8V17V18EaInfinitetACagetV4V8aInfinitetaFiniteVCagetV10V8aInfinitefaFiniteVainfix <=V22V21Aainfix =amixfix []V10V23aInfiniteIano_pathasV23ACamixfix []V10V23aFiniteVapathasV25ainfix -V24aweightV25V23V1Aainfix <V26V1Aainfix <=c0V26EAamemaTuple2V25V23aaddaTuple2V7V8V2EOapathasV23V24V27Aainfix <V27V1Aainfix <=c0V27EaInfiniteapathasV28V30V29NFIainfix <V29V1Aainfix <=c0V29FIamemaTuple2V28V23aaddaTuple2V7V8V2FAapathasV23V32V31NFIainfix <V31V1Aainfix <=c0V31FIamemV23averticesFFIainfix =amixfix []V4V33aInfiniteIano_pathasV33ACamixfix []V4V33aFiniteVapathasV35ainfix -V34aweightV35V33V1Aainfix <V36V1Aainfix <=c0V36EAamemaTuple2V35V33V2EOapathasV33V34V37Aainfix <V37V1Aainfix <=c0V37EaInfiniteapathasV38V40V39NFIainfix <V39V1Aainfix <=c0V39FIamemaTuple2V38V33V2FAapathasV33V42V41NFIainfix <V41V1Aainfix <=c0V41FIamemV33averticesFAamemaTuple2V7V8aedgesIainfix =V6aremoveV9V3AamemV9V3FFIamemV43V3NFNIainfix =V5aTrueNIamemV44V3NFqainfix =V5aTrueFIainfix =amixfix []V4V45aInfiniteIano_pathasV45ACamixfix []V4V45aFiniteVapathasV47ainfix -V46aweightV47V45V1Aainfix <V48V1Aainfix <=c0V48EAamemaTuple2V47V45V2EOapathasV45V46V49Aainfix <V49V1Aainfix <=c0V49EaInfiniteapathasV50V52V51NFIainfix <V51V1Aainfix <=c0V51FIamemaTuple2V50V45V2FAapathasV45V54V53NFIainfix <V53V1Aainfix <=c0V53FIamemV45averticesFAainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIainfix =amixfix []V0V55aInfiniteIano_pathasV55ACamixfix []V0V55aFiniteVapathasV57ainfix -V56aweightV57V55V1Aainfix <V58V1Aainfix <=c0V58EAamemaTuple2V57V55aemptyEOapathasV55V56V59Aainfix <V59V1Aainfix <=c0V59EaInfiniteapathasV60V62V61NFIainfix <V61V1Aainfix <=c0V61FIamemaTuple2V60V55aemptyFAapathasV55V64V63NFIainfix <V63V1Aainfix <=c0V63FIamemV55averticesFIainfix =V1ainfix -acardinalaverticesc1Oainfix <V1ainfix -acardinalaverticesc1Aainfix =c1V1Oainfix <c1V1FFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV65aInfiniteIano_pathasV65ACamixfix []ainitialize_single_sourceasV65aFiniteVapathasV67ainfix -V66aweightV67V65c1Aainfix <V68c1Aainfix <=c0V68EAamemaTuple2V67V65aemptyEOapathasV65V66V69Aainfix <V69c1Aainfix <=c0V69EaInfiniteapathasV70V72V71NFIainfix <V71c1Aainfix <=c0V71FIamemaTuple2V70V65aemptyFAapathasV65V74V73NFIainfix <V73c1Aainfix <=c0V73FIamemV65averticesF">
               <label
                name="expl:parameter bellman_ford">
                </label>
@@ -1151,18 +1679,18 @@
                timelimit="10"
                obsolete="true"
                archived="false">
-               <result status="valid" time="1.56"/>
+               <result status="valid" time="0.24"/>
               </proof>
              </goal>
              <goal
-              name="WP_parameter bellman_ford.7.4.2.1.2"
+              name="WP_parameter bellman_ford.7.4.3.1.3"
               locfile="bf/../bf.mlw"
-              loclnum="231" loccnumb="6" loccnume="18"
+              loclnum="250" loccnumb="6" loccnume="18"
               expl="for loop preservation"
-              sum="920ba793aded117cfa65044e20730f3e"
+              sum="e5fe6283a80812d4763639716973d7e5"
               proved="false"
               expanded="false"
-              shape="LaTuple2V6V7Camixfix []V9V10aFiniteVtaInfiniteapathasV10V13V12NFIainfix <V12V1Aainfix <=c0V12FIamemV10averticesFIainfix =agetV9V14agetV3V14Iainfix =V14V7NFACagetV3V7aFiniteVainfix =agetV9V7aFiniteV15IapathasV7V17V18NIainfix <V17V15FAapathasV7V15V16EaInfinitetACagetV3V7aInfinitetaFiniteVCagetV9V7aInfinitefaFiniteVainfix <=V20V19Aainfix =amixfix []V9V21aInfiniteIano_pathasV21ACamixfix []V9V21aFiniteVapathasV21V22V23Aainfix <V23V1Aainfix <=c0V23EaInfiniteapathasV24V26V25NFIainfix <V25V1Aainfix <=c0V25FIamemaTuple2V24V21aemptyFAapathasV21V28V27NFIainfix <V27V1Aainfix <=c0V27FIamemV21averticesFFIainfix =amixfix []V3V29aInfiniteIano_pathasV29ACamixfix []V3V29aFiniteVapathasV29V30V31Aainfix <V31V1Aainfix <=c0V31EaInfiniteapathasV32V34V33NFIainfix <V33V1Aainfix <=c0V33FIamemaTuple2V32V29aemptyFAapathasV29V36V35NFIainfix <V35V1Aainfix <=c0V35FIamemV29averticesFAamemaTuple2V6V7aedgesIainfix =V5aremoveV8V2AamemV8V2FFIamemV37V2NFNIainfix =V4aTrueNIamemV38V2NFqainfix =V4aTrueFIainfix =amixfix []V3V39aInfiniteIano_pathasV39ACamixfix []V3V39aFiniteVapathasV39V40V41Aainfix <V41V1Aainfix <=c0V41EaInfiniteapathasV42V44V43NFIainfix <V43V1Aainfix <=c0V43FIamemaTuple2V42V39adiffaedgesV2FAapathasV39V46V45NFIainfix <V45V1Aainfix <=c0V45FIamemV39averticesFAamemV47aedgesIamemV47V2FFFIainfix =amixfix []V0V48aInfiniteIano_pathasV48ACamixfix []V0V48aFiniteVapathasV48V49V50Aainfix <V50V1Aainfix <=c0V50EaInfiniteapathasV51V53V52NFIainfix <V52V1Aainfix <=c0V52FIamemaTuple2V51V48aemptyFAapathasV48V55V54NFIainfix <V54V1Aainfix <=c0V54FIamemV48averticesFIainfix =V1ainfix -acardinalaverticesc1Oainfix <V1ainfix -acardinalaverticesc1Aainfix =c1V1Oainfix <c1V1FFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV56aInfiniteIano_pathasV56ACamixfix []ainitialize_single_sourceasV56aFiniteVapathasV56V57V58Aainfix <V58c1Aainfix <=c0V58EaInfiniteapathasV59V61V60NFIainfix <V60c1Aainfix <=c0V60FIamemaTuple2V59V56aemptyFAapathasV56V63V62NFIainfix <V62c1Aainfix <=c0V62FIamemV56averticesF">
+              shape="LaTuple2V7V8Camixfix []V10V12aFiniteVtaInfiniteapathasV14V16V15NFIainfix <V15V1Aainfix <=c0V15FIamemaTuple2V14V12V11FIamemV12averticesFIainfix =V11aaddaTuple2V7V8V2FIainfix =agetV4V17agetV10V17Iainfix =V17V8NFACagetV4V8aFiniteVainfix =V4V10IapathasV8V20V21NIainfix <V20V18FAapathasV8V18V19EaInfinitetACagetV4V8aInfinitetaFiniteVCagetV10V8aInfinitefaFiniteVainfix <=V23V22Aainfix =amixfix []V10V24aInfiniteIano_pathasV24ACamixfix []V10V24aFiniteVapathasV26ainfix -V25aweightV26V24V1Aainfix <V27V1Aainfix <=c0V27EAamemaTuple2V26V24aaddaTuple2V7V8V2EOapathasV24V25V28Aainfix <V28V1Aainfix <=c0V28EaInfiniteapathasV29V31V30NFIainfix <V30V1Aainfix <=c0V30FIamemaTuple2V29V24aaddaTuple2V7V8V2FAapathasV24V33V32NFIainfix <V32V1Aainfix <=c0V32FIamemV24averticesFFIainfix =amixfix []V4V34aInfiniteIano_pathasV34ACamixfix []V4V34aFiniteVapathasV36ainfix -V35aweightV36V34V1Aainfix <V37V1Aainfix <=c0V37EAamemaTuple2V36V34V2EOapathasV34V35V38Aainfix <V38V1Aainfix <=c0V38EaInfiniteapathasV39V41V40NFIainfix <V40V1Aainfix <=c0V40FIamemaTuple2V39V34V2FAapathasV34V43V42NFIainfix <V42V1Aainfix <=c0V42FIamemV34averticesFAamemaTuple2V7V8aedgesIainfix =V6aremoveV9V3AamemV9V3FFIamemV44V3NFNIainfix =V5aTrueNIamemV45V3NFqainfix =V5aTrueFIainfix =amixfix []V4V46aInfiniteIano_pathasV46ACamixfix []V4V46aFiniteVapathasV48ainfix -V47aweightV48V46V1Aainfix <V49V1Aainfix <=c0V49EAamemaTuple2V48V46V2EOapathasV46V47V50Aainfix <V50V1Aainfix <=c0V50EaInfiniteapathasV51V53V52NFIainfix <V52V1Aainfix <=c0V52FIamemaTuple2V51V46V2FAapathasV46V55V54NFIainfix <V54V1Aainfix <=c0V54FIamemV46averticesFAainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIainfix =amixfix []V0V56aInfiniteIano_pathasV56ACamixfix []V0V56aFiniteVapathasV58ainfix -V57aweightV58V56V1Aainfix <V59V1Aainfix <=c0V59EAamemaTuple2V58V56aemptyEOapathasV56V57V60Aainfix <V60V1Aainfix <=c0V60EaInfiniteapathasV61V63V62NFIainfix <V62V1Aainfix <=c0V62FIamemaTuple2V61V56aemptyFAapathasV56V65V64NFIainfix <V64V1Aainfix <=c0V64FIamemV56averticesFIainfix =V1ainfix -acardinalaverticesc1Oainfix <V1ainfix -acardinalaverticesc1Aainfix =c1V1Oainfix <c1V1FFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV66aInfiniteIano_pathasV66ACamixfix []ainitialize_single_sourceasV66aFiniteVapathasV68ainfix -V67aweightV68V66c1Aainfix <V69c1Aainfix <=c0V69EAamemaTuple2V68V66aemptyEOapathasV66V67V70Aainfix <V70c1Aainfix <=c0V70EaInfiniteapathasV71V73V72NFIainfix <V72c1Aainfix <=c0V72FIamemaTuple2V71V66aemptyFAapathasV66V75V74NFIainfix <V74c1Aainfix <=c0V74FIamemV66averticesF">
               <label
                name="expl:parameter bellman_ford">
                </label>
@@ -1171,43 +1699,23 @@
                timelimit="10"
                obsolete="true"
                archived="false">
-               <result status="valid" time="0.19"/>
+               <result status="valid" time="0.32"/>
               </proof>
              </goal>
              <goal
-              name="WP_parameter bellman_ford.7.4.2.1.3"
+              name="WP_parameter bellman_ford.7.4.3.1.4"
               locfile="bf/../bf.mlw"
-              loclnum="231" loccnumb="6" loccnume="18"
+              loclnum="250" loccnumb="6" loccnume="18"
               expl="for loop preservation"
-              sum="e34717604d428ad4d3269683a84944d9"
-              proved="false"
-              expanded="true"
-              shape="LaTuple2V6V7Camixfix []V9V10aFiniteVtaInfiniteapathasV12V14V13NFIainfix <V13V1Aainfix <=c0V13FIamemaTuple2V12V10adiffaedgesV5FIamemV10averticesFIainfix =agetV9V15agetV3V15Iainfix =V15V7NFACagetV3V7aFiniteVainfix =agetV9V7aFiniteV16IapathasV7V18V19NIainfix <V18V16FAapathasV7V16V17EaInfinitetACagetV3V7aInfinitetaFiniteVCagetV9V7aInfinitefaFiniteVainfix <=V21V20Aainfix =amixfix []V9V22aInfiniteIano_pathasV22ACamixfix []V9V22aFiniteVapathasV22V23V24Aainfix <V24V1Aainfix <=c0V24EaInfiniteapathasV25V27V26NFIainfix <V26V1Aainfix <=c0V26FIamemaTuple2V25V22aemptyFAapathasV22V29V28NFIainfix <V28V1Aainfix <=c0V28FIamemV22averticesFFIainfix =amixfix []V3V30aInfiniteIano_pathasV30ACamixfix []V3V30aFiniteVapathasV30V31V32Aainfix <V32V1Aainfix <=c0V32EaInfiniteapathasV33V35V34NFIainfix <V34V1Aainfix <=c0V34FIamemaTuple2V33V30aemptyFAapathasV30V37V36NFIainfix <V36V1Aainfix <=c0V36FIamemV30averticesFAamemaTuple2V6V7aedgesIainfix =V5aremoveV8V2AamemV8V2FFIamemV38V2NFNIainfix =V4aTrueNIamemV39V2NFqainfix =V4aTrueFIainfix =amixfix []V3V40aInfiniteIano_pathasV40ACamixfix []V3V40aFiniteVapathasV40V41V42Aainfix <V42V1Aainfix <=c0V42EaInfiniteapathasV43V45V44NFIainfix <V44V1Aainfix <=c0V44FIamemaTuple2V43V40adiffaedgesV2FAapathasV40V47V46NFIainfix <V46V1Aainfix <=c0V46FIamemV40averticesFAamemV48aedgesIamemV48V2FFFIainfix =amixfix []V0V49aInfiniteIano_pathasV49ACamixfix []V0V49aFiniteVapathasV49V50V51Aainfix <V51V1Aainfix <=c0V51EaInfiniteapathasV52V54V53NFIainfix <V53V1Aainfix <=c0V53FIamemaTuple2V52V49aemptyFAapathasV49V56V55NFIainfix <V55V1Aainfix <=c0V55FIamemV49averticesFIainfix =V1ainfix -acardinalaverticesc1Oainfix <V1ainfix -acardinalaverticesc1Aainfix =c1V1Oainfix <c1V1FFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV57aInfiniteIano_pathasV57ACamixfix []ainitialize_single_sourceasV57aFiniteVapathasV57V58V59Aainfix <V59c1Aainfix <=c0V59EaInfiniteapathasV60V62V61NFIainfix <V61c1Aainfix <=c0V61FIamemaTuple2V60V57aemptyFAapathasV57V64V63NFIainfix <V63c1Aainfix <=c0V63FIamemV57averticesF">
-              <label
-               name="expl:parameter bellman_ford">
-               </label>
-              <proof
-               prover="0"
-               timelimit="10"
-               obsolete="true"
-               archived="false">
-               <result status="timeout" time="13.25"/>
-              </proof>
-             </goal>
-             <goal
-              name="WP_parameter bellman_ford.7.4.2.1.4"
-              locfile="bf/../bf.mlw"
-              loclnum="231" loccnumb="6" loccnume="18"
-              expl="for loop preservation"
-              sum="c9445ee6f37c8d711526aff0ed3d86ec"
+              sum="221d0e1b2e402680ccde49d07d5678f3"
               proved="false"
               expanded="false"
-              shape="LaTuple2V6V7ainfix =amixfix []V9V10aInfiniteIano_pathasV10IamemV10averticesFIainfix =agetV9V11agetV3V11Iainfix =V11V7NFACagetV3V7aFiniteVainfix =agetV9V7aFiniteV12IapathasV7V14V15NIainfix <V14V12FAapathasV7V12V13EaInfinitetACagetV3V7aInfinitetaFiniteVCagetV9V7aInfinitefaFiniteVainfix <=V17V16Aainfix =amixfix []V9V18aInfiniteIano_pathasV18ACamixfix []V9V18aFiniteVapathasV18V19V20Aainfix <V20V1Aainfix <=c0V20EaInfiniteapathasV21V23V22NFIainfix <V22V1Aainfix <=c0V22FIamemaTuple2V21V18aemptyFAapathasV18V25V24NFIainfix <V24V1Aainfix <=c0V24FIamemV18averticesFFIainfix =amixfix []V3V26aInfiniteIano_pathasV26ACamixfix []V3V26aFiniteVapathasV26V27V28Aainfix <V28V1Aainfix <=c0V28EaInfiniteapathasV29V31V30NFIainfix <V30V1Aainfix <=c0V30FIamemaTuple2V29V26aemptyFAapathasV26V33V32NFIainfix <V32V1Aainfix <=c0V32FIamemV26averticesFAamemaTuple2V6V7aedgesIainfix =V5aremoveV8V2AamemV8V2FFIamemV34V2NFNIainfix =V4aTrueNIamemV35V2NFqainfix =V4aTrueFIainfix =amixfix []V3V36aInfiniteIano_pathasV36ACamixfix []V3V36aFiniteVapathasV36V37V38Aainfix <V38V1Aainfix <=c0V38EaInfiniteapathasV39V41V40NFIainfix <V40V1Aainfix <=c0V40FIamemaTuple2V39V36adiffaedgesV2FAapathasV36V43V42NFIainfix <V42V1Aainfix <=c0V42FIamemV36averticesFAamemV44aedgesIamemV44V2FFFIainfix =amixfix []V0V45aInfiniteIano_pathasV45ACamixfix []V0V45aFiniteVapathasV45V46V47Aainfix <V47V1Aainfix <=c0V47EaInfiniteapathasV48V50V49NFIainfix <V49V1Aainfix <=c0V49FIamemaTuple2V48V45aemptyFAapathasV45V52V51NFIainfix <V51V1Aainfix <=c0V51FIamemV45averticesFIainfix =V1ainfix -acardinalaverticesc1Oainfix <V1ainfix -acardinalaverticesc1Aainfix =c1V1Oainfix <c1V1FFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV53aInfiniteIano_pathasV53ACamixfix []ainitialize_single_sourceasV53aFiniteVapathasV53V54V55Aainfix <V55c1Aainfix <=c0V55EaInfiniteapathasV56V58V57NFIainfix <V57c1Aainfix <=c0V57FIamemaTuple2V56V53aemptyFAapathasV53V60V59NFIainfix <V59c1Aainfix <=c0V59FIamemV53averticesF">
+              shape="LaTuple2V7V8ainfix =amixfix []V10V12aInfiniteIano_pathasV12IamemV12averticesFIainfix =V11aaddaTuple2V7V8V2FIainfix =agetV4V13agetV10V13Iainfix =V13V8NFACagetV4V8aFiniteVainfix =V4V10IapathasV8V16V17NIainfix <V16V14FAapathasV8V14V15EaInfinitetACagetV4V8aInfinitetaFiniteVCagetV10V8aInfinitefaFiniteVainfix <=V19V18Aainfix =amixfix []V10V20aInfiniteIano_pathasV20ACamixfix []V10V20aFiniteVapathasV22ainfix -V21aweightV22V20V1Aainfix <V23V1Aainfix <=c0V23EAamemaTuple2V22V20aaddaTuple2V7V8V2EOapathasV20V21V24Aainfix <V24V1Aainfix <=c0V24EaInfiniteapathasV25V27V26NFIainfix <V26V1Aainfix <=c0V26FIamemaTuple2V25V20aaddaTuple2V7V8V2FAapathasV20V29V28NFIainfix <V28V1Aainfix <=c0V28FIamemV20averticesFFIainfix =amixfix []V4V30aInfiniteIano_pathasV30ACamixfix []V4V30aFiniteVapathasV32ainfix -V31aweightV32V30V1Aainfix <V33V1Aainfix <=c0V33EAamemaTuple2V32V30V2EOapathasV30V31V34Aainfix <V34V1Aainfix <=c0V34EaInfiniteapathasV35V37V36NFIainfix <V36V1Aainfix <=c0V36FIamemaTuple2V35V30V2FAapathasV30V39V38NFIainfix <V38V1Aainfix <=c0V38FIamemV30averticesFAamemaTuple2V7V8aedgesIainfix =V6aremoveV9V3AamemV9V3FFIamemV40V3NFNIainfix =V5aTrueNIamemV41V3NFqainfix =V5aTrueFIainfix =amixfix []V4V42aInfiniteIano_pathasV42ACamixfix []V4V42aFiniteVapathasV44ainfix -V43aweightV44V42V1Aainfix <V45V1Aainfix <=c0V45EAamemaTuple2V44V42V2EOapathasV42V43V46Aainfix <V46V1Aainfix <=c0V46EaInfiniteapathasV47V49V48NFIainfix <V48V1Aainfix <=c0V48FIamemaTuple2V47V42V2FAapathasV42V51V50NFIainfix <V50V1Aainfix <=c0V50FIamemV42averticesFAainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIainfix =amixfix []V0V52aInfiniteIano_pathasV52ACamixfix []V0V52aFiniteVapathasV54ainfix -V53aweightV54V52V1Aainfix <V55V1Aainfix <=c0V55EAamemaTuple2V54V52aemptyEOapathasV52V53V56Aainfix <V56V1Aainfix <=c0V56EaInfiniteapathasV57V59V58NFIainfix <V58V1Aainfix <=c0V58FIamemaTuple2V57V52aemptyFAapathasV52V61V60NFIainfix <V60V1Aainfix <=c0V60FIamemV52averticesFIainfix =V1ainfix -acardinalaverticesc1Oainfix <V1ainfix -acardinalaverticesc1Aainfix =c1V1Oainfix <c1V1FFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV62aInfiniteIano_pathasV62ACamixfix []ainitialize_single_sourceasV62aFiniteVapathasV64ainfix -V63aweightV64V62c1Aainfix <V65c1Aainfix <=c0V65EAamemaTuple2V64V62aemptyEOapathasV62V63V66Aainfix <V66c1Aainfix <=c0V66EaInfiniteapathasV67V69V68NFIainfix <V68c1Aainfix <=c0V68FIamemaTuple2V67V62aemptyFAapathasV62V71V70NFIainfix <V70c1Aainfix <=c0V70FIamemV62averticesF">
               <label
                name="expl:parameter bellman_ford">
                </label>
               <proof
-               prover="0"
+               prover="1"
                timelimit="10"
                obsolete="true"
                archived="false">
@@ -1223,12 +1731,12 @@
        <goal
         name="WP_parameter bellman_ford.7.5"
         locfile="bf/../bf.mlw"
-        loclnum="231" loccnumb="6" loccnume="18"
+        loclnum="250" loccnumb="6" loccnume="18"
         expl="for loop preservation"
-        sum="4be97ef7ca6c39cd630c65a96bba323f"
+        sum="5185b100878a9a41eaf908f7d1e29999"
         proved="false"
         expanded="false"
-        shape="LaTuple2V6V7ainfix <acardinalV5acardinalV2Aainfix <=c0acardinalV2IapathsV9V1adiffaedgesV5AasubsetV5aedgesIainfix =agetV9V10agetV3V10Iainfix =V10V7NFACagetV3V7aFiniteVainfix =agetV9V7aFiniteV11Iashortest_pathasV7V11V12EaInfinitetACagetV3V7aInfinitetaFiniteVCagetV9V7aInfinitefaFiniteVainfix >=V13V14AapathsV9V1aemptyFIapathsV3V1aemptyAamemaTuple2V6V7aedgesIainfix =V5aremoveV8V2AamemV8V2FFIais_emptyV2NIainfix =V4aTrueNIais_emptyV2qainfix =V4aTrueFIapathsV3V1adiffaedgesV2AasubsetV2aedgesFFIapathsV0V1aemptyIainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
+        shape="LaTuple2V7V8ainfix <acardinalV6acardinalV3Aainfix <=c0acardinalV3IapathsV10V1V11Aainfix =ainterV6V11aemptyAainfix =aunionV6V11aedgesIainfix =V11aaddaTuple2V7V8V2FIainfix =agetV4V12agetV10V12Iainfix =V12V8NFACagetV4V8aFiniteVainfix =V4V10Iashortest_pathasV8V13V14EaInfinitetACagetV4V8aInfinitetaFiniteVCagetV10V8aInfinitefaFiniteVainfix >=V15V16AapathsV10V1aaddaTuple2V7V8V2FIapathsV4V1V2AamemaTuple2V7V8aedgesIainfix =V6aremoveV9V3AamemV9V3FFIais_emptyV3NIainfix =V5aTrueNIais_emptyV3qainfix =V5aTrueFIapathsV4V1V2Aainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIapathsV0V1aemptyIainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
         <label
          name="expl:parameter bellman_ford">
          </label>
@@ -1237,18 +1745,25 @@
          timelimit="10"
          obsolete="true"
          archived="false">
-         <result status="valid" time="0.06"/>
+         <result status="valid" time="0.05"/>
+        </proof>
+        <proof
+         prover="1"
+         timelimit="10"
+         obsolete="true"
+         archived="false">
+         <result status="valid" time="0.10"/>
         </proof>
        </goal>
        <goal
         name="WP_parameter bellman_ford.7.6"
         locfile="bf/../bf.mlw"
-        loclnum="231" loccnumb="6" loccnume="18"
+        loclnum="250" loccnumb="6" loccnume="18"
         expl="for loop preservation"
-        sum="84f671a31d703eb0a531b164248b8798"
+        sum="f3499a0c92c524c3c4be35eeb50b66ef"
         proved="false"
         expanded="true"
-        shape="apathsV3ainfix +V1c1aemptyIainfix =V4aTrueNNIais_emptyV2qainfix =V4aTrueFIapathsV3V1adiffaedgesV2AasubsetV2aedgesFFIapathsV0V1aemptyIainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
+        shape="apathsV4ainfix +V1c1aemptyIainfix =V5aTrueNNIais_emptyV3qainfix =V5aTrueFIapathsV4V1V2Aainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIapathsV0V1aemptyIainfix <=V1ainfix -acardinalaverticesc1Aainfix <=c1V1FFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
         <label
          name="expl:parameter bellman_ford">
          </label>
@@ -1259,12 +1774,12 @@
          <goal
           name="WP_parameter bellman_ford.7.6.1"
           locfile="bf/../bf.mlw"
-          loclnum="231" loccnumb="6" loccnume="18"
+          loclnum="250" loccnumb="6" loccnume="18"
           expl="for loop preservation"
-          sum="00f7c2f5fec4dca0a227f66db9ba6eed"
+          sum="3ac68053f7c8741791123172ccc1e208"
           proved="false"
           expanded="true"
-          shape="ainfix =amixfix []V3V5aInfiniteIano_pathasV5ACamixfix []V3V5aFiniteVapathasV5V6V7Aainfix <V7ainfix +V1c1Aainfix <=c0V7EaInfiniteapathasV8V10V9NFIainfix <V9ainfix +V1c1Aainfix <=c0V9FIamemaTuple2V8V5aemptyFAapathasV5V12V11NFIainfix <V11ainfix +V1c1Aainfix <=c0V11FIamemV5averticesFIainfix =V4aTrueNNIamemV13V2NFqainfix =V4aTrueFIainfix =amixfix []V3V14aInfiniteIano_pathasV14ACamixfix []V3V14aFiniteVapathasV14V15V16Aainfix <V16V1Aainfix <=c0V16EaInfiniteapathasV17V19V18NFIainfix <V18V1Aainfix <=c0V18FIamemaTuple2V17V14adiffaedgesV2FAapathasV14V21V20NFIainfix <V20V1Aainfix <=c0V20FIamemV14averticesFAamemV22aedgesIamemV22V2FFFIainfix =amixfix []V0V23aInfiniteIano_pathasV23ACamixfix []V0V23aFiniteVapathasV23V24V25Aainfix <V25V1Aainfix <=c0V25EaInfiniteapathasV26V28V27NFIainfix <V27V1Aainfix <=c0V27FIamemaTuple2V26V23aemptyFAapathasV23V30V29NFIainfix <V29V1Aainfix <=c0V29FIamemV23averticesFIainfix =V1ainfix -acardinalaverticesc1Oainfix <V1ainfix -acardinalaverticesc1Aainfix =c1V1Oainfix <c1V1FFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV31aInfiniteIano_pathasV31ACamixfix []ainitialize_single_sourceasV31aFiniteVapathasV31V32V33Aainfix <V33c1Aainfix <=c0V33EaInfiniteapathasV34V36V35NFIainfix <V35c1Aainfix <=c0V35FIamemaTuple2V34V31aemptyFAapathasV31V38V37NFIainfix <V37c1Aainfix <=c0V37FIamemV31averticesF">
+          shape="ainfix =amixfix []V4V6aInfiniteIano_pathasV6ACamixfix []V4V6aFiniteVapathasV8ainfix -V7aweightV8V6ainfix +V1c1Aainfix <V9ainfix +V1c1Aainfix <=c0V9EAamemaTuple2V8V6aemptyEOapathasV6V7V10Aainfix <V10ainfix +V1c1Aainfix <=c0V10EaInfiniteapathasV11V13V12NFIainfix <V12ainfix +V1c1Aainfix <=c0V12FIamemaTuple2V11V6aemptyFAapathasV6V15V14NFIainfix <V14ainfix +V1c1Aainfix <=c0V14FIamemV6averticesFIainfix =V5aTrueNNIamemV16V3NFqainfix =V5aTrueFIainfix =amixfix []V4V17aInfiniteIano_pathasV17ACamixfix []V4V17aFiniteVapathasV19ainfix -V18aweightV19V17V1Aainfix <V20V1Aainfix <=c0V20EAamemaTuple2V19V17V2EOapathasV17V18V21Aainfix <V21V1Aainfix <=c0V21EaInfiniteapathasV22V24V23NFIainfix <V23V1Aainfix <=c0V23FIamemaTuple2V22V17V2FAapathasV17V26V25NFIainfix <V25V1Aainfix <=c0V25FIamemV17averticesFAainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIainfix =amixfix []V0V27aInfiniteIano_pathasV27ACamixfix []V0V27aFiniteVapathasV29ainfix -V28aweightV29V27V1Aainfix <V30V1Aainfix <=c0V30EAamemaTuple2V29V27aemptyEOapathasV27V28V31Aainfix <V31V1Aainfix <=c0V31EaInfiniteapathasV32V34V33NFIainfix <V33V1Aainfix <=c0V33FIamemaTuple2V32V27aemptyFAapathasV27V36V35NFIainfix <V35V1Aainfix <=c0V35FIamemV27averticesFIainfix =V1ainfix -acardinalaverticesc1Oainfix <V1ainfix -acardinalaverticesc1Aainfix =c1V1Oainfix <c1V1FFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV37aInfiniteIano_pathasV37ACamixfix []ainitialize_single_sourceasV37aFiniteVapathasV39ainfix -V38aweightV39V37c1Aainfix <V40c1Aainfix <=c0V40EAamemaTuple2V39V37aemptyEOapathasV37V38V41Aainfix <V41c1Aainfix <=c0V41EaInfiniteapathasV42V44V43NFIainfix <V43c1Aainfix <=c0V43FIamemaTuple2V42V37aemptyFAapathasV37V46V45NFIainfix <V45c1Aainfix <=c0V45FIamemV37averticesF">
           <label
            name="expl:parameter bellman_ford">
            </label>
@@ -1275,12 +1790,12 @@
            <goal
             name="WP_parameter bellman_ford.7.6.1.1"
             locfile="bf/../bf.mlw"
-            loclnum="231" loccnumb="6" loccnume="18"
+            loclnum="250" loccnumb="6" loccnume="18"
             expl="for loop preservation"
-            sum="165c289ccbfa13f9771c47bd24767573"
+            sum="98542acfd51230f9c7fa38c46b35b4ef"
             proved="false"
             expanded="false"
-            shape="Camixfix []V3V5aFiniteVapathasV5V6V7Aainfix <V7ainfix +V1c1Aainfix <=c0V7EaInfinitetIamemV5averticesFIainfix =V4aTrueNNIamemV8V2NFqainfix =V4aTrueFIainfix =amixfix []V3V9aInfiniteIano_pathasV9ACamixfix []V3V9aFiniteVapathasV9V10V11Aainfix <V11V1Aainfix <=c0V11EaInfiniteapathasV12V14V13NFIainfix <V13V1Aainfix <=c0V13FIamemaTuple2V12V9adiffaedgesV2FAapathasV9V16V15NFIainfix <V15V1Aainfix <=c0V15FIamemV9averticesFAamemV17aedgesIamemV17V2FFFIainfix =amixfix []V0V18aInfiniteIano_pathasV18ACamixfix []V0V18aFiniteVapathasV18V19V20Aainfix <V20V1Aainfix <=c0V20EaInfiniteapathasV21V23V22NFIainfix <V22V1Aainfix <=c0V22FIamemaTuple2V21V18aemptyFAapathasV18V25V24NFIainfix <V24V1Aainfix <=c0V24FIamemV18averticesFIainfix =V1ainfix -acardinalaverticesc1Oainfix <V1ainfix -acardinalaverticesc1Aainfix =c1V1Oainfix <c1V1FFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV26aInfiniteIano_pathasV26ACamixfix []ainitialize_single_sourceasV26aFiniteVapathasV26V27V28Aainfix <V28c1Aainfix <=c0V28EaInfiniteapathasV29V31V30NFIainfix <V30c1Aainfix <=c0V30FIamemaTuple2V29V26aemptyFAapathasV26V33V32NFIainfix <V32c1Aainfix <=c0V32FIamemV26averticesF">
+            shape="Camixfix []V4V6aFiniteVapathasV8ainfix -V7aweightV8V6ainfix +V1c1Aainfix <V9ainfix +V1c1Aainfix <=c0V9EAamemaTuple2V8V6aemptyEOapathasV6V7V10Aainfix <V10ainfix +V1c1Aainfix <=c0V10EaInfinitetIamemV6averticesFIainfix =V5aTrueNNIamemV11V3NFqainfix =V5aTrueFIainfix =amixfix []V4V12aInfiniteIano_pathasV12ACamixfix []V4V12aFiniteVapathasV14ainfix -V13aweightV14V12V1Aainfix <V15V1Aainfix <=c0V15EAamemaTuple2V14V12V2EOapathasV12V13V16Aainfix <V16V1Aainfix <=c0V16EaInfiniteapathasV17V19V18NFIainfix <V18V1Aainfix <=c0V18FIamemaTuple2V17V12V2FAapathasV12V21V20NFIainfix <V20V1Aainfix <=c0V20FIamemV12averticesFAainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIainfix =amixfix []V0V22aInfiniteIano_pathasV22ACamixfix []V0V22aFiniteVapathasV24ainfix -V23aweightV24V22V1Aainfix <V25V1Aainfix <=c0V25EAamemaTuple2V24V22aemptyEOapathasV22V23V26Aainfix <V26V1Aainfix <=c0V26EaInfiniteapathasV27V29V28NFIainfix <V28V1Aainfix <=c0V28FIamemaTuple2V27V22aemptyFAapathasV22V31V30NFIainfix <V30V1Aainfix <=c0V30FIamemV22averticesFIainfix =V1ainfix -acardinalaverticesc1Oainfix <V1ainfix -acardinalaverticesc1Aainfix =c1V1Oainfix <c1V1FFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV32aInfiniteIano_pathasV32ACamixfix []ainitialize_single_sourceasV32aFiniteVapathasV34ainfix -V33aweightV34V32c1Aainfix <V35c1Aainfix <=c0V35EAamemaTuple2V34V32aemptyEOapathasV32V33V36Aainfix <V36c1Aainfix <=c0V36EaInfiniteapathasV37V39V38NFIainfix <V38c1Aainfix <=c0V38FIamemaTuple2V37V32aemptyFAapathasV32V41V40NFIainfix <V40c1Aainfix <=c0V40FIamemV32averticesF">
             <label
              name="expl:parameter bellman_ford">
              </label>
@@ -1289,38 +1804,38 @@
              timelimit="10"
              obsolete="true"
              archived="false">
-             <result status="valid" time="0.47"/>
+             <result status="timeout" time="13.78"/>
             </proof>
            </goal>
            <goal
             name="WP_parameter bellman_ford.7.6.1.2"
             locfile="bf/../bf.mlw"
-            loclnum="231" loccnumb="6" loccnume="18"
+            loclnum="250" loccnumb="6" loccnume="18"
             expl="for loop preservation"
-            sum="71a90b647c08c891c9e2184245ed93bc"
+            sum="7336b25dd9630209e7af6d892a9f14ab"
             proved="false"
-            expanded="true"
-            shape="Camixfix []V3V5aFiniteVtaInfiniteapathasV5V8V7NFIainfix <V7ainfix +V1c1Aainfix <=c0V7FIamemV5averticesFIainfix =V4aTrueNNIamemV9V2NFqainfix =V4aTrueFIainfix =amixfix []V3V10aInfiniteIano_pathasV10ACamixfix []V3V10aFiniteVapathasV10V11V12Aainfix <V12V1Aainfix <=c0V12EaInfiniteapathasV13V15V14NFIainfix <V14V1Aainfix <=c0V14FIamemaTuple2V13V10adiffaedgesV2FAapathasV10V17V16NFIainfix <V16V1Aainfix <=c0V16FIamemV10averticesFAamemV18aedgesIamemV18V2FFFIainfix =amixfix []V0V19aInfiniteIano_pathasV19ACamixfix []V0V19aFiniteVapathasV19V20V21Aainfix <V21V1Aainfix <=c0V21EaInfiniteapathasV22V24V23NFIainfix <V23V1Aainfix <=c0V23FIamemaTuple2V22V19aemptyFAapathasV19V26V25NFIainfix <V25V1Aainfix <=c0V25FIamemV19averticesFIainfix =V1ainfix -acardinalaverticesc1Oainfix <V1ainfix -acardinalaverticesc1Aainfix =c1V1Oainfix <c1V1FFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV27aInfiniteIano_pathasV27ACamixfix []ainitialize_single_sourceasV27aFiniteVapathasV27V28V29Aainfix <V29c1Aainfix <=c0V29EaInfiniteapathasV30V32V31NFIainfix <V31c1Aainfix <=c0V31FIamemaTuple2V30V27aemptyFAapathasV27V34V33NFIainfix <V33c1Aainfix <=c0V33FIamemV27averticesF">
+            expanded="false"
+            shape="Camixfix []V4V6aFiniteVtaInfiniteapathasV6V9V8NFIainfix <V8ainfix +V1c1Aainfix <=c0V8FIamemV6averticesFIainfix =V5aTrueNNIamemV10V3NFqainfix =V5aTrueFIainfix =amixfix []V4V11aInfiniteIano_pathasV11ACamixfix []V4V11aFiniteVapathasV13ainfix -V12aweightV13V11V1Aainfix <V14V1Aainfix <=c0V14EAamemaTuple2V13V11V2EOapathasV11V12V15Aainfix <V15V1Aainfix <=c0V15EaInfiniteapathasV16V18V17NFIainfix <V17V1Aainfix <=c0V17FIamemaTuple2V16V11V2FAapathasV11V20V19NFIainfix <V19V1Aainfix <=c0V19FIamemV11averticesFAainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIainfix =amixfix []V0V21aInfiniteIano_pathasV21ACamixfix []V0V21aFiniteVapathasV23ainfix -V22aweightV23V21V1Aainfix <V24V1Aainfix <=c0V24EAamemaTuple2V23V21aemptyEOapathasV21V22V25Aainfix <V25V1Aainfix <=c0V25EaInfiniteapathasV26V28V27NFIainfix <V27V1Aainfix <=c0V27FIamemaTuple2V26V21aemptyFAapathasV21V30V29NFIainfix <V29V1Aainfix <=c0V29FIamemV21averticesFIainfix =V1ainfix -acardinalaverticesc1Oainfix <V1ainfix -acardinalaverticesc1Aainfix =c1V1Oainfix <c1V1FFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV31aInfiniteIano_pathasV31ACamixfix []ainitialize_single_sourceasV31aFiniteVapathasV33ainfix -V32aweightV33V31c1Aainfix <V34c1Aainfix <=c0V34EAamemaTuple2V33V31aemptyEOapathasV31V32V35Aainfix <V35c1Aainfix <=c0V35EaInfiniteapathasV36V38V37NFIainfix <V37c1Aainfix <=c0V37FIamemaTuple2V36V31aemptyFAapathasV31V40V39NFIainfix <V39c1Aainfix <=c0V39FIamemV31averticesF">
             <label
              name="expl:parameter bellman_ford">
              </label>
             <proof
-             prover="0"
+             prover="1"
              timelimit="10"
              obsolete="true"
              archived="false">
-             <result status="timeout" time="17.88"/>
+             <result status="valid" time="6.05"/>
             </proof>
            </goal>
            <goal
             name="WP_parameter bellman_ford.7.6.1.3"
             locfile="bf/../bf.mlw"
-            loclnum="231" loccnumb="6" loccnume="18"
+            loclnum="250" loccnumb="6" loccnume="18"
             expl="for loop preservation"
-            sum="e6c13c0239cc2efc2331ce1c37a72bb7"
+            sum="6fc573553da40c77cac89b7b55c1d839"
             proved="false"
             expanded="false"
-            shape="Camixfix []V3V5aFiniteVtaInfiniteapathasV7V9V8NFIainfix <V8ainfix +V1c1Aainfix <=c0V8FIamemaTuple2V7V5aemptyFIamemV5averticesFIainfix =V4aTrueNNIamemV10V2NFqainfix =V4aTrueFIainfix =amixfix []V3V11aInfiniteIano_pathasV11ACamixfix []V3V11aFiniteVapathasV11V12V13Aainfix <V13V1Aainfix <=c0V13EaInfiniteapathasV14V16V15NFIainfix <V15V1Aainfix <=c0V15FIamemaTuple2V14V11adiffaedgesV2FAapathasV11V18V17NFIainfix <V17V1Aainfix <=c0V17FIamemV11averticesFAamemV19aedgesIamemV19V2FFFIainfix =amixfix []V0V20aInfiniteIano_pathasV20ACamixfix []V0V20aFiniteVapathasV20V21V22Aainfix <V22V1Aainfix <=c0V22EaInfiniteapathasV23V25V24NFIainfix <V24V1Aainfix <=c0V24FIamemaTuple2V23V20aemptyFAapathasV20V27V26NFIainfix <V26V1Aainfix <=c0V26FIamemV20averticesFIainfix =V1ainfix -acardinalaverticesc1Oainfix <V1ainfix -acardinalaverticesc1Aainfix =c1V1Oainfix <c1V1FFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV28aInfiniteIano_pathasV28ACamixfix []ainitialize_single_sourceasV28aFiniteVapathasV28V29V30Aainfix <V30c1Aainfix <=c0V30EaInfiniteapathasV31V33V32NFIainfix <V32c1Aainfix <=c0V32FIamemaTuple2V31V28aemptyFAapathasV28V35V34NFIainfix <V34c1Aainfix <=c0V34FIamemV28averticesF">
+            shape="Camixfix []V4V6aFiniteVtaInfiniteapathasV8V10V9NFIainfix <V9ainfix +V1c1Aainfix <=c0V9FIamemaTuple2V8V6aemptyFIamemV6averticesFIainfix =V5aTrueNNIamemV11V3NFqainfix =V5aTrueFIainfix =amixfix []V4V12aInfiniteIano_pathasV12ACamixfix []V4V12aFiniteVapathasV14ainfix -V13aweightV14V12V1Aainfix <V15V1Aainfix <=c0V15EAamemaTuple2V14V12V2EOapathasV12V13V16Aainfix <V16V1Aainfix <=c0V16EaInfiniteapathasV17V19V18NFIainfix <V18V1Aainfix <=c0V18FIamemaTuple2V17V12V2FAapathasV12V21V20NFIainfix <V20V1Aainfix <=c0V20FIamemV12averticesFAainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIainfix =amixfix []V0V22aInfiniteIano_pathasV22ACamixfix []V0V22aFiniteVapathasV24ainfix -V23aweightV24V22V1Aainfix <V25V1Aainfix <=c0V25EAamemaTuple2V24V22aemptyEOapathasV22V23V26Aainfix <V26V1Aainfix <=c0V26EaInfiniteapathasV27V29V28NFIainfix <V28V1Aainfix <=c0V28FIamemaTuple2V27V22aemptyFAapathasV22V31V30NFIainfix <V30V1Aainfix <=c0V30FIamemV22averticesFIainfix =V1ainfix -acardinalaverticesc1Oainfix <V1ainfix -acardinalaverticesc1Aainfix =c1V1Oainfix <c1V1FFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV32aInfiniteIano_pathasV32ACamixfix []ainitialize_single_sourceasV32aFiniteVapathasV34ainfix -V33aweightV34V32c1Aainfix <V35c1Aainfix <=c0V35EAamemaTuple2V34V32aemptyEOapathasV32V33V36Aainfix <V36c1Aainfix <=c0V36EaInfiniteapathasV37V39V38NFIainfix <V38c1Aainfix <=c0V38FIamemaTuple2V37V32aemptyFAapathasV32V41V40NFIainfix <V40c1Aainfix <=c0V40FIamemV32averticesF">
             <label
              name="expl:parameter bellman_ford">
              </label>
@@ -1331,32 +1846,32 @@
              archived="false">
              <result status="valid" time="0.06"/>
             </proof>
+            <proof
+             prover="3"
+             timelimit="10"
+             obsolete="true"
+             archived="false">
+             <result status="failure" time="0.00"/>
+            </proof>
            </goal>
            <goal
             name="WP_parameter bellman_ford.7.6.1.4"
             locfile="bf/../bf.mlw"
-            loclnum="231" loccnumb="6" loccnume="18"
+            loclnum="250" loccnumb="6" loccnume="18"
             expl="for loop preservation"
-            sum="08cd2a04554e03fd6b2b20c8d9d82bfe"
+            sum="2b469b725944b0e79c2fefb55041dc6d"
             proved="false"
             expanded="false"
-            shape="ainfix =amixfix []V3V5aInfiniteIano_pathasV5IamemV5averticesFIainfix =V4aTrueNNIamemV6V2NFqainfix =V4aTrueFIainfix =amixfix []V3V7aInfiniteIano_pathasV7ACamixfix []V3V7aFiniteVapathasV7V8V9Aainfix <V9V1Aainfix <=c0V9EaInfiniteapathasV10V12V11NFIainfix <V11V1Aainfix <=c0V11FIamemaTuple2V10V7adiffaedgesV2FAapathasV7V14V13NFIainfix <V13V1Aainfix <=c0V13FIamemV7averticesFAamemV15aedgesIamemV15V2FFFIainfix =amixfix []V0V16aInfiniteIano_pathasV16ACamixfix []V0V16aFiniteVapathasV16V17V18Aainfix <V18V1Aainfix <=c0V18EaInfiniteapathasV19V21V20NFIainfix <V20V1Aainfix <=c0V20FIamemaTuple2V19V16aemptyFAapathasV16V23V22NFIainfix <V22V1Aainfix <=c0V22FIamemV16averticesFIainfix =V1ainfix -acardinalaverticesc1Oainfix <V1ainfix -acardinalaverticesc1Aainfix =c1V1Oainfix <c1V1FFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV24aInfiniteIano_pathasV24ACamixfix []ainitialize_single_sourceasV24aFiniteVapathasV24V25V26Aainfix <V26c1Aainfix <=c0V26EaInfiniteapathasV27V29V28NFIainfix <V28c1Aainfix <=c0V28FIamemaTuple2V27V24aemptyFAapathasV24V31V30NFIainfix <V30c1Aainfix <=c0V30FIamemV24averticesF">
+            shape="ainfix =amixfix []V4V6aInfiniteIano_pathasV6IamemV6averticesFIainfix =V5aTrueNNIamemV7V3NFqainfix =V5aTrueFIainfix =amixfix []V4V8aInfiniteIano_pathasV8ACamixfix []V4V8aFiniteVapathasV10ainfix -V9aweightV10V8V1Aainfix <V11V1Aainfix <=c0V11EAamemaTuple2V10V8V2EOapathasV8V9V12Aainfix <V12V1Aainfix <=c0V12EaInfiniteapathasV13V15V14NFIainfix <V14V1Aainfix <=c0V14FIamemaTuple2V13V8V2FAapathasV8V17V16NFIainfix <V16V1Aainfix <=c0V16FIamemV8averticesFAainfix =ainterV3V2aemptyAainfix =aunionV3V2aedgesFFFIainfix =amixfix []V0V18aInfiniteIano_pathasV18ACamixfix []V0V18aFiniteVapathasV20ainfix -V19aweightV20V18V1Aainfix <V21V1Aainfix <=c0V21EAamemaTuple2V20V18aemptyEOapathasV18V19V22Aainfix <V22V1Aainfix <=c0V22EaInfiniteapathasV23V25V24NFIainfix <V24V1Aainfix <=c0V24FIamemaTuple2V23V18aemptyFAapathasV18V27V26NFIainfix <V26V1Aainfix <=c0V26FIamemV18averticesFIainfix =V1ainfix -acardinalaverticesc1Oainfix <V1ainfix -acardinalaverticesc1Aainfix =c1V1Oainfix <c1V1FFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV28aInfiniteIano_pathasV28ACamixfix []ainitialize_single_sourceasV28aFiniteVapathasV30ainfix -V29aweightV30V28c1Aainfix <V31c1Aainfix <=c0V31EAamemaTuple2V30V28aemptyEOapathasV28V29V32Aainfix <V32c1Aainfix <=c0V32EaInfiniteapathasV33V35V34NFIainfix <V34c1Aainfix <=c0V34FIamemaTuple2V33V28aemptyFAapathasV28V37V36NFIainfix <V36c1Aainfix <=c0V36FIamemV28averticesF">
             <label
              name="expl:parameter bellman_ford">
              </label>
-            <proof
-             prover="0"
-             timelimit="10"
-             obsolete="true"
-             archived="false">
-             <result status="valid" time="0.04"/>
-            </proof>
             <proof
              prover="1"
              timelimit="10"
              obsolete="true"
              archived="false">
-             <result status="valid" time="0.05"/>
+             <result status="valid" time="0.04"/>
             </proof>
            </goal>
           </transf>
@@ -1368,9 +1883,9 @@
      <goal
       name="WP_parameter bellman_ford.8"
       locfile="bf/../bf.mlw"
-      loclnum="231" loccnumb="6" loccnume="18"
+      loclnum="250" loccnumb="6" loccnume="18"
       expl="precondition"
-      sum="0262be9dac3efd4b93b1178b2f879b9c"
+      sum="26584cc098d57ff5872c4809b17ceda1"
       proved="false"
       expanded="false"
       shape="ais_emptyV1NIainfix =V2aTrueNIais_emptyV1qainfix =V2aTrueFFIapathsV0ainfix +ainfix -acardinalaverticesc1c1aemptyFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
@@ -1384,13 +1899,27 @@
        archived="false">
        <result status="valid" time="0.02"/>
       </proof>
+      <proof
+       prover="1"
+       timelimit="10"
+       obsolete="true"
+       archived="false">
+       <result status="valid" time="0.04"/>
+      </proof>
+      <proof
+       prover="3"
+       timelimit="10"
+       obsolete="true"
+       archived="false">
+       <result status="valid" time="0.00"/>
+      </proof>
      </goal>
      <goal
       name="WP_parameter bellman_ford.9"
       locfile="bf/../bf.mlw"
-      loclnum="231" loccnumb="6" loccnume="18"
+      loclnum="250" loccnumb="6" loccnume="18"
       expl="loop variant decreases"
-      sum="cd7ce00c708803e99bd73b1819a3692f"
+      sum="fb230bf8e682c1d8c92ee69766b9005d"
       proved="false"
       expanded="false"
       shape="LaTuple2V4V5ainfix <acardinalV3acardinalV1Aainfix <=c0acardinalV1ICagetV0V5aInfinitefaFiniteVCagetV0V4aInfinitetaFiniteVainfix <V7ainfix +V8aweightV4V5NIainfix =V3aremoveV6V1AamemV6V1FFIais_emptyV1NIainfix =V2aTrueNIais_emptyV1qainfix =V2aTrueFFIapathsV0ainfix +ainfix -acardinalaverticesc1c1aemptyFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
@@ -1404,13 +1933,20 @@
        archived="false">
        <result status="valid" time="0.04"/>
       </proof>
+      <proof
+       prover="1"
+       timelimit="10"
+       obsolete="true"
+       archived="false">
+       <result status="valid" time="0.04"/>
+      </proof>
      </goal>
      <goal
       name="WP_parameter bellman_ford.10"
       locfile="bf/../bf.mlw"
-      loclnum="231" loccnumb="6" loccnume="18"
+      loclnum="250" loccnumb="6" loccnume="18"
       expl="assertion"
-      sum="7fbc4a047b13ae0a184266c6c469b39c"
+      sum="023671a94ce4876713935a4c0c8cbb0a"
       proved="false"
       expanded="true"
       shape="ainfix =agetV0V3aFiniteV4Iashortest_pathasV3V4V5FAainfix =agetV0V3aInfiniteIano_pathasV3IamemV3averticesFAapathsV0acardinalaverticesaemptyIainfix =V2aTrueNNIais_emptyV1qainfix =V2aTrueFFIapathsV0ainfix +ainfix -acardinalaverticesc1c1aemptyFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
@@ -1424,9 +1960,9 @@
        <goal
         name="WP_parameter bellman_ford.10.1"
         locfile="bf/../bf.mlw"
-        loclnum="231" loccnumb="6" loccnume="18"
+        loclnum="250" loccnumb="6" loccnume="18"
         expl="parameter bellman_ford"
-        sum="647628ef4fa586f67d55954204b744c8"
+        sum="c4642950094dacd84196158f19abd77b"
         proved="false"
         expanded="false"
         shape="apathsV0acardinalaverticesaemptyIainfix =V2aTrueNNIais_emptyV1qainfix =V2aTrueFFIapathsV0ainfix +ainfix -acardinalaverticesc1c1aemptyFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
@@ -1440,13 +1976,27 @@
          archived="false">
          <result status="valid" time="0.02"/>
         </proof>
+        <proof
+         prover="1"
+         timelimit="10"
+         obsolete="true"
+         archived="false">
+         <result status="valid" time="0.04"/>
+        </proof>
+        <proof
+         prover="3"
+         timelimit="10"
+         obsolete="true"
+         archived="false">
+         <result status="valid" time="0.02"/>
+        </proof>
        </goal>
        <goal
         name="WP_parameter bellman_ford.10.2"
         locfile="bf/../bf.mlw"
-        loclnum="231" loccnumb="6" loccnume="18"
+        loclnum="250" loccnumb="6" loccnume="18"
         expl="parameter bellman_ford"
-        sum="cfc63f69aa4b7ff6c97cd11bec30743a"
+        sum="90003f735d11e90243a5cec9a9a812ed"
         proved="false"
         expanded="false"
         shape="ainfix =agetV0V3aInfiniteIano_pathasV3IamemV3averticesFIainfix =V2aTrueNNIais_emptyV1qainfix =V2aTrueFFIapathsV0ainfix +ainfix -acardinalaverticesc1c1aemptyFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
@@ -1454,7 +2004,7 @@
          name="expl:parameter bellman_ford">
          </label>
         <proof
-         prover="0"
+         prover="1"
          timelimit="10"
          obsolete="true"
          archived="false">
@@ -1464,31 +2014,24 @@
        <goal
         name="WP_parameter bellman_ford.10.3"
         locfile="bf/../bf.mlw"
-        loclnum="231" loccnumb="6" loccnume="18"
+        loclnum="250" loccnumb="6" loccnume="18"
         expl="parameter bellman_ford"
-        sum="176f528ddb83a7fd1f7f777a70e2f717"
+        sum="d79c1bee4455d2b5fa5bab43e922dfae"
         proved="false"
         expanded="false"
         shape="ainfix =agetV0V3aFiniteV4Iashortest_pathasV3V4V5FIamemV3averticesFIainfix =V2aTrueNNIais_emptyV1qainfix =V2aTrueFFIapathsV0ainfix +ainfix -acardinalaverticesc1c1aemptyFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
         <label
          name="expl:parameter bellman_ford">
          </label>
-        <proof
-         prover="0"
-         timelimit="10"
-         obsolete="true"
-         archived="false">
-         <result status="timeout" time="10.08"/>
-        </proof>
        </goal>
       </transf>
      </goal>
      <goal
       name="WP_parameter bellman_ford.11"
       locfile="bf/../bf.mlw"
-      loclnum="231" loccnumb="6" loccnume="18"
+      loclnum="250" loccnumb="6" loccnume="18"
       expl="normal postcondition"
-      sum="f854a76634d7308493638241d1a7506a"
+      sum="8859648316da2696aad17d493f443805"
       proved="false"
       expanded="true"
       shape="CagetV0V3aInfiniteano_pathasV3aFiniteVashortest_pathasV3V4V5EIamemV3averticesFIainfix =agetV0V6aFiniteV7Iashortest_pathasV6V7V8FAainfix =agetV0V6aInfiniteIano_pathasV6IamemV6averticesFAapathsV0acardinalaverticesaemptyIainfix =V2aTrueNNIais_emptyV1qainfix =V2aTrueFFIapathsV0ainfix +ainfix -acardinalaverticesc1c1aemptyFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
@@ -1502,109 +2045,35 @@
        <goal
         name="WP_parameter bellman_ford.11.1"
         locfile="bf/../bf.mlw"
-        loclnum="231" loccnumb="6" loccnume="18"
+        loclnum="250" loccnumb="6" loccnume="18"
         expl="normal postcondition"
-        sum="d1de1d2c8c70b64aed3e9a850b11dc14"
+        sum="8df3c8f65aced8e34313afee3ab987b8"
         proved="false"
-        expanded="true"
+        expanded="false"
         shape="CagetV0V3aInfiniteano_pathasV3aFiniteVtIamemV3averticesFIainfix =agetV0V5aFiniteV6Iashortest_pathasV5V6V7FAainfix =agetV0V5aInfiniteIano_pathasV5IamemV5averticesFAapathsV0acardinalaverticesaemptyIainfix =V2aTrueNNIais_emptyV1qainfix =V2aTrueFFIapathsV0ainfix +ainfix -acardinalaverticesc1c1aemptyFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
         <label
          name="expl:parameter bellman_ford">
          </label>
         <proof
-         prover="0"
-         timelimit="10"
-         obsolete="true"
-         archived="false">
-         <result status="unknown" time="1.41"/>
-        </proof>
-        <proof
          prover="1"
          timelimit="10"
          obsolete="true"
          archived="false">
-         <result status="timeout" time="11.30"/>
+         <result status="valid" time="0.09"/>
         </proof>
-        <proof
-         prover="3"
-         timelimit="10"
-         obsolete="true"
-         archived="false">
-         <result status="timeout" time="11.27"/>
-        </proof>
-        <transf
-         name="inline_goal"
-         proved="false"
-         expanded="true">
-         <goal
-          name="WP_parameter bellman_ford.11.1.1"
-          locfile="bf/../bf.mlw"
-          loclnum="231" loccnumb="6" loccnume="18"
-          expl="normal postcondition"
-          sum="2d64d3de3f819c544e091e569e2e140c"
-          proved="false"
-          expanded="true"
-          shape="CagetV0V3aInfiniteapathasV3V4V5NFaFiniteVtIamemV3averticesFIainfix =agetV0V7aFiniteV8IapathasV7V10V11NIainfix <V10V8FAapathasV7V8V9FAainfix =agetV0V7aInfiniteIapathasV7V12V13NFIamemV7averticesFAainfix =amixfix []V0V14aInfiniteIano_pathasV14ACamixfix []V0V14aFiniteVapathasV14V15V16Aainfix <V16acardinalaverticesAainfix <=c0V16EaInfiniteapathasV17V19V18NFIainfix <V18acardinalaverticesAainfix <=c0V18FIamemaTuple2V17V14aemptyFAapathasV14V21V20NFIainfix <V20acardinalaverticesAainfix <=c0V20FIamemV14averticesFIainfix =V2aTrueNNIamemV22V1NFqainfix =V2aTrueFFIainfix =amixfix []V0V23aInfiniteIano_pathasV23ACamixfix []V0V23aFiniteVapathasV23V24V25Aainfix <V25ainfix +ainfix -acardinalaverticesc1c1Aainfix <=c0V25EaInfiniteapathasV26V28V27NFIainfix <V27ainfix +ainfix -acardinalaverticesc1c1Aainfix <=c0V27FIamemaTuple2V26V23aemptyFAapathasV23V30V29NFIainfix <V29ainfix +ainfix -acardinalaverticesc1c1Aainfix <=c0V29FIamemV23averticesFFIainfix =c1ainfix -acardinalaverticesc1Oainfix <c1ainfix -acardinalaverticesc1Iainfix =amixfix []ainitialize_single_sourceasV31aInfiniteIano_pathasV31ACamixfix []ainitialize_single_sourceasV31aFiniteVapathasV31V32V33Aainfix <V33c1Aainfix <=c0V33EaInfiniteapathasV34V36V35NFIainfix <V35c1Aainfix <=c0V35FIamemaTuple2V34V31aemptyFAapathasV31V38V37NFIainfix <V37c1Aainfix <=c0V37FIamemV31averticesF">
-          <label
-           name="expl:parameter bellman_ford">
-           </label>
-          <proof
-           prover="0"
-           timelimit="10"
-           obsolete="true"
-           archived="false">
-           <result status="timeout" time="10.61"/>
-          </proof>
-          <proof
-           prover="1"
-           timelimit="10"
-           obsolete="true"
-           archived="false">
-           <result status="valid" time="0.14"/>
-          </proof>
-          <proof
-           prover="3"
-           timelimit="10"
-           obsolete="true"
-           archived="false">
-           <result status="timeout" time="15.37"/>
-          </proof>
-         </goal>
-        </transf>
        </goal>
        <goal
         name="WP_parameter bellman_ford.11.2"
         locfile="bf/../bf.mlw"
-        loclnum="231" loccnumb="6" loccnume="18"
+        loclnum="250" loccnumb="6" loccnume="18"
         expl="normal postcondition"
-        sum="f46c73d5c754961606d1ebcbc98db0b1"
+        sum="239eb2f35d3101b0e7063d2872ca3e4a"
         proved="false"
-        expanded="true"
+        expanded="false"
         shape="CagetV0V3aInfinitetaFiniteVashortest_pathasV3V4V5EIamemV3averticesFIainfix =agetV0V6aFiniteV7Iashortest_pathasV6V7V8FAainfix =agetV0V6aInfiniteIano_pathasV6IamemV6averticesFAapathsV0acardinalaverticesaemptyIainfix =V2aTrueNNIais_emptyV1qainfix =V2aTrueFFIapathsV0ainfix +ainfix -acardinalaverticesc1c1aemptyFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
         <label
          name="expl:parameter bellman_ford">
          </label>
-        <proof
-         prover="0"
-         timelimit="10"
-         obsolete="true"
-         archived="false">
-         <result status="timeout" time="11.32"/>
-        </proof>
-        <proof
-         prover="1"
-         timelimit="10"
-         obsolete="true"
-         archived="false">
-         <result status="timeout" time="12.71"/>
-        </proof>
-        <proof
-         prover="3"
-         timelimit="10"
-         obsolete="true"
-         archived="false">
-         <result status="timeout" time="10.54"/>
-        </proof>
        </goal>
       </transf>
      </goal>
