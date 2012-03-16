@@ -200,10 +200,6 @@ module BellmanFord
     end /\
     ((no_path s v) -> m[v] = Infinite) (** Redundant condition *)
 
-  lemma paths_subset:
-    forall m: distmap, p: int, k: set (vertex, vertex).
-    paths m p k -> paths m p empty
-
   lemma paths_next:
     forall m: distmap, p: int.
     paths m p edges -> paths m (p + 1) empty
