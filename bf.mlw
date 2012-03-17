@@ -145,7 +145,7 @@ theory FSetEx
     union (remove e a) (add e b) = union a b
 
   lemma set_preserve_inter:
-    forall a b: set 'a, e: 'a. mem e a ->
+    forall a b: set 'a, e: 'a. mem e a /\ not (mem e b) ->
     inter (remove e a) (add e b) = inter a b
 
   lemma set_empty_union:
@@ -254,9 +254,10 @@ module BellmanFord
           paths !m i !es_co }
         variant { cardinal !es }
 
-        assert { not (is_empty !es) };
+        assert { not (is_empty !es) /\ inter !es !es_co = empty };
         let (u, v) = Bag.pop es in
         relax m u v i !es_co;
+        assert { not (mem (u, v) !es_co) };
         es_co := add (u, v) !es_co
       done
     done;
@@ -275,18 +276,18 @@ module BellmanFord
       paths !m (cardinal vertices) empty /\
       (forall v: vertex. mem v vertices ->
       (no_path s v -> !m[v] = Infinite) /\
-      (forall n d: int. shortest_path s v n d -> !m[v] = Finite n))
+      (forall n: int. (exists d: int. shortest_path s v n d) -> !m[v] = Finite n))
     };
 
     !m
 
-    { (* not negcycle /\ *)
+    { not negcycle /\
       forall v: vertex. mem v vertices ->
       match result[v] with
 	| Infinite -> no_path s v
         | Finite n -> exists d: int. shortest_path s v n d
        end }
-    | NegativeCycle -> { }
+    | NegativeCycle -> { negcycle }
 
 end
 
