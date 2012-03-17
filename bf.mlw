@@ -140,6 +140,19 @@ theory FSetEx
     forall x : set 'a. not (is_empty x) ->
     mem (take x) x
 
+  lemma set_empty:
+    forall a: set 'a. is_empty a <-> a = empty
+
+  lemma set_union_exchange:
+    forall a b: set 'a. union a b = union b a
+
+  lemma set_inter_exchange:
+    forall a b: set 'a. inter a b = inter b a
+
+  lemma set_inter_choice:
+    forall a b: set 'a, e: 'a. inter a b = empty ->
+    mem e a -> not (mem e b)
+
   lemma set_preserve_union:
     forall a b: set 'a, e: 'a. mem e a ->
     union (remove e a) (add e b) = union a b
@@ -254,12 +267,14 @@ module BellmanFord
           paths !m i !es_co }
         variant { cardinal !es }
 
-        assert { not (is_empty !es) /\ inter !es !es_co = empty };
         let (u, v) = Bag.pop es in
-        relax m u v i !es_co;
         assert { not (mem (u, v) !es_co) };
+        relax m u v i !es_co;
         es_co := add (u, v) !es_co
-      done
+      done;
+
+      assert { !es_co = edges };
+      assert { paths !m i edges }
     done;
 
     let e = ref edges in
