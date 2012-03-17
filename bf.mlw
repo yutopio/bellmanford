@@ -130,7 +130,7 @@ theory Distance
 
 end
 
-theory FSetTake
+theory FSetEx
 
   use export set.Fset
 
@@ -140,12 +140,26 @@ theory FSetTake
     forall x : set 'a. not (is_empty x) ->
     mem (take x) x
 
+  lemma set_preserve_union:
+    forall a b: set 'a, e: 'a. mem e a ->
+    union (remove e a) (add e b) = union a b
+
+  lemma set_preserve_inter:
+    forall a b: set 'a, e: 'a. mem e a ->
+    inter (remove e a) (add e b) = inter a b
+
+  lemma set_empty_union:
+    forall a: set 'a. union a empty = a
+
+  lemma set_empty_inter:
+    forall a: set 'a. inter a empty = empty
+
 end
 
 (* a bag is simply a reference containing a finite set *)
 module Bag
 
-  use export FSetTake
+  use export FSetEx
   use export module ref.Ref
 
   type bag 'a = ref (set 'a)
@@ -174,7 +188,7 @@ module BellmanFord
   use import module ref.Ref
   use import Graph
   use import Distance
-  use FSetTake
+  use FSetEx
   use module Bag
 
   type distmap = map vertex dist
@@ -240,6 +254,7 @@ module BellmanFord
           paths !m i !es_co }
         variant { cardinal !es }
 
+        assert { not (is_empty !es) };
         let (u, v) = Bag.pop es in
         relax m u v i !es_co;
         es_co := add (u, v) !es_co
