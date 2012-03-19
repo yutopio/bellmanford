@@ -209,6 +209,9 @@ module BellmanFord
   function initialize_single_source (s: vertex) : distmap =
     (const Infinite)[s <- Finite 0]
 
+  (* [paths m pass via] means that we already performed [pass-1] steps
+     of the main loop, and, in step [pass], we already processed edges
+     in [via] *)
   predicate paths (m: distmap) (pass: int) (via: set (vertex, vertex)) =
     forall v: vertex. mem v vertices ->
     match m[v] with
@@ -216,24 +219,32 @@ module BellmanFord
         (exists d: int. 0 <= d < pass /\ path s v n d) \/
         (exists u: vertex. mem (u, v) via /\
          (* I don't know why, but you'll need this for Z3: *)
-         exists d: int. 0 <= d < pass /\
-         path s u (n - weight u v) pass)
+         path s u (n - weight u v) (pass - 1))
+        (* or, equivalently *)
+        (* (forall u: vertex. mem (u, v) via ->
+            m[u] >> n - weight u v) *)
       | Infinite ->
         (forall d: int. 0 <= d < pass ->
           forall n: int. not (path s v n d)) /\
         (forall u: vertex. mem (u, v) via ->
-          forall d: int. 0 <= d < pass ->
-          forall n: int. not (path s u n d))
-    end /\
-    ((no_path s v) -> m[v] = Infinite) (** Redundant condition *)
+          m[u] = Infinite
+          (*forall d: int. 0 <= d < pass ->
+          forall n: int. not (path s u n d)*))
+    end
+
+  lemma paths_no_path:
+    forall m: distmap, pass: int, via: set (vertex, vertex).
+    paths m pass via ->
+    forall v: vertex. mem v vertices ->
+    no_path s v -> m[v] = Infinite
 
   lemma paths_next:
-    forall m: distmap, p: int.
-    paths m p edges -> paths m (p + 1) empty
+    forall m: distmap, d: int. 0 <= d < cardinal vertices ->
+    paths m d edges -> paths m (d + 1) empty
 
   let relax (m: ref distmap) (u v: vertex) (pass: int)
             (via: set (vertex, vertex)) =
-    { mem (u, v) edges /\ paths !m pass via }
+    { mem (u, v) edges /\ (* not (mem (u,v) via /\ *) paths !m pass via }
     let n = !m[u] ++ Finite (weight u v) in
     if n << !m[v] then (
       assert { forall d: int. match !m[v] with
@@ -241,14 +252,14 @@ module BellmanFord
                  | Infinite -> true
                end };
       m := !m[v <- n])
-    { paths !m pass (add (u, v) via) /\
+    { paths !m pass (add (u, v) via) (* /\
       ((old !m)[v] >>= !m[v]) /\
       match (old !m)[v] with
         | Finite n ->
           (exists d: int. shortest_path s v n d) -> (old !m) = !m
         | Infinite -> true
       end /\
-      forall x: vertex. (x <> v -> (old !m)[x] = !m[x]) }
+      forall x: vertex. (x <> v -> (old !m)[x] = !m[x]) *) }
 
   exception NegativeCycle (* list vertex *)
 
