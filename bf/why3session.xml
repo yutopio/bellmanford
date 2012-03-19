@@ -14,6 +14,10 @@
   id="2"
   name="Coq"
   version="8.3pl2"/>
+ <prover
+  id="3"
+  name="Z3"
+  version="3.2"/>
  <file
   name="../bf.mlw"
   verified="false"
@@ -183,23 +187,22 @@
    name="FSetEx"
    locfile="bf/../bf.mlw"
    loclnum="133" loccnumb="7" loccnume="13"
-   verified="false"
-   expanded="true">
+   verified="true"
+   expanded="false">
    <goal
     name="set_empty"
     locfile="bf/../bf.mlw"
     loclnum="143" loccnumb="8" loccnume="17"
     sum="5f36be5b791aa64dad50404f4dfa9f4a"
-    proved="false"
-    expanded="true"
+    proved="true"
+    expanded="false"
     shape="ainfix =V0aemptyqais_emptyV0F">
     <proof
-     prover="2"
+     prover="3"
      timelimit="10"
-     edited="bf_FSetEx_set_empty_1.v"
-     obsolete="true"
-     archived="false"><unedited/>
-     
+     obsolete="false"
+     archived="false">
+     <result status="valid" time="0.04"/>
     </proof>
    </goal>
    <goal
@@ -207,27 +210,48 @@
     locfile="bf/../bf.mlw"
     loclnum="146" loccnumb="8" loccnume="26"
     sum="4a04ff59be053cc3610c72292b34bc30"
-    proved="false"
+    proved="true"
     expanded="false"
     shape="ainfix =aunionV0V1aunionV1V0F">
+    <proof
+     prover="1"
+     timelimit="10"
+     obsolete="false"
+     archived="false">
+     <result status="valid" time="1.33"/>
+    </proof>
    </goal>
    <goal
     name="set_inter_exchange"
     locfile="bf/../bf.mlw"
     loclnum="149" loccnumb="8" loccnume="26"
     sum="7e8aaddd6165d1dc1a7e04c470d721a7"
-    proved="false"
+    proved="true"
     expanded="false"
     shape="ainfix =ainterV0V1ainterV1V0F">
+    <proof
+     prover="1"
+     timelimit="10"
+     obsolete="false"
+     archived="false">
+     <result status="valid" time="1.19"/>
+    </proof>
    </goal>
    <goal
     name="set_inter_choice"
     locfile="bf/../bf.mlw"
     loclnum="152" loccnumb="8" loccnume="24"
     sum="f48afc378434ef9332b24f33ea4bc760"
-    proved="false"
+    proved="true"
     expanded="false"
     shape="amemV2V1NIamemV2V0Iainfix =ainterV0V1aemptyF">
+    <proof
+     prover="3"
+     timelimit="10"
+     obsolete="false"
+     archived="false">
+     <result status="valid" time="0.04"/>
+    </proof>
    </goal>
    <goal
     name="set_preserve_union"
@@ -272,6 +296,13 @@
     expanded="false"
     shape="ainfix =aunionV0aemptyV0F">
     <proof
+     prover="1"
+     timelimit="10"
+     obsolete="false"
+     archived="false">
+     <result status="valid" time="2.06"/>
+    </proof>
+    <proof
      prover="2"
      timelimit="10"
      edited="bf_FSetEx_set_empty_union_1.v"
@@ -288,6 +319,13 @@
     proved="true"
     expanded="false"
     shape="ainfix =ainterV0aemptyaemptyF">
+    <proof
+     prover="1"
+     timelimit="10"
+     obsolete="false"
+     archived="false">
+     <result status="valid" time="2.11"/>
+    </proof>
     <proof
      prover="2"
      timelimit="10"
@@ -348,22 +386,112 @@
   <theory
    name="WP BellmanFord"
    locfile="bf/../bf.mlw"
-   loclnum="198" loccnumb="7" loccnume="18"
+   loclnum="197" loccnumb="7" loccnume="18"
    verified="false"
    expanded="true">
    <goal
     name="paths_next"
     locfile="bf/../bf.mlw"
-    loclnum="231" loccnumb="8" loccnume="18"
+    loclnum="230" loccnumb="8" loccnume="18"
     sum="38ae775aa44fd05dc462229bb511aaae"
     proved="false"
-    expanded="false"
+    expanded="true"
     shape="apathsV0ainfix +V1c1aemptyIapathsV0V1aedgesF">
+    <transf
+     name="inline_goal"
+     proved="false"
+     expanded="true">
+     <goal
+      name="paths_next.0"
+      locfile="bf/../bf.mlw"
+      loclnum="230" loccnumb="8" loccnume="18"
+      sum="bdfbc8a637ca204b3e02f623e6a51bd3"
+      proved="false"
+      expanded="true"
+      shape="ainfix =amixfix []V0V2aInfiniteIano_pathasV2ACamixfix []V0V2aFiniteVapathasV4ainfix -V3aweightV4V2ainfix +V1c1Aainfix <V5ainfix +V1c1Aainfix <=c0V5EAamemaTuple2V4V2aemptyEOapathasV2V3V6Aainfix <V6ainfix +V1c1Aainfix <=c0V6EaInfiniteapathasV7V9V8NFIainfix <V8ainfix +V1c1Aainfix <=c0V8FIamemaTuple2V7V2aemptyFAapathasV2V11V10NFIainfix <V10ainfix +V1c1Aainfix <=c0V10FIamemV2averticesFIainfix =amixfix []V0V12aInfiniteIano_pathasV12ACamixfix []V0V12aFiniteVapathasV14ainfix -V13aweightV14V12V1Aainfix <V15V1Aainfix <=c0V15EAamemaTuple2V14V12aedgesEOapathasV12V13V16Aainfix <V16V1Aainfix <=c0V16EaInfiniteapathasV17V19V18NFIainfix <V18V1Aainfix <=c0V18FIamemaTuple2V17V12aedgesFAapathasV12V21V20NFIainfix <V20V1Aainfix <=c0V20FIamemV12averticesFF">
+      <transf
+       name="split_goal"
+       proved="false"
+       expanded="true">
+       <goal
+        name="paths_next.0.0"
+        locfile="bf/../bf.mlw"
+        loclnum="230" loccnumb="8" loccnume="18"
+        sum="f5e51a24ce3aba7a10c843ffcadcd9f2"
+        proved="false"
+        expanded="false"
+        shape="Camixfix []V0V2aFiniteVapathasV4ainfix -V3aweightV4V2ainfix +V1c1Aainfix <V5ainfix +V1c1Aainfix <=c0V5EAamemaTuple2V4V2aemptyEOapathasV2V3V6Aainfix <V6ainfix +V1c1Aainfix <=c0V6EaInfinitetIamemV2averticesFIainfix =amixfix []V0V7aInfiniteIano_pathasV7ACamixfix []V0V7aFiniteVapathasV9ainfix -V8aweightV9V7V1Aainfix <V10V1Aainfix <=c0V10EAamemaTuple2V9V7aedgesEOapathasV7V8V11Aainfix <V11V1Aainfix <=c0V11EaInfiniteapathasV12V14V13NFIainfix <V13V1Aainfix <=c0V13FIamemaTuple2V12V7aedgesFAapathasV7V16V15NFIainfix <V15V1Aainfix <=c0V15FIamemV7averticesFF">
+       </goal>
+       <goal
+        name="paths_next.0.1"
+        locfile="bf/../bf.mlw"
+        loclnum="230" loccnumb="8" loccnume="18"
+        sum="d92cf82d097e589240e031c3165c4c9a"
+        proved="false"
+        expanded="false"
+        shape="Camixfix []V0V2aFiniteVtaInfiniteapathasV2V5V4NFIainfix <V4ainfix +V1c1Aainfix <=c0V4FIamemV2averticesFIainfix =amixfix []V0V6aInfiniteIano_pathasV6ACamixfix []V0V6aFiniteVapathasV8ainfix -V7aweightV8V6V1Aainfix <V9V1Aainfix <=c0V9EAamemaTuple2V8V6aedgesEOapathasV6V7V10Aainfix <V10V1Aainfix <=c0V10EaInfiniteapathasV11V13V12NFIainfix <V12V1Aainfix <=c0V12FIamemaTuple2V11V6aedgesFAapathasV6V15V14NFIainfix <V14V1Aainfix <=c0V14FIamemV6averticesFF">
+       </goal>
+       <goal
+        name="paths_next.0.2"
+        locfile="bf/../bf.mlw"
+        loclnum="230" loccnumb="8" loccnume="18"
+        sum="3c5e4ddbe58c1317d92b4fe9039b4a25"
+        proved="true"
+        expanded="false"
+        shape="Camixfix []V0V2aFiniteVtaInfiniteapathasV4V6V5NFIainfix <V5ainfix +V1c1Aainfix <=c0V5FIamemaTuple2V4V2aemptyFIamemV2averticesFIainfix =amixfix []V0V7aInfiniteIano_pathasV7ACamixfix []V0V7aFiniteVapathasV9ainfix -V8aweightV9V7V1Aainfix <V10V1Aainfix <=c0V10EAamemaTuple2V9V7aedgesEOapathasV7V8V11Aainfix <V11V1Aainfix <=c0V11EaInfiniteapathasV12V14V13NFIainfix <V13V1Aainfix <=c0V13FIamemaTuple2V12V7aedgesFAapathasV7V16V15NFIainfix <V15V1Aainfix <=c0V15FIamemV7averticesFF">
+        <proof
+         prover="1"
+         timelimit="10"
+         obsolete="false"
+         archived="false">
+         <result status="valid" time="0.04"/>
+        </proof>
+        <proof
+         prover="3"
+         timelimit="10"
+         obsolete="false"
+         archived="false">
+         <result status="valid" time="0.04"/>
+        </proof>
+       </goal>
+       <goal
+        name="paths_next.0.3"
+        locfile="bf/../bf.mlw"
+        loclnum="230" loccnumb="8" loccnume="18"
+        sum="fe16de49adbbaa5b996a2135a97e163d"
+        proved="true"
+        expanded="false"
+        shape="ainfix =amixfix []V0V2aInfiniteIano_pathasV2IamemV2averticesFIainfix =amixfix []V0V3aInfiniteIano_pathasV3ACamixfix []V0V3aFiniteVapathasV5ainfix -V4aweightV5V3V1Aainfix <V6V1Aainfix <=c0V6EAamemaTuple2V5V3aedgesEOapathasV3V4V7Aainfix <V7V1Aainfix <=c0V7EaInfiniteapathasV8V10V9NFIainfix <V9V1Aainfix <=c0V9FIamemaTuple2V8V3aedgesFAapathasV3V12V11NFIainfix <V11V1Aainfix <=c0V11FIamemV3averticesFF">
+        <proof
+         prover="0"
+         timelimit="10"
+         obsolete="false"
+         archived="false">
+         <result status="valid" time="0.02"/>
+        </proof>
+        <proof
+         prover="1"
+         timelimit="10"
+         obsolete="false"
+         archived="false">
+         <result status="valid" time="0.03"/>
+        </proof>
+        <proof
+         prover="3"
+         timelimit="10"
+         obsolete="false"
+         archived="false">
+         <result status="valid" time="0.04"/>
+        </proof>
+       </goal>
+      </transf>
+     </goal>
+    </transf>
    </goal>
    <goal
     name="WP_parameter relax"
     locfile="bf/../bf.mlw"
-    loclnum="235" loccnumb="6" loccnume="11"
+    loclnum="234" loccnumb="6" loccnume="11"
     expl="parameter relax"
     sum="7ebbd21758f9adf724b1aa232f2363ca"
     proved="false"
@@ -379,11 +507,11 @@
      <goal
       name="WP_parameter relax.1"
       locfile="bf/../bf.mlw"
-      loclnum="235" loccnumb="6" loccnume="11"
+      loclnum="234" loccnumb="6" loccnume="11"
       expl="assertion"
       sum="9e8abdc6d9d3f4d3e2bb692a8d2b01bf"
       proved="false"
-      expanded="true"
+      expanded="false"
       shape="CagetV4V1aFiniteVashortest_pathasV1V6V5NaInfinitetFICagetV4V0aInfinitefaFiniteVCagetV4V1aInfinitetaFiniteVainfix <ainfix +V7aweightV0V1V8IapathsV4V2V3AamemaTuple2V0V1aedgesFFFFF">
       <label
        name="expl:parameter relax">
@@ -392,7 +520,7 @@
      <goal
       name="WP_parameter relax.2"
       locfile="bf/../bf.mlw"
-      loclnum="235" loccnumb="6" loccnume="11"
+      loclnum="234" loccnumb="6" loccnume="11"
       expl="normal postcondition"
       sum="b93d86eb8582256dc1c96165ac8ffa50"
       proved="false"
@@ -408,7 +536,7 @@
        <goal
         name="WP_parameter relax.2.1"
         locfile="bf/../bf.mlw"
-        loclnum="235" loccnumb="6" loccnume="11"
+        loclnum="234" loccnumb="6" loccnume="11"
         expl="parameter relax"
         sum="463b47b584e8557958c60f35cc41219e"
         proved="false"
@@ -424,7 +552,7 @@
          <goal
           name="WP_parameter relax.2.1.1"
           locfile="bf/../bf.mlw"
-          loclnum="235" loccnumb="6" loccnume="11"
+          loclnum="234" loccnumb="6" loccnume="11"
           expl="parameter relax"
           sum="8dc1d773f0ee795f734f8aec161281ee"
           proved="false"
@@ -440,7 +568,7 @@
            <goal
             name="WP_parameter relax.2.1.1.1"
             locfile="bf/../bf.mlw"
-            loclnum="235" loccnumb="6" loccnume="11"
+            loclnum="234" loccnumb="6" loccnume="11"
             expl="parameter relax"
             sum="02872c581ce745a9f2a08eccb9824309"
             proved="false"
@@ -453,7 +581,7 @@
            <goal
             name="WP_parameter relax.2.1.1.2"
             locfile="bf/../bf.mlw"
-            loclnum="235" loccnumb="6" loccnume="11"
+            loclnum="234" loccnumb="6" loccnume="11"
             expl="parameter relax"
             sum="81e3531e7263d996ca9390df335ea2b3"
             proved="true"
@@ -473,7 +601,7 @@
            <goal
             name="WP_parameter relax.2.1.1.3"
             locfile="bf/../bf.mlw"
-            loclnum="235" loccnumb="6" loccnume="11"
+            loclnum="234" loccnumb="6" loccnume="11"
             expl="parameter relax"
             sum="fcec08a851f1b51fd78dae5b2634971f"
             proved="true"
@@ -493,7 +621,7 @@
            <goal
             name="WP_parameter relax.2.1.1.4"
             locfile="bf/../bf.mlw"
-            loclnum="235" loccnumb="6" loccnume="11"
+            loclnum="234" loccnumb="6" loccnume="11"
             expl="parameter relax"
             sum="f02a5a8b52b2b70dd11abd2f19b3fc83"
             proved="true"
@@ -518,7 +646,7 @@
        <goal
         name="WP_parameter relax.2.2"
         locfile="bf/../bf.mlw"
-        loclnum="235" loccnumb="6" loccnume="11"
+        loclnum="234" loccnumb="6" loccnume="11"
         expl="parameter relax"
         sum="f27be26577a985616e003560758fd263"
         proved="true"
@@ -545,7 +673,7 @@
        <goal
         name="WP_parameter relax.2.3"
         locfile="bf/../bf.mlw"
-        loclnum="235" loccnumb="6" loccnume="11"
+        loclnum="234" loccnumb="6" loccnume="11"
         expl="parameter relax"
         sum="c4577e52532cdc9eeb5ed3dccca849cb"
         proved="true"
@@ -572,7 +700,7 @@
        <goal
         name="WP_parameter relax.2.4"
         locfile="bf/../bf.mlw"
-        loclnum="235" loccnumb="6" loccnume="11"
+        loclnum="234" loccnumb="6" loccnume="11"
         expl="parameter relax"
         sum="77b40325f55dc88582a5e0c7a5e3052a"
         proved="true"
@@ -592,7 +720,7 @@
        <goal
         name="WP_parameter relax.2.5"
         locfile="bf/../bf.mlw"
-        loclnum="235" loccnumb="6" loccnume="11"
+        loclnum="234" loccnumb="6" loccnume="11"
         expl="parameter relax"
         sum="993b50b03e0ce5f491bfeeaf1f17aae4"
         proved="true"
@@ -621,7 +749,7 @@
      <goal
       name="WP_parameter relax.3"
       locfile="bf/../bf.mlw"
-      loclnum="235" loccnumb="6" loccnume="11"
+      loclnum="234" loccnumb="6" loccnume="11"
       expl="normal postcondition"
       sum="7be2cca8441658f0386423e73e6e7b94"
       proved="false"
@@ -637,7 +765,7 @@
        <goal
         name="WP_parameter relax.3.1"
         locfile="bf/../bf.mlw"
-        loclnum="235" loccnumb="6" loccnume="11"
+        loclnum="234" loccnumb="6" loccnume="11"
         expl="parameter relax"
         sum="9d0494859a31e22dae18aafbf5f2ea62"
         proved="false"
@@ -653,7 +781,7 @@
          <goal
           name="WP_parameter relax.3.1.1"
           locfile="bf/../bf.mlw"
-          loclnum="235" loccnumb="6" loccnume="11"
+          loclnum="234" loccnumb="6" loccnume="11"
           expl="parameter relax"
           sum="d8b8d15c6fadfe042bf5bf123d6ea626"
           proved="false"
@@ -669,7 +797,7 @@
            <goal
             name="WP_parameter relax.3.1.1.1"
             locfile="bf/../bf.mlw"
-            loclnum="235" loccnumb="6" loccnume="11"
+            loclnum="234" loccnumb="6" loccnume="11"
             expl="parameter relax"
             sum="f3af02d6c801229b41dcb5a563d33ad3"
             proved="false"
@@ -682,7 +810,7 @@
            <goal
             name="WP_parameter relax.3.1.1.2"
             locfile="bf/../bf.mlw"
-            loclnum="235" loccnumb="6" loccnume="11"
+            loclnum="234" loccnumb="6" loccnume="11"
             expl="parameter relax"
             sum="ee0fd0fe5570667927ca5087bceb5367"
             proved="true"
@@ -702,7 +830,7 @@
            <goal
             name="WP_parameter relax.3.1.1.3"
             locfile="bf/../bf.mlw"
-            loclnum="235" loccnumb="6" loccnume="11"
+            loclnum="234" loccnumb="6" loccnume="11"
             expl="parameter relax"
             sum="94994e21d8f3857a561e2e27053ba57f"
             proved="true"
@@ -722,7 +850,7 @@
            <goal
             name="WP_parameter relax.3.1.1.4"
             locfile="bf/../bf.mlw"
-            loclnum="235" loccnumb="6" loccnume="11"
+            loclnum="234" loccnumb="6" loccnume="11"
             expl="parameter relax"
             sum="69149ee71ea2ecbb2ee012c6653af37c"
             proved="true"
@@ -753,7 +881,7 @@
        <goal
         name="WP_parameter relax.3.2"
         locfile="bf/../bf.mlw"
-        loclnum="235" loccnumb="6" loccnume="11"
+        loclnum="234" loccnumb="6" loccnume="11"
         expl="parameter relax"
         sum="13ae77b8258b2e2a2e8027461142bba2"
         proved="true"
@@ -780,7 +908,7 @@
        <goal
         name="WP_parameter relax.3.3"
         locfile="bf/../bf.mlw"
-        loclnum="235" loccnumb="6" loccnume="11"
+        loclnum="234" loccnumb="6" loccnume="11"
         expl="parameter relax"
         sum="12c4d2c36601d71c34c4b1dcd3015c9d"
         proved="true"
@@ -807,7 +935,7 @@
        <goal
         name="WP_parameter relax.3.4"
         locfile="bf/../bf.mlw"
-        loclnum="235" loccnumb="6" loccnume="11"
+        loclnum="234" loccnumb="6" loccnume="11"
         expl="parameter relax"
         sum="cb94415072e1aba527f9daf8e7b4ffbc"
         proved="true"
@@ -827,7 +955,7 @@
        <goal
         name="WP_parameter relax.3.5"
         locfile="bf/../bf.mlw"
-        loclnum="235" loccnumb="6" loccnume="11"
+        loclnum="234" loccnumb="6" loccnume="11"
         expl="parameter relax"
         sum="b47b4e40ed06f8d7badfad409664d428"
         proved="true"
@@ -858,7 +986,7 @@
    <goal
     name="WP_parameter bellman_ford"
     locfile="bf/../bf.mlw"
-    loclnum="256" loccnumb="6" loccnume="18"
+    loclnum="255" loccnumb="6" loccnume="18"
     expl="parameter bellman_ford"
     sum="11c86af7ec43bc9c6840680e7af9e7b5"
     proved="false"
@@ -874,7 +1002,7 @@
      <goal
       name="WP_parameter bellman_ford.1"
       locfile="bf/../bf.mlw"
-      loclnum="256" loccnumb="6" loccnume="18"
+      loclnum="255" loccnumb="6" loccnume="18"
       expl="assertion"
       sum="989cfc5b72e9c8ab8aa320177529f132"
       proved="true"
@@ -894,7 +1022,7 @@
      <goal
       name="WP_parameter bellman_ford.2"
       locfile="bf/../bf.mlw"
-      loclnum="256" loccnumb="6" loccnume="18"
+      loclnum="255" loccnumb="6" loccnume="18"
       expl="precondition"
       sum="c10c84d0c5564126639537683c7f2f14"
       proved="true"
@@ -921,7 +1049,7 @@
      <goal
       name="WP_parameter bellman_ford.3"
       locfile="bf/../bf.mlw"
-      loclnum="256" loccnumb="6" loccnume="18"
+      loclnum="255" loccnumb="6" loccnume="18"
       expl="exceptional postcondition"
       sum="017008cfd14d64af485f747a32616ed7"
       proved="false"
@@ -934,7 +1062,7 @@
      <goal
       name="WP_parameter bellman_ford.4"
       locfile="bf/../bf.mlw"
-      loclnum="256" loccnumb="6" loccnume="18"
+      loclnum="255" loccnumb="6" loccnume="18"
       expl="loop variant decreases"
       sum="941af36fbd06b829c0779e9c66c3624e"
       proved="true"
@@ -961,7 +1089,7 @@
      <goal
       name="WP_parameter bellman_ford.5"
       locfile="bf/../bf.mlw"
-      loclnum="256" loccnumb="6" loccnume="18"
+      loclnum="255" loccnumb="6" loccnume="18"
       expl="assertion"
       sum="3f885dd59f693e432bc3564a259d4abf"
       proved="true"
@@ -988,7 +1116,7 @@
      <goal
       name="WP_parameter bellman_ford.6"
       locfile="bf/../bf.mlw"
-      loclnum="256" loccnumb="6" loccnume="18"
+      loclnum="255" loccnumb="6" loccnume="18"
       expl="normal postcondition"
       sum="b27486a9d801ff9a35cb8ef177a91098"
       proved="true"
@@ -1008,7 +1136,7 @@
      <goal
       name="WP_parameter bellman_ford.7"
       locfile="bf/../bf.mlw"
-      loclnum="256" loccnumb="6" loccnume="18"
+      loclnum="255" loccnumb="6" loccnume="18"
       expl="for loop initialization"
       sum="a35ce819761e2c3f7bb9aecdd04825f2"
       proved="true"
@@ -1035,7 +1163,7 @@
      <goal
       name="WP_parameter bellman_ford.8"
       locfile="bf/../bf.mlw"
-      loclnum="256" loccnumb="6" loccnume="18"
+      loclnum="255" loccnumb="6" loccnume="18"
       expl="for loop preservation"
       sum="47c0a801041500c8695ea2ae8d8d5b16"
       proved="true"
@@ -1055,7 +1183,7 @@
      <goal
       name="WP_parameter bellman_ford.9"
       locfile="bf/../bf.mlw"
-      loclnum="256" loccnumb="6" loccnume="18"
+      loclnum="255" loccnumb="6" loccnume="18"
       expl="precondition"
       sum="758eebe9597b3496959101a794e61004"
       proved="true"
@@ -1082,7 +1210,7 @@
      <goal
       name="WP_parameter bellman_ford.10"
       locfile="bf/../bf.mlw"
-      loclnum="256" loccnumb="6" loccnume="18"
+      loclnum="255" loccnumb="6" loccnume="18"
       expl="exceptional postcondition"
       sum="1718d604c0619e61646859e7dfc1650b"
       proved="false"
@@ -1095,7 +1223,7 @@
      <goal
       name="WP_parameter bellman_ford.11"
       locfile="bf/../bf.mlw"
-      loclnum="256" loccnumb="6" loccnume="18"
+      loclnum="255" loccnumb="6" loccnume="18"
       expl="loop variant decreases"
       sum="f6d353898ec1cf6b70fa072fa148df90"
       proved="true"
@@ -1122,7 +1250,7 @@
      <goal
       name="WP_parameter bellman_ford.12"
       locfile="bf/../bf.mlw"
-      loclnum="256" loccnumb="6" loccnume="18"
+      loclnum="255" loccnumb="6" loccnume="18"
       expl="assertion"
       sum="e8295476ec692b97c53905807c80ac1a"
       proved="false"
@@ -1138,7 +1266,7 @@
        <goal
         name="WP_parameter bellman_ford.12.1"
         locfile="bf/../bf.mlw"
-        loclnum="256" loccnumb="6" loccnume="18"
+        loclnum="255" loccnumb="6" loccnume="18"
         expl="parameter bellman_ford"
         sum="12ef81757a5bd7f47c39926b4f8cd635"
         proved="true"
@@ -1165,7 +1293,7 @@
        <goal
         name="WP_parameter bellman_ford.12.2"
         locfile="bf/../bf.mlw"
-        loclnum="256" loccnumb="6" loccnume="18"
+        loclnum="255" loccnumb="6" loccnume="18"
         expl="parameter bellman_ford"
         sum="f610bcc23330d2a017d3582e969e8eae"
         proved="true"
@@ -1192,7 +1320,7 @@
        <goal
         name="WP_parameter bellman_ford.12.3"
         locfile="bf/../bf.mlw"
-        loclnum="256" loccnumb="6" loccnume="18"
+        loclnum="255" loccnumb="6" loccnume="18"
         expl="parameter bellman_ford"
         sum="eb356473683597bb05e441541af638a9"
         proved="false"
@@ -1207,7 +1335,7 @@
      <goal
       name="WP_parameter bellman_ford.13"
       locfile="bf/../bf.mlw"
-      loclnum="256" loccnumb="6" loccnume="18"
+      loclnum="255" loccnumb="6" loccnume="18"
       expl="normal postcondition"
       sum="3023ae9d35cb8d39fb5876b699000e44"
       proved="false"
@@ -1223,20 +1351,41 @@
        <goal
         name="WP_parameter bellman_ford.13.1"
         locfile="bf/../bf.mlw"
-        loclnum="256" loccnumb="6" loccnume="18"
+        loclnum="255" loccnumb="6" loccnume="18"
         expl="parameter bellman_ford"
         sum="937c3acb2cd9ad8e280b2f6cfa490ac7"
-        proved="false"
+        proved="true"
         expanded="false"
         shape="anegcycleNIainfix =agetV0V3aFiniteV4Iashortest_pathasV3V4V5EFAainfix =agetV0V3aInfiniteIano_pathasV3IamemV3averticesFAapathsV0acardinalaverticesaemptyIainfix =V2aTrueNNIais_emptyV1qainfix =V2aTrueFFIapathsV0ainfix +ainfix -acardinalaverticesc1c1aemptyFIainfix <=c1ainfix -acardinalaverticesc1Iapathsainitialize_single_sourceasc1aempty">
         <label
          name="expl:parameter bellman_ford">
          </label>
+        <proof
+         prover="0"
+         timelimit="10"
+         obsolete="false"
+         archived="false">
+         <result status="valid" time="0.02"/>
+        </proof>
+        <proof
+         prover="1"
+         timelimit="10"
+         obsolete="false"
+         archived="false">
+         <result status="valid" time="0.03"/>
+        </proof>
+        <proof
+         prover="3"
+         timelimit="10"
+         obsolete="false"
+         archived="false">
+         <result status="valid" time="0.00"/>
+        </proof>
        </goal>
        <goal
         name="WP_parameter bellman_ford.13.2"
         locfile="bf/../bf.mlw"
-        loclnum="256" loccnumb="6" loccnume="18"
+        loclnum="255" loccnumb="6" loccnume="18"
         expl="parameter bellman_ford"
         sum="c3fe0812a77c4e8e93ce9f5e35ce2c6c"
         proved="true"
@@ -1256,7 +1405,7 @@
        <goal
         name="WP_parameter bellman_ford.13.3"
         locfile="bf/../bf.mlw"
-        loclnum="256" loccnumb="6" loccnume="18"
+        loclnum="255" loccnumb="6" loccnume="18"
         expl="parameter bellman_ford"
         sum="d4e420e65fc4ae062c9cafcf91f989e6"
         proved="false"
