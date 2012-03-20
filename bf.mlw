@@ -90,6 +90,11 @@ theory Graph
   (*** Later we will eliminate this assumption ***)
   axiom ignore_negcycle: negcycle -> false
 
+  lemma path_existence:
+    not negcycle /\
+    forall v: vertex. mem v vertices ->
+    no_path s v \/
+    exists n d: int. shortest_path s v n d
 end
 
 theory Distance
