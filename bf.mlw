@@ -59,7 +59,12 @@ theory Graph
     forall n d: int. shortest_path s v n d ->
     exists u: vertex. mem (u, v) edges /\
     shortest_path s u (n - weight u v) (d - 1)
+
+  lemma shortest_path_max_depth:
+    forall d: int. d < 0 \/ d >= cardinal vertices ->
+    forall u v: vertex, n: int. not shortest_path u v n d
 *)
+
   predicate no_path (v1 v2: vertex) =
     forall n d: int. not (path v1 v2 n d)
 
@@ -90,11 +95,17 @@ theory Graph
   (*** Later we will eliminate this assumption ***)
   axiom ignore_negcycle: negcycle -> false
 
-  lemma path_existence:
-    not negcycle /\
-    forall v: vertex. mem v vertices ->
-    no_path s v \/
-    exists n d: int. shortest_path s v n d
+  (* Shortest path distance is uniquely determined if exists. *)
+  lemma shortest_path_unique_distance:
+    forall v: vertex, n d: int.
+    shortest_path s v n d ->
+    forall n' d': int. n <> n' -> not (shortest_path s v n' d')
+
+  (* Needs to prove completeness *)
+  lemma no_path_xor_shortest_path_exists:
+    not negcycle -> forall v: vertex. mem v vertices ->
+    (no_path s v <-> not (exists n d: int. shortest_path s v n d))
+
 end
 
 theory Distance
@@ -223,26 +234,30 @@ module BellmanFord
     forall v: vertex. mem v vertices ->
     match m[v] with
       | Finite n ->
-        not negcycle ->
-        (exists d: int. 0 <= d < pass /\ shortest_path s v n d) \/
-        (forall n': int. shortest_path s v n' pass ->
+        negcycle \/
+        (not negcycle /\ (exists n d: int. shortest_path s v n d) /\
+        forall n' d': int. shortest_path s v n' d' ->
+        (0 <= d' < pass -> n = n') /\
+        (0 = pass ->
           (exists u: vertex. mem (u, v) edges /\
           shortest_path s u (n' - weight u v) (pass - 1)) /\
-          (forall u: vertex. mem (u, v) edges ->
+          (forall u: vertex. mem (u, v) edges /\
           shortest_path s u (n' - weight u v) (pass - 1) ->
-          mem (u, v) via -> n = n'))
+          mem (u, v) via -> n = n')))
       | Infinite ->
         (forall d: int. 0 <= d < pass ->
           forall n: int. not (path s v n d)) /\
         (forall u: vertex. mem (u, v) via ->
           forall d: int. 0 <= d < pass ->
           forall n: int. not (path s u n d))
-    end
-
-  lemma paths_no_path:
-    forall m: distmap, p: int, v: set (vertex, vertex). paths m p v ->
-    forall v: vertex. mem v vertices ->
-    (no_path s v -> m[v] = Infinite)
+    end /\
+    (no_path s v -> m[v] = Infinite) /\
+    (forall n d: int. 0 <= d < pass -> shortest_path s v n d ->
+      m[v] = Finite n) (*/\
+    (forall n: int. shortest_path s v n pass ->
+      forall u: vertex. mem (u, v) edges /\
+      shortest_path s u (n - weight u v) (pass - 1) ->
+      m[u] = Finite (n - weight u v))*)
 
   lemma paths_next:
     forall m: distmap, d: int. 0 <= d < cardinal vertices ->
@@ -290,21 +305,18 @@ module BellmanFord
         raise NegativeCycle
     done;
 
-    assert {
-      paths !m (cardinal vertices) empty /\
-      (forall v: vertex. mem v vertices ->
-        (no_path s v -> !m[v] = Infinite) /\
-        (forall n d: int. shortest_path s v n d -> !m[v] = Finite n))
-    };
+    assert { paths !m (cardinal vertices) empty };
 
     !m
 
     { not negcycle /\
       forall v: vertex. mem v vertices ->
       match result[v] with
+        | Finite n -> exists d: int. shortest_path s v n d 
         | Infinite -> no_path s v
-        | Finite n -> exists d: int. shortest_path s v n d
-       end }
+      end /\
+      (forall n d: int. shortest_path s v n d -> result[v] = Finite n) /\
+      (no_path s v -> result[v] = Infinite) }
     | NegativeCycle -> { negcycle }
 
 end
