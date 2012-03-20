@@ -238,7 +238,7 @@ module BellmanFord
         (not negcycle /\ (exists n d: int. shortest_path s v n d) /\
         forall n' d': int. shortest_path s v n' d' ->
         (0 <= d' < pass -> n = n') /\
-        (0 = pass ->
+        (d' = pass ->
           (exists u: vertex. mem (u, v) edges /\
           shortest_path s u (n' - weight u v) (pass - 1)) /\
           (forall u: vertex. mem (u, v) edges /\
