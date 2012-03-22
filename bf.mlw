@@ -48,7 +48,7 @@ theory Graph
     mem v vertices -> reachable v 0 -> v = s
 
   lemma reach_next:
-    forall v: vertex, d: int. reachable v (d + 1) ->
+    forall v: vertex, d: int. d >= 0 -> reachable v (d + 1) ->
     exists u: vertex. mem (u, v) edges /\ reachable u d
 
   lemma reach_most_n:
