@@ -102,7 +102,7 @@ theory Distance
 
 end
 
-theory FSetTake
+theory FSetEx
 
   use export set.Fset
 
@@ -112,12 +112,39 @@ theory FSetTake
     forall x : set 'a. not (is_empty x) ->
     mem (take x) x
 
+  lemma set_empty:
+    forall a: set 'a. is_empty a <-> a = empty
+
+  lemma set_union_exchange:
+    forall a b: set 'a. union a b = union b a
+
+  lemma set_inter_exchange:
+    forall a b: set 'a. inter a b = inter b a
+
+  lemma set_inter_choice:
+    forall a b: set 'a, e: 'a. inter a b = empty ->
+    mem e a -> not (mem e b)
+
+  lemma set_preserve_union:
+    forall a b: set 'a, e: 'a. mem e a ->
+    union (remove e a) (add e b) = union a b
+
+  lemma set_preserve_inter:
+    forall a b: set 'a, e: 'a. mem e a /\ not (mem e b) ->
+    inter (remove e a) (add e b) = inter a b
+
+  lemma set_empty_union:
+    forall a: set 'a. union a empty = a
+
+  lemma set_empty_inter:
+    forall a: set 'a. inter a empty = empty
+
 end
 
 (* a bag is simply a reference containing a finite set *)
 module Bag
 
-  use export FSetTake
+  use export FSetEx
   use export module ref.Ref
 
   type bag 'a = ref (set 'a)
@@ -164,17 +191,17 @@ module BellmanFord
     end /\
     ((no_path s v) -> m[v] = Infinite)
 
-  lemma paths_subset:
-    forall m: distmap, p: int, k: set (vertex, vertex).
-    paths m p k -> paths m p empty
+  lemma path_non_reachable:
+    forall v: vertex. mem v vertices ->
+    forall d: int. 0 <= d < cardinal vertices -> not (reachable v d) ->
+    no_path s v
 
-  let relax (m: ref distmap) (u: vertex) (v: vertex) (pass: int) =
-    { exists w: int. mem (u, v) edges /\ paths !m pass empty }
-    let d = !m[u] ++ Finite (weight u v) in
-    if d << !m[v] then m := !m[v <- d]
-    { paths !m pass empty /\
-      (get (old !m) v >>= get !m v) /\
-      forall x: vertex. (x <> v -> get !m x = get (old !m) x) }
+  let relax (m: ref distmap) (u v: vertex) (pass: int)
+            (via: set (vertex, vertex)) =
+    { mem (u, v) edges /\ not (mem (u, v) via) /\ paths !m pass via }
+    let n = !m[u] ++ Finite (weight u v) in
+    if n << !m[v] then m := !m[v <- n]
+    { paths !m pass (add (u, v) via) }
 
   exception NegativeCycle (* list vertex *)
 
@@ -186,12 +213,17 @@ module BellmanFord
     for i = 1 to cardinal vertices - 1 do
       invariant { paths !m i empty }
 
-      let e = ref edges in
-      while not (Bag.is_empty e) do
-        invariant { subset !e edges /\ paths !m i (diff edges !e) }
-        variant { cardinal !e }
-        let (u, v) = Bag.pop e in
-        relax m u v i
+      let es = ref edges in
+      let es_co = ref empty in
+      while not (Bag.is_empty es) do
+        invariant { paths !m i !es_co /\
+          union !es !es_co = edges /\ inter !es !es_co = empty }
+        variant { cardinal !es }
+
+        let (u, v) = Bag.pop es in
+        assert { not (mem (u, v) !es_co) };
+        relax m u v i !es_co;
+        es_co := add (u, v) !es_co
       done
     done;
 
@@ -206,9 +238,16 @@ module BellmanFord
         raise NegativeCycle
     done;
 
+    assert { paths !m (cardinal vertices) empty };
+
     !m
 
-    { paths result (cardinal vertices) empty }
+
+    { forall v: vertex. mem v vertices ->
+      match result[v] with
+      | Infinite -> no_path s v
+      | Finite n -> path s v n
+      end }
     | NegativeCycle -> { }
 
 end
