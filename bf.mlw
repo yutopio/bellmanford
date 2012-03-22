@@ -23,8 +23,9 @@ theory Graph
     | path_empty:
         forall v: vertex. path v v 0 0
     | path_succ:
-        forall v1 v2 v3: vertex, n d: int. path v1 v2 n d ->
-        mem (v2, v3) edges -> path v1 v3 (n + (weight v2 v3)) (d + 1)
+        forall v1 v2: vertex, n d: int. path v1 v2 n d ->
+        forall v3: vertex. mem (v2, v3) edges ->
+        path v1 v3 (n + (weight v2 v3)) (d + 1)
 
   lemma path_depth_nonneg:
     forall v1 v2: vertex, n d: int.
