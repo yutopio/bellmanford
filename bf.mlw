@@ -17,7 +17,7 @@ theory Graph
 
   axiom edges_def:
     forall x y: vertex. mem (x, y) edges ->
-    (mem x vertices /\ mem y vertices)
+    (x <> y /\ mem x vertices /\ mem y vertices)
 
   inductive path (v1 v2: vertex) (n d: int) =
     | path_empty:
@@ -108,7 +108,62 @@ theory Graph
     (no_path s v <-> not (exists n d: int. shortest_path s v n d))
 
 end
+(*
+theory SimplePath
 
+  use import list.List
+  use import list.Length
+  use list.Mem
+  use import list.Distinct
+  use export Graph
+
+  inductive path_list (s t: vertex) (l: list vertex) =
+    | path_list_empty:
+        forall v: vertex. path_list v v Nil
+    | path_list_succ:
+        forall s v1: vertex, l: list vertex. path_list s (Cons v1 l) ->
+        forall v2: vertex. mem (v1, v2) edges ->
+        path_list s (Cons v2 (Cons v1 l))
+
+  inductive simple_path (s: vertex) (l: list vertex) =
+    | simple_zero:
+        forall v: vertex. simple_path v Nil
+    | simple_succ:
+        forall s v1: vertex, l: list vertex. simple_path s (Cons v1 l) ->
+        forall v2: vertex. mem (v1, v2) edges -> s <> v2 ->
+        not (Mem.mem v2 l) -> simple_path s (Cons v2 (Cons v1 l))
+
+  function sum (l: list vertex) : int =
+    match l with
+      | Nil -> 0
+      | Cons v2 rest ->
+        match rest with
+        | Nil -> 0
+        | Cons v1 _ -> (weight v1 v2) + (sum rest)
+        end
+    end
+
+  lemma simple_path_distinct:
+    forall s: vertex, l: list vertex. simple_path s l ->
+    distinct l /\ not Mem.mem s l
+
+  lemma simple_path_less_than_n:
+    forall s: vertex, l: list vertex. simple_path s l ->
+    length l < cardinal vertices
+
+  lemma simple_to_path:
+    forall s: vertex, l: list vertex. simple_path s l -> path_list s l
+
+  lemma path_to_simple_empty:
+    forall s v: vertex, l: list vertex. path_list s (Cons s l) ->
+    simple_path s (Cons s Nil)
+
+  lemma path_to_simple_succ:
+    forall s v: vertex, l: list vertex. path_list s (Cons v l) ->
+    exists l': list vertex. simple_path s (Cons v l')
+    
+end
+*)
 theory Distance
 
   use import int.Int
@@ -264,6 +319,14 @@ module BellmanFord
     forall m: distmap, d: int. 0 <= d < cardinal vertices ->
     inv1 m d edges -> inv1 m (d + 1) empty
 
+  lemma inv2_shortest:
+    forall v: vertex. mem v vertices -> forall n: int.
+    (exists d: int. 0 <= d < cardinal vertices /\ path s v n d) /\
+    (forall d': int. 0 <= d' < cardinal vertices ->
+      forall n': int. path s v n' d' -> n <= n') /\
+    (forall n' d': int. path_ends_with s v n' d' edges -> n <= n') ->
+    exists d: int. shortest_path s v n d
+
   let relax (m: ref distmap) (u v: vertex) (pass: int)
             (via: set (vertex, vertex)) =
     { mem (u, v) edges /\ not (mem (u, v) via) /\ inv1 !m pass via }
@@ -276,7 +339,6 @@ module BellmanFord
   let bellman_ford () =
     { }
     let m = ref (initialize_single_source s) in
-    assert { inv1 !m 1 empty };
 
     for i = 1 to cardinal vertices - 1 do
       invariant { inv1 !m i empty }
@@ -289,16 +351,10 @@ module BellmanFord
         variant { cardinal !es }
 
         let (u, v) = Bag.pop es in
-        assert { not (mem (u, v) !es_co) };
         relax m u v i !es_co;
         es_co := add (u, v) !es_co
-      done;
-
-      assert { !es_co == edges };
-      assert { inv1 !m i edges }
+      done
     done;
-
-    assert { inv2 !m empty };
 
     let es = ref edges in
     let es_co = ref empty in
