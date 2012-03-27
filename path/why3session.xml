@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session SYSTEM "why3session.dtd">
+<why3session
+ name="path/why3session.xml">
+ <prover
+  id="0"
+  name="Alt-Ergo"
+  version="0.94"/>
+ <prover
+  id="1"
+  name="Coq"
+  version="8.3pl2"/>
+ <prover
+  id="2"
+  name="Coq"
+  version="8.3pl3"/>
+ <file
+  name="../path.why"
+  verified="false"
+  expanded="true">
+  <theory
+   name="Path"
+   locfile="path/../path.why"
+   loclnum="3" loccnumb="7" loccnume="11"
+   verified="false"
+   expanded="true">
+   <goal
+    name="First_path_elt1"
+    locfile="path/../path.why"
+    loclnum="28" loccnumb="8" loccnume="23"
+    sum="3472b19eb180011d53efa040edc4992d"
+    proved="true"
+    expanded="true"
+    shape="ainfix =V0V1IapathV1V2aConsV0V3F">
+    <proof
+     prover="0"
+     timelimit="5"
+     obsolete="false"
+     archived="false">
+     <result status="valid" time="0.02"/>
+    </proof>
+   </goal>
+   <goal
+    name="First_path_elt2"
+    locfile="path/../path.why"
+    loclnum="32" loccnumb="8" loccnume="23"
+    sum="fff30943a853a803fff91104ff531b88"
+    proved="true"
+    expanded="true"
+    shape="ainfix =V2aConsV0V4EIapathV0V1V2Aainfix =V0V1NF">
+    <proof
+     prover="0"
+     timelimit="5"
+     obsolete="false"
+     archived="false">
+     <result status="valid" time="0.02"/>
+    </proof>
+    <proof
+     prover="1"
+     timelimit="5"
+     edited="path_Path_First_path_elt2_1.v"
+     obsolete="false"
+     archived="false">
+     <result status="valid" time="0.82"/>
+    </proof>
+   </goal>
+   <goal
+    name="MergePath"
+    locfile="path/../path.why"
+    loclnum="36" loccnumb="8" loccnume="17"
+    sum="71cdfd74496776bfc00147710ec61f84"
+    proved="false"
+    expanded="true"
+    shape="apathV1V2ainfix ++V3V4IapathV0V2V4AapathV1V0V3F">
+   </goal>
+   <goal
+    name="SplitPath"
+    locfile="path/../path.why"
+    loclnum="39" loccnumb="8" loccnume="17"
+    sum="5d691a02184a932a735a4db069fecdbd"
+    proved="true"
+    expanded="true"
+    shape="apathV2V4aConsV2V1AapathV3V2V0IapathV3V4ainfix ++V0aConsV2V1F">
+    <proof
+     prover="2"
+     timelimit="5"
+     edited="path_Path_SplitPath_1.v"
+     obsolete="true"
+     archived="false">
+     <result status="valid" time="0.49"/>
+    </proof>
+   </goal>
+   <goal
+    name="NoRepSplit"
+    locfile="path/../path.why"
+    loclnum="43" loccnumb="8" loccnume="18"
+    sum="ab1fd342f6748728cbc5b28c986b451b"
+    proved="false"
+    expanded="true"
+    shape="ainfix =V0ainfix ++V2aConsV1ainfix ++V3aConsV1V4EOano_repetV0F">
+   </goal>
+   <goal
+    name="No_Rep"
+    locfile="path/../path.why"
+    loclnum="48" loccnumb="9" loccnume="15"
+    sum="09a4b59f1b37ad115768ebadca8934db"
+    proved="true"
+    expanded="true"
+    shape="ano_repetV3AapathV0V1V3EIapathV0V1V2F">
+    <proof
+     prover="2"
+     timelimit="5"
+     edited="path_Path_No_Rep_1.v"
+     obsolete="true"
+     archived="false">
+     <result status="valid" time="0.51"/>
+    </proof>
+   </goal>
+  </theory>
+ </file>
+</why3session>

@@ -1,0 +1,53 @@
+
+
+theory Path
+
+  use import list.List
+  use import list.Mem
+  use import list.Append
+
+
+  predicate no_repet (l:list 'a) =
+    match l with
+    | Nil -> true
+    | Cons x r -> not (mem x r) /\ no_repet r
+    end
+
+  type vertex
+
+  predicate edge vertex vertex
+
+  (* path v0 v_n [v0;v1;...;v_{n-1}] is true when there is a path
+     v0 -> v1 -> ... -> v_{n-1} -> v_n *)
+  inductive path vertex vertex (list vertex) =
+    | path_empty: forall v:vertex. path v v Nil
+    | path_cons: forall v v1 v2:vertex, l:list vertex.
+        edge v v1 /\ path v1 v2 l -> path v v2 (Cons v l)
+
+
+  lemma First_path_elt1:
+    forall v v1 v2:vertex, l:list vertex.
+      path v1 v2 (Cons v l) -> v = v1
+
+  lemma First_path_elt2:
+    forall v1 v2:vertex, l l':list vertex.
+      v1 <> v2 /\ path v1 v2 l -> exists l':list vertex. l = Cons v1 l'
+
+  lemma MergePath : forall v v1 v2:vertex, l1 l2:list vertex.
+     path v1 v l1 /\ path v v2 l2 -> path v1 v2 (l1 ++ l2)
+
+  lemma SplitPath : forall l1 l2:list vertex, v v1 v2:vertex.
+     path v1 v2 (l1 ++ Cons v l2) ->
+       path v1 v l1 /\ path v v2 (Cons v l2)
+
+  lemma NoRepSplit : forall l:list vertex.
+     no_repet l \/
+     exists v:vertex, l1 l2 l3:list vertex.
+         l = l1 ++ (Cons v (l2 ++ Cons v l3))
+
+   lemma No_Rep:
+     forall v1 v2: vertex, l:list vertex.
+     path v1 v2 l -> exists l':list vertex. path v1 v2 l' /\ no_repet l'
+
+
+end
