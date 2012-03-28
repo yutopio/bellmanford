@@ -48,6 +48,14 @@ theory Graph
       end
     end
 
+  predicate p vertex (list vertex)
+  axiom induction:
+    forall s: vertex. (path s (Cons s Nil) -> p s (Cons s Nil)) ->
+      (forall v: vertex, l: list vertex. (path s l -> p s l) ->
+      (path s (Cons v l) -> p s (Cons v l))) ->
+    (forall v: vertex. mem v vertices -> p v (Cons v Nil)) ->
+    forall l: list vertex. path s l -> p s l
+
   lemma path_last_elem_equal:
     forall s: vertex, l: list vertex. path s l -> last l = s
 
